@@ -47,6 +47,8 @@ GEM
     cucumber-expressions (6.0.1)
     cucumber-tag_expressions (1.1.1)
     cucumber-wire (0.0.1)
+    defra_ruby_style (0.2.2)
+      rubocop (~> 0.82)
     diff-lcs (1.4.4)
     gherkin (5.1.0)
     launchy (2.5.0)
@@ -109,10 +111,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  defra_ruby_style
   pry
   quke!
   rake
   rubocop
 
 BUNDLED WITH
-   2.1.4
+   2.2.14

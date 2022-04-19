@@ -159,9 +159,7 @@ Given(/^I add the coastal erosion protection outcome as none$/) do
     outcome: true
   )
 end
-
-# rubocop:disable Metrics/LineLength, Metrics/ParameterLists
-
+# rubocop: disable Metrics/ParameterLists
 Given(/^I add the flood protection outcome values for column A a1 "([^"]*)", a2 "([^"]*)", a3 "([^"]*)", a4 "([^"]*)", a5 "([^"]*)", a6 "([^"]*)", a7 "([^"]*)", column B b1 "([^"]*)", b2 "([^"]*)", b3 "([^"]*)", b4 "([^"]*)", b5 "([^"]*)", b6 "([^"]*)", b7 "([^"]*)", column C c1 "([^"]*)", c2 "([^"]*)", c3 "([^"]*)", c4 "([^"]*)", c5 "([^"]*)", c6 "([^"]*)", c7 "([^"]*)"$/) do |a1, a2, a3, a4, a5, a6, a7, b1, b2, b3, b4, b5, b6, b7, c1, c2, c3, c4, c5, c6, c7|
   @app.flood_protection_outcomes_page.submit(
     a1: a1.to_sym,
@@ -187,9 +185,7 @@ Given(/^I add the flood protection outcome values for column A a1 "([^"]*)", a2 
     c7: c7.to_sym
   )
 end
-# rubocop:enable Metrics/LineLength, Metrics/ParameterLists
 
-# rubocop:disable Metrics/LineLength, Metrics/ParameterLists
 Given(/^I add the coastal erosion protection outcome values for column A a1 "([^"]*)", a2 "([^"]*)", a3 "([^"]*)", a4 "([^"]*)", a5 "([^"]*)", a6 "([^"]*)", a7 "([^"]*)", column B b1 "([^"]*)", b2 "([^"]*)", b3 "([^"]*)", b4 "([^"]*)", b5 "([^"]*)", b6 "([^"]*)", b7 "([^"]*)", column C c1 "([^"]*)", c2 "([^"]*)", c3 "([^"]*)", c4 "([^"]*)", c5 "([^"]*)", c6 "([^"]*)", c7 "([^"]*)"$/) do |a1, a2, a3, a4, a5, a6, a7, b1, b2, b3, b4, b5, b6, b7, c1, c2, c3, c4, c5, c6, c7|
   @app.coastal_erosion_protection_outcomes_page.submit(
     a1: a1.to_sym,
@@ -215,8 +211,7 @@ Given(/^I add the coastal erosion protection outcome values for column A a1 "([^
     c7: c7.to_sym
   )
 end
-# rubocop:enable Metrics/LineLength, Metrics/ParameterLists
-
+# rubocop: enable Metrics/ParameterLists
 Given(/^I return to the overview page$/) do
   @app.proposal_under_review_page.return_to_the_proposal_overview_page.click
 end
@@ -263,8 +258,6 @@ Given(/^I enter the projects goal approach "([^"]*)"$/) do |msg|
     approach: msg.to_sym
   )
 end
-
-# rubocop:disable Metrics/BlockLength
 Given(/^I enter environmental outcomes improvements$/) do
   @app.proposal_overview_page.add_environmental_outcomes.click
   @app.environmental_outcomes_page.submit(
@@ -301,7 +294,6 @@ Given(/^I enter environmental outcomes improvements$/) do
     amount: "5000"
   )
 end
-# rubocop:enable Metrics/BlockLength
 
 Given(/^I enter no environmental outcomes improvements$/) do
   @app.proposal_overview_page.add_environmental_outcomes.click

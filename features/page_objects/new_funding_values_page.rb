@@ -140,7 +140,7 @@ class NewFundingValuesPage < SitePrism::Page
   element(:submit_button, "input[name='commit']")
   # rubocop:enable Style/MutableConstant
 
-  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def submit(args = {})
     case args[:new_funding]
     when :public_secure
@@ -174,5 +174,5 @@ class NewFundingValuesPage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop: enable Metrics/ClassLength, Metrics/AbcSize
+  # rubocop: enable Metrics/ClassLength, Metrics/AbcSize, Metrics/MethodLength
 end
