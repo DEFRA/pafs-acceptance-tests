@@ -34,7 +34,7 @@ class FloodProtectionOutcomesPage < SitePrism::Page
   element(:submit_button, "input[name='commit']")
   # rubocop:enable Style/MutableConstant
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
   def submit(args = {})
     if args.key?(:outcome) == true
       select_none.set(args[:select_none]).click
@@ -64,5 +64,5 @@ class FloodProtectionOutcomesPage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
 end

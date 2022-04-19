@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/LineLength
 class CoastalErosionProtectionOutcomesPage < SitePrism::Page
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
@@ -29,13 +28,13 @@ class CoastalErosionProtectionOutcomesPage < SitePrism::Page
   element(:c5, "##{COMMON_SELECTOR}_4_households_protected_from_loss_in_20_percent_most_deprived")
   element(:c6, "##{COMMON_SELECTOR}_5_households_protected_from_loss_in_20_percent_most_deprived")
   element(:c7, "##{COMMON_SELECTOR}_6_households_protected_from_loss_in_20_percent_most_deprived")
-
+  # rubocop:disable Layout/LineLength
   element(:select_none, "#coastal_erosion_protection_outcomes_step_reduced_risk_of_households_for_coastal_erosion", visible: false)
-
+  # rubocop:enable Layout/LineLength
   element(:submit_button, "input[name='commit']")
   # rubocop:enable Style/MutableConstant
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
   def submit(args = {})
     if args.key?(:outcome) == true
       select_none.set(args[:select_none]).click
@@ -65,6 +64,6 @@ class CoastalErosionProtectionOutcomesPage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
 end
-# rubocop:enable Metrics/LineLength
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength

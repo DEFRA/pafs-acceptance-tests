@@ -1,3 +1,4 @@
+# rubocop: disable Metrics/ParameterLists
 Given(/^I enter a funding source for "([^"]*)"$/) do |funding_source|
   slug_fundingsource = {
     "grant_in_aid" => "fcerm_gia",
@@ -18,7 +19,6 @@ Given(/^I enter a funding source for "([^"]*)"$/) do |funding_source|
   )
 end
 
-# rubocop: disable Metrics/LineLength, Metrics/ParameterLists, Metrics/BlockLength
 Given(/^I enter funding values for single contributor "([^"]*)" previous year "([^"]*)", 2015-2016 "([^"]*)", 2016-2017 "([^"]*)", 2017-2018 "([^"]*)", 2018-2019 "([^"]*)", 2019-2020 "([^"]*)", 2020-2021 "([^"]*)", 2021-2022 "([^"]*)"$/) do |funding, previous, yr1516, yr1617, yr1718, yr1819, yr1920, yr2021, yr2022|
   slug_map = {
     "grant_in_aid" => "gia",
@@ -155,7 +155,7 @@ Given(/^I enter new funding values for two contributors "([^"]*)" previous year 
   @app.new_funding_values_page.submit_button.click
   @app.new_funding_values_page.submit_button.click
 end
-# rubocop: enable Metrics/LineLength, Metrics/ParameterLists, Metrics/BlockLength
+# rubocop: enable
 
 Given(/^I answer if the project could start sooner if grant in aid funding was made available earlier questions$/) do
   @app.proposal_overview_page.add_earliest_start.click
@@ -187,8 +187,6 @@ end
 Then(/^I should see the total estimated spend as "([^"]*)"$/) do |totalspend|
   expect(@app.proposal_overview_page).to have_text(totalspend)
 end
-
-# rubocop: disable Metrics/LineLength
 Then(/^I should see the funding source contributor "([^"]*)"$/) do |contributor|
   slug_contributor = {
     "grant_in_aid" => "Grant in aid",
@@ -215,7 +213,6 @@ Given(/^I answer if the new project could start sooner if grant in aid funding w
     year: "2019"
   )
 end
-# rubocop: enable Metrics/LineLength
 
 Given(/^I request new Grant in Aid funding$/) do
   @app.grant_in_aid_funding_page.submit(
@@ -236,8 +233,6 @@ end
 Then(/^I should see the new total estimated spend as "([^"]*)"$/) do |totalspend|
   expect(@app.proposal_overview_page).to have_text(totalspend)
 end
-
-# rubocop: disable Metrics/LineLength
 Then(/^I should see the new funding source contributor "([^"]*)"$/) do |contributor|
   slug_contributor = {
     "grant_in_aid" => "Grant in aid",
@@ -268,9 +263,6 @@ Given(/^I enter pp a sector contributor of "([^"]*)", "([^"]*)"$/) do |sector_so
   @app.send("funding_#{sector_link}_contributors_page").send("#{source}_contributors_names").set(contributor_name)
   @app.send("funding_#{sector_link}_contributors_page").send("submit_button").click
 end
-# rubocop: enable Metrics/LineLength
-
-# rubocop: disable Metrics/LineLength, Metrics/ParameterLists
 Given(/^I enter pp funding values for a single contributor "([^"]*)" previous year "([^"]*)", 2015-2016 "([^"]*)", 2016-2017 "([^"]*)", 2017-2018 "([^"]*)", 2018-2019 "([^"]*)", 2019-2020 "([^"]*)", 2020-2021 "([^"]*)"$/) do |funding, previous, yr1516, yr1617, yr1718, yr1819, yr1920, yr2021|
   slug_map = {
     "grant_in_aid" => "gia",
@@ -294,4 +286,5 @@ Given(/^I enter pp funding values for a single contributor "([^"]*)" previous ye
   @app.funding_values_page.send("#{slug}_2020_2021").set(yr2021)
   @app.funding_values_page.submit_button.click
 end
-# rubocop: enable Metrics/LineLength, Metrics/ParameterLists
+# rubocop: enable
+# rubocop: enable Metrics/ParameterLists
