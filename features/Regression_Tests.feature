@@ -41,7 +41,7 @@ Feature: Run regression tests
    When I am returned to the proposal overview page
    Then I should see the project type is "Add property level protection for properties within the 'very significant' flood band where there is a 5% or greater chance of flooding"
 
-  @QA_RegressionTests @TRA_RegressionTests @QA_RegressionTests @RG_A4 @wip
+  @QA_RegressionTests @TRA_RegressionTests @QA_RegressionTests @RG_A4
   Scenario: Submit a new proposal with a valid shapefile (All Test Environments)
   Given I am an external user
     And I have a valid "rma" username and password
