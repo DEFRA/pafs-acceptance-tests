@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConfidenceHomesByGatewayFourPage < SitePrism::Page
+class ConfidenceHomesByGatewayFourPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

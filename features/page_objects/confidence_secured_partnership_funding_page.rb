@@ -1,4 +1,4 @@
-class ConfidenceSecuredPartnershipFundingPage < SitePrism::Page
+class ConfidenceSecuredPartnershipFundingPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
   # rubocop:disable Layout/LineLength

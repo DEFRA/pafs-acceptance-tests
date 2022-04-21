@@ -1,4 +1,4 @@
-class RemoveEelBarrierPage < SitePrism::Page
+class RemoveEelBarrierPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

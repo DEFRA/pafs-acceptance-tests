@@ -1,5 +1,5 @@
 # rubocop: disable Metrics/ClassLength
-class NewFundingValuesPage < SitePrism::Page
+class NewFundingValuesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

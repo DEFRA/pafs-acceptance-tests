@@ -1,4 +1,4 @@
-class ReadyForServiceDatePage < SitePrism::Page
+class ReadyForServiceDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -1,4 +1,4 @@
-class ProposalOverviewPage < SitePrism::Page
+class ProposalOverviewPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
@@ -28,14 +28,9 @@ class ProposalOverviewPage < SitePrism::Page
 
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
-  element(:complete_proposal_qa, "a[href$='complete']")
-  element(:complete_proposal_training, "a[href$='complete']")
-  element(:complete_proposal_preprod, "a[href$='complete']")
-  element(:complete_proposal, "a[href$='complete']")
+  element(:complete_proposal, "[href$='complete']")
 
-  element(:submit_proposal_qa, "a[href$='submit']")
-  element(:submit_proposal_training, "a[href$='submit']")
-  element(:submit_proposal_preprod, "a[href$='submit']")
+  element(:submit_proposal, "a[href$='submit']", visible: false)
 
   element(:pso_complete_proposal, "a[href$='submit']")
   element(:pso_unlock_proposal, "a[href$='unlock']")

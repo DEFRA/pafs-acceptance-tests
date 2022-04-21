@@ -1,43 +1,17 @@
 Given(/^I am an external user$/) do
-
   @app = App.new
   @app.front_office_home_page.load
   sleep 0.75
 end
 
-Given(/^I change the url page for pso on qa$/) do
-
-  @app = App.new
-  @app.change_url_qa_page.load
-  sleep 0.75
-end
-
-Given(/^I change the url page for pso on training$/) do
-
-  @app = App.new
-  @app.change_url_train_page.load
-  sleep 0.75
-end
-
-Given(/^I change the url page for pso on preprod$/) do
-
-  @app = App.new
-  @app.change_url_preprod_page.load
-  sleep 0.75
-end
-
-Given(/^I select "([^"]*)" for Pafs to store cookies on my device$/) do |option|
-  page_text = "Can we store analytics cookies on your device?"
-  capitalize_option = option.capitalize
-  expect(@app.proposal_overview_page).to have_text(page_text)
-  expect(@app.proposal_overview_page).to have_button(capitalize_option)
-  @app.proposal_overview_page.find_project_button(capitalize_option)
+Given(/^I select "([^"]*)" for Pafs to store cookies on my device$/) do |choice|
+  @app.login_page.cookie_choice(choice: choice.to_sym)
 end
 
 Given(/^I have a valid "([^"]*)" username and password$/) do |user_type|
   @app.login_page.submit(
     email: Quke::Quke.config.custom["user_accounts"][user_type]["username"],
-    password: Quke::Quke.config.custom["user_accounts"][user_type]["password"]
+    password: ENV["PAFS_DEFAULT_PASSWORD"]
   )
 end
 
@@ -51,6 +25,7 @@ end
 
 Given(/^I enter a new project name$/) do
   newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts newname
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
@@ -63,34 +38,13 @@ Given(/^I enter a auto project name$/) do
   )
 end
 
-Given(/^I enter a project name on QA$/) do
-  newname = "QA_Project_Name_#{Time.now.to_i}"
-  @app.project_name_page.submit(
-    project_name: newname.to_sym
-  )
-end
-
-Given(/^I enter a project name on Training$/) do
-  newname = "Training_Project_Name_#{Time.now.to_i}"
-  @app.project_name_page.submit(
-    project_name: newname.to_sym
-  )
-end
-
-Given(/^I enter a project name on PreProd$/) do
-  newname = "PreProd_Project_Name_#{Time.now.to_i}"
-  @app.project_name_page.submit(
-    project_name: newname.to_sym
-  )
-end
-
 Given(/^I enter a project name "([^"]*)"$/) do |project_name|
   @app.project_name_page.submit(
     project_name: project_name.to_sym
   )
 end
 
-Given(/^I selected a project area "([^"]*)"$/) do |area_source|
+Given(/^I select a project area "([^"]*)"$/) do |area_source|
   @app.project_area_selection_page.submit(
     areasource: area_source
   )
@@ -99,9 +53,8 @@ end
 Given(/^I select a financial year to stop spending$/) do
   current_year = Time.now.year
   next_year = current_year + 1
-  financial_year = "Year_#{current_year}_#{next_year}"
   @app.project_year_page.submit(
-    option: financial_year.to_sym
+    option: next_year
   )
 end
 
@@ -127,7 +80,7 @@ Given(/^I enter a business case start date$/) do
   )
 end
 
-Given(/^I enter a award contract date$/) do
+Given(/^I enter an award contract date$/) do
   @app.award_contract_date_page.submit(
     month: "01",
     year: "2021"
@@ -320,8 +273,8 @@ Given(/^I enter no environmental outcomes improvements$/) do
   )
 end
 
-Given(/^I click and continue$/) do
-  @app.click_and_continue.submit_button.click
+Given("I click and continue") do
+  @app.front_office_home_page.submit_button.click
 end
 
 Given(/^I answer YES if the project could start sooner "([^"]*)", "([^"]*)"$/) do |month, year|
@@ -335,7 +288,7 @@ Given(/^I answer YES if the project could start sooner "([^"]*)", "([^"]*)"$/) d
   )
 end
 
-Given(/^I answer NO if the project could start sooner$/) do
+Given("I answer NO if the project could start sooner") do
   @app.proposal_overview_page.add_earliest_start.click
   @app.earliest_start_page.submit(
     earlier_start: false
@@ -374,47 +327,25 @@ Given(/^I click on the return to your proposal overview button$/) do
 end
 
 Given(/^I click on the return to your proposal overview button as a PSO$/) do
-  link_name = "Return to your proposal overview"
+  link_name = "Return to your proposals"
   @app.proposal_overview_page.return_to_proposal_overview(link_name)
 end
 
-# Use Given when solution needs PSO appoval
-Given(/^I complete my proposal on qa$/) do
+Given(/^I complete my proposal$/) do
   @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.complete_proposal_qa.click
+  @app.proposal_overview_page.complete_proposal.click
 end
 
-Given(/^I submit my proposal on qa$/) do
+Given(/^I submit my proposal$/) do
   @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.submit_proposal_qa.click
+  @app.proposal_overview_page.submit_proposal.click
 end
 
-Given(/^I complete my proposal on training$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.complete_proposal_training.click
-end
-
-Given(/^I submit my proposal on training$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.submit_proposal_training.click
-end
-
-Given(/^I revert my proposal to draft on training$/) do
+Given(/^I revert my proposal to draft$/) do
   @project_number = @app.proposal_overview_page.project_number.text
   @app.proposal_overview_page.pso_unlock_proposal.click
 end
 
-Given(/^I submit my proposal on preprod$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.submit_proposal_preprod.click
-end
-
-When(/^I complete my proposal on preprod$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.complete_proposal_preprod.click
-end
-
-# Use When - when the solution does not need PAFs PSO approal
 Given(/^I should see that my proposal is sent for review$/) do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
@@ -424,7 +355,7 @@ end
 Given(/^I should see that my proposal is under review$/) do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
-  expect(@app.proposal_overview_page).to have_text("Proposal under review")
+  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
 end
 
 Given(/^I should see that my proposal status is draft$/) do
@@ -442,33 +373,6 @@ Given(/^its status is draft$/) do
   @status = @app.proposal_overview_page.first_project.text
   expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
 end
-
-# Use When - when the solution does not need PAFs PSO approal
-
-# When(/^I complete my proposal on qa$/) do
-#  @project_number = @app.proposal_overview_page.project_number.text
-#  @app.proposal_overview_page.complete_proposal_qa.click
-# end
-
-# When(/^I submit my proposal on qa$/) do
-#  @project_number = @app.proposal_overview_page.project_number.text
-#  @app.proposal_overview_page.submit_proposal_qa.click
-# end
-
-# When(/^I complete my proposal on training$/) do
-#  @project_number = @app.proposal_overview_page.project_number.text
-#  @app.proposal_overview_page.complete_proposal_training.click
-# end
-
-# When(/^I submit my proposal on training$/) do
-#  @project_number = @app.proposal_overview_page.project_number.text
-#  @app.proposal_overview_page.submit_proposal_training.click
-# end
-
-# When(/^I submit my proposal on preprod$/) do
-#  @project_number = @app.proposal_overview_page.project_number.text
-#  @app.proposal_overview_page.submit_proposal_preprod.click
-# end
 
 When(/^I submit the proposal to PoL as a PSO$/) do
   @app.proposal_overview_page.pso_complete_proposal.click

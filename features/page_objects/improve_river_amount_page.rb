@@ -1,4 +1,4 @@
-class ImproveRiverAmountPage < SitePrism::Page
+class ImproveRiverAmountPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

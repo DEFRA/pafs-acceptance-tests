@@ -1,4 +1,4 @@
-class ImproveHabitatAmountPage < SitePrism::Page
+class ImproveHabitatAmountPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -1,4 +1,4 @@
-class CoastalErosionProtectionOutcomesPage < SitePrism::Page
+class CoastalErosionProtectionOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

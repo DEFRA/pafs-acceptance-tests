@@ -1,4 +1,4 @@
-class CookiesPage < SitePrism::Page
+class CookiesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

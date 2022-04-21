@@ -1,4 +1,4 @@
-class RemoveFishBarrierPage < SitePrism::Page
+class RemoveFishBarrierPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
