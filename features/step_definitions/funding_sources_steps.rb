@@ -108,10 +108,6 @@ Given(/^I request Local Levy funding$/) do
   )
 end
 
-When(/^I check the proposal overview page$/) do
-  puts "Do nothing"
-end
-
 Then(/^I should see the total estimated spend as "([^"]*)"$/) do |totalspend|
   expect(@app.proposal_overview_page).to have_text(totalspend)
 end
@@ -152,10 +148,6 @@ Given(/^I request new Local Levy funding$/) do
   @app.local_levy_funding_page.submit(
     local_levy_funding: true
   )
-end
-
-When(/^I check the new proposal overview page$/) do
-  puts "Do nothing"
 end
 
 Then(/^I should see the new total estimated spend as "([^"]*)"$/) do |totalspend|
