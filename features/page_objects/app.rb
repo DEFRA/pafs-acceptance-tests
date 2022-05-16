@@ -224,10 +224,6 @@ class App
     @last_page = FundingCalculatorPage.new
   end
 
-  def new_funding_calculator_page
-    @last_page = NewFundingCalculatorPage.new
-  end
-
   def funding_calculator_summary_page
     @last_page = FundingCalculatorSummaryPage.new
   end
