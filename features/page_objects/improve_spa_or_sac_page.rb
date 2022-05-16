@@ -1,4 +1,4 @@
-class ImproveSpaOrSacPage < SitePrism::Page
+class ImproveSpaOrSacPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

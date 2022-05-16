@@ -1,4 +1,6 @@
-class ApproachPage < SitePrism::Page
+require_relative "base_page"
+
+class ApproachPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

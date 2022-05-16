@@ -1,4 +1,4 @@
-class FundingSourcesPage < SitePrism::Page
+class FundingSourcesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

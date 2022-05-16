@@ -1,0 +1,21 @@
+--- 
+app_host: "https://paf-dev.aws.defra.cloud"
+custom: 
+  urls: 
+    front_office: "https://paf-dev.aws.defra.cloud/users/sign_in"
+  user_accounts: 
+    dual: 
+      username: delaware.autouser+3@gmail.com
+    pso: 
+      username: delaware.autouser+2@gmail.com
+    rma: 
+      username: delaware.autouser+1@gmail.com
+    test: 
+      username: delaware.autouser+4@gmail.com
+display_failures: false
+driver: chrome
+headless: true
+max_wait_time: 10
+pause: 0
+print_progress: false
+stop_on_error: false

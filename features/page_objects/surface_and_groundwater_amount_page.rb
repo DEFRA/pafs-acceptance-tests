@@ -1,4 +1,4 @@
-class SurfaceAndGroundwaterAmountPage < SitePrism::Page
+class SurfaceAndGroundwaterAmountPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

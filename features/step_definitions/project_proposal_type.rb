@@ -5,7 +5,7 @@ Given(/^I select a project type "([^"]*)"$/) do |action|
 end
 
 When(/^I am returned to the proposal overview page$/) do
-  puts "Proposal Overview Page"
+  expect(@app.proposal_overview_page.heading).to have_text "Proposal overview"
 end
 
 When(/^I return to the proposal overview page$/) do

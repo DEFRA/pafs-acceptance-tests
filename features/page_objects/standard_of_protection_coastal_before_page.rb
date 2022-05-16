@@ -1,4 +1,4 @@
-class StandardOfProtectionCoastalBeforePage < SitePrism::Page
+class StandardOfProtectionCoastalBeforePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -1,4 +1,4 @@
-class UrgencyPage < SitePrism::Page
+class UrgencyPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

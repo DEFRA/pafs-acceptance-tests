@@ -1,4 +1,4 @@
-class ImproveHbiPage < SitePrism::Page
+class ImproveHbiPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -4,7 +4,7 @@
 # rubocop:disable Metrics/ClassLength
 class App
   # Using an attr_reader automatically gives us a my_app.last_page method
-  attr_reader :last_page
+  attr_reader :last_page, :base_page
 
   # FRONT OFFICE SPECIFIC PAGES
   # /
@@ -244,8 +244,8 @@ class App
     @last_page = ClickAndContinue.new
   end
 
-  def contributor_add
-    @last_page = ContributorAdd.new
+  def contributor_add_page
+    @last_page = ContributorAddPage.new
   end
 
   def confidence_secured_partnership_funding_page

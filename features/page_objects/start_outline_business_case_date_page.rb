@@ -1,4 +1,4 @@
-class StartOutlineBusinessCaseDatePage < SitePrism::Page
+class StartOutlineBusinessCaseDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

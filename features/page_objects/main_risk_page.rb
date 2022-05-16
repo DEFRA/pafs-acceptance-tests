@@ -1,4 +1,4 @@
-class MainRiskPage < SitePrism::Page
+class MainRiskPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -1,4 +1,4 @@
-class NewFundingPublicSectorContributorsPage < SitePrism::Page
+class NewFundingPublicSectorContributorsPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

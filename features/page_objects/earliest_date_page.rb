@@ -1,4 +1,4 @@
-class EarliestDatePage < SitePrism::Page
+class EarliestDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

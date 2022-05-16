@@ -1,4 +1,4 @@
-class ImproveSssiPage < SitePrism::Page
+class ImproveSssiPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

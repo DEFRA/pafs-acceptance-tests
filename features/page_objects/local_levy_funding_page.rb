@@ -1,4 +1,4 @@
-class LocalLevyFundingPage < SitePrism::Page
+class LocalLevyFundingPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

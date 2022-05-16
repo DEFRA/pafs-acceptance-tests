@@ -1,4 +1,4 @@
-class LoginPage < SitePrism::Page
+class LoginPage < BasePage
 
   element(:alert_invalid, "div.alert-danger[role='alert']", text: "Invalid email or password")
 

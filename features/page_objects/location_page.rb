@@ -1,4 +1,4 @@
-class LocationPage < SitePrism::Page
+class LocationPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

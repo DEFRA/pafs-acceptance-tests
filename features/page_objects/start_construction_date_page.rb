@@ -1,4 +1,4 @@
-class StartConstructionDatePage < SitePrism::Page
+class StartConstructionDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

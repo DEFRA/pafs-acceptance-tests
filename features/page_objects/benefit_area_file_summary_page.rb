@@ -1,4 +1,4 @@
-class BenefitAreaFileSummaryPage < SitePrism::Page
+class BenefitAreaFileSummaryPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

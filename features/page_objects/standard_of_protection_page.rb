@@ -1,4 +1,4 @@
-class StandardOfProtectionPage < SitePrism::Page
+class StandardOfProtectionPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
