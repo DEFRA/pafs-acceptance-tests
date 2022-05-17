@@ -2,7 +2,7 @@ Feature: Partnership funding calculator uploaded
 
 The partnership funding calculator generates a score for the project based on the benefits and outcomes that it aims to deliver and any contributions that it will raise. 
 This score is used to prioritise and allocate funding in each year.
-@wip
+
 Scenario: Partnership funding calculator version 2 can be uploaded 
       Given I sign in as a "pso" user
       And I create a new proposal
