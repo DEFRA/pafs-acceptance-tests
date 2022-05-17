@@ -5,20 +5,16 @@ Feature: Create a new project application for Smoke Tests
   So that my local area can have improved protection from flooding
 
   Background:
-    Given I am an external user
-      And I select "accept" for Pafs to store cookies on my device
-      And I have a valid "rma" username and password
-      And I create a new proposal
-      And I enter a new project name
+      Given I sign in as a "rma" user
 
   Scenario: Created proposal and check it is in a draft status
-    Given I select a project type "change_or_new_asset"
+    Given I create a new "change_or_new_asset" project
       And I select a financial year to stop spending
      When I return to the proposal overview page
      Then its status is draft
 
     Scenario: Submit a new proposal with one funding source and PFC-Vs8 Calc
-    Given I select a project type "change_or_new_asset"
+    Given I create a new "change_or_new_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -51,7 +47,7 @@ Feature: Create a new project application for Smoke Tests
      Then I should see that my proposal is sent for review
 
    Scenario: Submit a new proposal with one funding source and PFC-Vs2020 Calc 
-    Given I select a project type "change_or_new_asset"
+    Given I create a new "change_or_new_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"

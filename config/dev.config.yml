@@ -14,7 +14,7 @@ custom:
       username: delaware.autouser+4@gmail.com
 display_failures: false
 driver: chrome
-headless: false
+headless: true
 max_wait_time: 10
 pause: 0
 print_progress: false

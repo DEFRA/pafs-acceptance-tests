@@ -1,17 +1,22 @@
-Given(/^I am an external user$/) do
+Given(/^I sign in as a "([^"]*)" user$/) do |user_type|
   @app = App.new
   @app.front_office_home_page.load
-  sleep 0.75
-end
-
-Given(/^I select "([^"]*)" for Pafs to store cookies on my device$/) do |choice|
-  @app.login_page.cookie_choice(choice: choice.to_sym)
-end
-
-Given(/^I have a valid "([^"]*)" username and password$/) do |user_type|
+  choose_cookie_option
   @app.login_page.submit(
     email: Quke::Quke.config.custom["user_accounts"][user_type]["username"],
     password: ENV["PAFS_DEFAULT_PASSWORD"]
+  )
+end
+
+Given(/^I create a new "([^"]*)" project$/) do |action|
+  @app.projects_page.create_proposal.click
+  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts newname
+  @app.project_name_page.submit(
+    project_name: newname.to_sym
+  )
+  @app.project_type_page.submit(
+    option: action.to_sym
   )
 end
 
@@ -26,13 +31,6 @@ end
 Given(/^I enter a new project name$/) do
   newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
   puts newname
-  @app.project_name_page.submit(
-    project_name: newname.to_sym
-  )
-end
-
-Given(/^I enter a auto project name$/) do
-  newname = "Project_Name_#{Time.now.to_i}"
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
