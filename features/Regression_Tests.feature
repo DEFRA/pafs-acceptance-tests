@@ -195,7 +195,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "PFCalcVs2020.xlsx"
+      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "medium_low"
@@ -204,7 +204,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
@@ -267,7 +267,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
@@ -330,7 +330,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
   Scenario: Submit a new PSO project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
@@ -381,7 +381,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
-      And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
+      And I enter the projects goal approach "A new project with multi funding sources and PFC Vs8 Calc"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
@@ -398,7 +398,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
     When I submit my proposal
-    Then I should see the proposal sent for review
+    Then I should see that my proposal is sent for review
 
   Scenario: Submit a new PSO project with multi funding sources and PFC Vs2020 Calc
     Given I sign in as a "pso" user
@@ -455,7 +455,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc as PSO"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "PFCalcVs2020.xlsx"
+      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
@@ -464,4 +464,4 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review

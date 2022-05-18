@@ -70,7 +70,7 @@ Feature: Create a new project application for Smoke Tests
       And I enter the projects goal approach "A new smoke test training proposals with one funding source and PFC-Vs2020 Calc"
       And I enter environmental outcomes improvements
       And I enter the project urgency as "not_urgent"
-      And I upload a project funding calculator with file option "Yes", "PFCalcVs2020.xlsx"
+      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "medium_low"

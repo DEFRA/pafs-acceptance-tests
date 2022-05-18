@@ -299,6 +299,7 @@ end
 
 When("I confirm the Outline Business Case be signed off after the 26th June 2020") do
   @app.funding_calculator_page.signed_off_after.click
+  expect(@app.funding_calculator_page).to have_funding_calculator_2020_link
 end
 
 Given(/^I upload a project funding calculator file "([^"]*)"$/) do |filename|
@@ -330,84 +331,18 @@ Given(/^I search for an existing proposal$/) do
   @app.proposal_overview_page.find_project_link(@project_number)
 end
 
-Given(/^I click on the return to your proposal overview button$/) do
-  link_name = "Return to proposal overview"
-  @app.proposal_overview_page.return_to_proposal_overview(link_name)
-end
-
-Given(/^I click on the return to your proposal overview button as a PSO$/) do
-  link_name = "Return to your proposals"
-  @app.proposal_overview_page.return_to_proposal_overview(link_name)
-end
-
-Given(/^I complete my proposal$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.complete_proposal.click
-end
-
 Given(/^I submit my proposal$/) do
   @project_number = @app.proposal_overview_page.project_number.text
   @app.proposal_overview_page.submit_proposal.click
 end
 
-Given(/^I revert my proposal to draft$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.pso_unlock_proposal.click
-end
-
-Given(/^I should see that my proposal is sent for review$/) do
+Then("I should see that my proposal is sent for review") do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Given(/^I should see that my proposal is under review$/) do
-  expect(@app.confirm_page).to have_project_number
-  @project_number = @app.confirm_page.project_number.text
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Given(/^I should see that my proposal status is draft$/) do
-  expect(@app.proposal_overview_page).to have_text("Draft")
-  # @status = @app.proposal_overview_page.first_project.text
-  # expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-end
-
-Given(/^I should see that my proposal is submitted$/) do
-  expect(@app.confirm_page).to have_project_number
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
+  expect(@app.confirm_page).to have_text("Proposal sent for review")
 end
 
 Given(/^its status is draft$/) do
   @status = @app.proposal_overview_page.first_project.text
   expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-end
-
-When(/^I submit the proposal to PoL as a PSO$/) do
-  @app.proposal_overview_page.pso_complete_proposal.click
-end
-
-# Use Given when solution needs PSO appoval other
-# Then(/^I should see that my proposal is sent for review$/) do
-#  expect(@app.confirm_page).to have_project_number
-#  @project_number = @app.confirm_page.project_number.text
-#  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-# end
-
-# Then(/^I should see that my proposal is submitted$/) do
-#  expect(@app.confirm_page).to have_project_number
-#  expect(@app.proposal_overview_page).to have_text("Submitted")
-# end
-
-# Then(/^its status is draft$/) do
-#  @status = @app.proposal_overview_page.first_project.text
-#  expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-# end
-
-Then(/^I should see the proposal sent for review$/) do
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Then(/^I should see that my proposal is under review as a PSO$/) do
-  expect(@app.proposal_overview_page).to have_text("Proposal under review")
 end
