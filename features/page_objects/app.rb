@@ -224,10 +224,6 @@ class App
     @last_page = FundingCalculatorPage.new
   end
 
-  def new_funding_calculator_page
-    @last_page = NewFundingCalculatorPage.new
-  end
-
   def funding_calculator_summary_page
     @last_page = FundingCalculatorSummaryPage.new
   end
@@ -266,22 +262,6 @@ class App
 
   def carbon_cost_operation_page
     @last_page = CarbonCostOperationPage.new
-  end
-
-  def change_url_qa_page
-    @last_page = PSOQHomePage.new
-  end
-
-  def change_url_train_page
-    @last_page = PSOTrainHomePage.new
-  end
-
-  def change_url_preprod_page
-    @last_page = PSOPreProdHomePage.new
-  end
-
-  def cookies_page
-    @last_page = CookiesPage.new
   end
 
 end

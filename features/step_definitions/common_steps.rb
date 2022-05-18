@@ -1,17 +1,22 @@
-Given(/^I am an external user$/) do
+Given(/^I sign in as a "([^"]*)" user$/) do |user_type|
   @app = App.new
   @app.front_office_home_page.load
-  sleep 0.75
-end
-
-Given(/^I select "([^"]*)" for Pafs to store cookies on my device$/) do |choice|
-  @app.login_page.cookie_choice(choice: choice.to_sym)
-end
-
-Given(/^I have a valid "([^"]*)" username and password$/) do |user_type|
+  choose_cookie_option
   @app.login_page.submit(
     email: Quke::Quke.config.custom["user_accounts"][user_type]["username"],
     password: ENV["PAFS_DEFAULT_PASSWORD"]
+  )
+end
+
+Given(/^I create a new "([^"]*)" project$/) do |action|
+  @app.projects_page.create_proposal.click
+  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts newname
+  @app.project_name_page.submit(
+    project_name: newname.to_sym
+  )
+  @app.project_type_page.submit(
+    option: action.to_sym
   )
 end
 
@@ -26,13 +31,6 @@ end
 Given(/^I enter a new project name$/) do
   newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
   puts newname
-  @app.project_name_page.submit(
-    project_name: newname.to_sym
-  )
-end
-
-Given(/^I enter a auto project name$/) do
-  newname = "Project_Name_#{Time.now.to_i}"
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
@@ -295,21 +293,33 @@ Given("I answer NO if the project could start sooner") do
   )
 end
 
+When("I select the funding calculator task") do
+  @app.proposal_overview_page.add_funding_calculator.click
+end
+
+When("I confirm the Outline Business Case be signed off after the 26th June 2020") do
+  @app.funding_calculator_page.signed_off_after.click
+  expect(@app.funding_calculator_page).to have_funding_calculator_2020_link
+end
+
 Given(/^I upload a project funding calculator file "([^"]*)"$/) do |filename|
+  @filename = filename
+  @app.funding_calculator_page.submit(
+    file: @filename
+  )
+end
+
+Given(/^I upload a project funding calculator with file option "([^"]*)", "([^"]*)"$/) do |radiotype, filename|
   @app.proposal_overview_page.add_funding_calculator.click
   @app.funding_calculator_page.submit(
+    option: radiotype.to_sym,
     file: filename
   )
   @app.funding_calculator_summary_page.submit
 end
 
-Given(/^I upload a project funding calculator with file option "([^"]*)", "([^"]*)"$/) do |radiotype, filename|
-  @app.proposal_overview_page.add_funding_calculator.click
-  @app.new_funding_calculator_page.submit(
-    option: radiotype.to_sym,
-    file: filename
-  )
-  @app.funding_calculator_summary_page.submit
+When("I can see the file has been uploaded in the summary page") do
+  expect(@app.funding_calculator_summary_page.uploaded_file.text).to eq(@filename)
 end
 
 Given(/^I sign out of the proposal$/) do
@@ -321,84 +331,18 @@ Given(/^I search for an existing proposal$/) do
   @app.proposal_overview_page.find_project_link(@project_number)
 end
 
-Given(/^I click on the return to your proposal overview button$/) do
-  link_name = "Return to proposal overview"
-  @app.proposal_overview_page.return_to_proposal_overview(link_name)
-end
-
-Given(/^I click on the return to your proposal overview button as a PSO$/) do
-  link_name = "Return to your proposals"
-  @app.proposal_overview_page.return_to_proposal_overview(link_name)
-end
-
-Given(/^I complete my proposal$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.complete_proposal.click
-end
-
 Given(/^I submit my proposal$/) do
   @project_number = @app.proposal_overview_page.project_number.text
   @app.proposal_overview_page.submit_proposal.click
 end
 
-Given(/^I revert my proposal to draft$/) do
-  @project_number = @app.proposal_overview_page.project_number.text
-  @app.proposal_overview_page.pso_unlock_proposal.click
-end
-
-Given(/^I should see that my proposal is sent for review$/) do
+Then("I should see that my proposal is sent for review") do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Given(/^I should see that my proposal is under review$/) do
-  expect(@app.confirm_page).to have_project_number
-  @project_number = @app.confirm_page.project_number.text
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Given(/^I should see that my proposal status is draft$/) do
-  expect(@app.proposal_overview_page).to have_text("Draft")
-  # @status = @app.proposal_overview_page.first_project.text
-  # expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-end
-
-Given(/^I should see that my proposal is submitted$/) do
-  expect(@app.confirm_page).to have_project_number
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
+  expect(@app.confirm_page).to have_text("Proposal sent for review")
 end
 
 Given(/^its status is draft$/) do
   @status = @app.proposal_overview_page.first_project.text
   expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-end
-
-When(/^I submit the proposal to PoL as a PSO$/) do
-  @app.proposal_overview_page.pso_complete_proposal.click
-end
-
-# Use Given when solution needs PSO appoval other
-# Then(/^I should see that my proposal is sent for review$/) do
-#  expect(@app.confirm_page).to have_project_number
-#  @project_number = @app.confirm_page.project_number.text
-#  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-# end
-
-# Then(/^I should see that my proposal is submitted$/) do
-#  expect(@app.confirm_page).to have_project_number
-#  expect(@app.proposal_overview_page).to have_text("Submitted")
-# end
-
-# Then(/^its status is draft$/) do
-#  @status = @app.proposal_overview_page.first_project.text
-#  expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
-# end
-
-Then(/^I should see the proposal sent for review$/) do
-  expect(@app.proposal_overview_page).to have_text("Proposal sent for review")
-end
-
-Then(/^I should see that my proposal is under review as a PSO$/) do
-  expect(@app.proposal_overview_page).to have_text("Proposal under review")
 end

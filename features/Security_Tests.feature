@@ -4,11 +4,8 @@ Feature: Create a new project application for Smoke Tests
   I want to submit a proposal for flood and coastal erosion risk management project funding
   So that my local area can have improved protection from flooding
 
-  @QA_SecurityTests @Train_SecurityTests @PreProd_SecurityTests @ST1
   Scenario Outline: Submit a new proposal with an pseudo-virus shapefile
-  Given I am an external user
-    And I select "accept" for Pafs to store cookies on my device
-    And I have a valid "rma" username and password
+    Given I sign in as a "rma" user
     And I create a new proposal
     And I enter a new project name
     And I select a project type "change_or_new_asset"

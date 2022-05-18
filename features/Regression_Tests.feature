@@ -2,57 +2,37 @@
 Feature: Run regression tests
    
   Scenario: Submit a new defence proposal
-  Given I am an external user
-    And I select "reject" for Pafs to store cookies on my device
-    And I have a valid "rma" username and password
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset" 
+  Given I sign in as a "rma" user
+    And I create a new "change_or_new_asset" project 
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Create a new flood or coastal erosion risk management asset, or improve the standard of service of an existing one"
 
   Scenario: Submit a new restore asset proposal
-  Given I am an external user
-    And I select "accept" for Pafs to store cookies on my device  
-    And I have a valid "rma" username and password
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "restore_asset"
+  Given I sign in as a "rma" user
+    And I create a new "restore_asset" project
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Restore the standard of service of a flood or coastal erosion risk management asset by refurbishment or replacement"
 
   Scenario: Submit a new property level protection proposal and check very significant
-  Given I am an external user
-    And I select "accept" for Pafs to store cookies on my device  
-    And I have a valid "rma" username and password
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "property_level_protection"
+    Given I sign in as a "rma" user
+    And I create a new "property_level_protection" project
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Add property level protection for properties within the 'very significant' flood band where there is a 5% or greater chance of flooding"
 
   Scenario: Submit a new proposal with a valid shapefile
-  Given I am an external user
-    And I have a valid "rma" username and password
-    And I select "accept" for Pafs to store cookies on my device
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset"
+    Given I sign in as a "rma" user
+    And I create a new "change_or_new_asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
    When I upload the benefit area file "Valid_ShapeFile.zip"
    Then I should see the message "The uploaded shapefile" on the benefit area page
 
   Scenario Outline: Submit a new proposal with an invalid shapefile
-  Given I am an external user
-    And I have a valid "rma" username and password
-    And I select "accept" for Pafs to store cookies on my device
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset"
+    Given I sign in as a "rma" user
+    And I create a new "change_or_new_asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     When I upload the benefit area file "<ShapeFile>"
@@ -64,24 +44,16 @@ Feature: Run regression tests
     |Invalid_ShapeFile.zip|The selected file must be a zip file, containing the following mandatory files: dbf. shx. shp. prj.|
 
   Scenario: Submit a new proposal with no shapefile
-  Given I am an external user
-    And I have a valid "rma" username and password
-    And I select "accept" for Pafs to store cookies on my device
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset"
+    Given I sign in as a "rma" user
+    And I create a new "change_or_new_asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     And I click and continue
    Then I should see the message "Upload a shapefile that outlines the area the project is likely to benefit" on the benefit file page
 
   Scenario Outline: Submit a new proposal with invalid shapefile
-  Given I am an external user
-    And I have a valid "rma" username and password
-    And I select "accept" for Pafs to store cookies on my device
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset"
+    Given I sign in as a "rma" user
+    And I create a new "change_or_new_asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
    When I upload the benefit area file "<ShapeFile>"
@@ -92,12 +64,9 @@ Feature: Run regression tests
     |Invalid_ShapeFile.zip|The selected file must be a zip file, containing the following mandatory files: dbf. shx. shp. prj.|
      
 Scenario Outline: Submit a new proposals with a single funding source 
-  Given I am an external user
-    And I select "accept" for Pafs to store cookies on my device   
-    And I have a valid "rma" username and password
-    And I create a new proposal
-    And I enter a new project name
-    And I select a project type "change_or_new_asset"
+  Given I sign in as a "rma" user
+     
+    And I create a new "change_or_new_asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -112,12 +81,8 @@ Scenario Outline: Submit a new proposals with a single funding source
     And I should see the funding source contributor "grant_in_aid"
 
   Scenario: Submit a new RMA project with triple funding sources and PFC Vs8 Calc
-    Given I am an external user
-      And I have a valid "rma" username and password
-      And I select "accept" for Pafs to store cookies on my device
-      And I create a new proposal
-      And I enter a new project name
-      And I select a project type "restore_asset"
+      Given I sign in as a "rma" user
+      And I create a new "restore_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -179,12 +144,8 @@ Scenario Outline: Submit a new proposals with a single funding source
      Then I should see that my proposal is sent for review
   
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs2020 Calc
-    Given I am an external user
-      And I have a valid "rma" username and password
-      And I select "accept" for Pafs to store cookies on my device
-      And I create a new proposal
-      And I enter a new project name
-      And I select a project type "restore_asset"
+    Given I sign in as a "rma" user
+      And I create a new "restore_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -234,7 +195,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "PFCalcVs2020.xlsx"
+      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "medium_low"
@@ -243,16 +204,11 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
-   @TRA_RegressionTests @TRA_E2E @TRA_R2
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
-    Given I am an external user
-      And I have a valid "rma" username and password
-      And I select "accept" for Pafs to store cookies on my device
-      And I create a new proposal
-      And I enter a new project name
-      And I select a project type "restore_asset"
+    Given I sign in as a "rma" user
+      And I create a new "restore_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -311,15 +267,11 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
-    Given I am an external user
-      And I have a valid "rma" username and password
-      And I select "accept" for Pafs to store cookies on my device
-      And I create a new proposal
-      And I enter a new project name
-      And I select a project type "change_or_new_asset"
+    Given I sign in as a "rma" user
+      And I create a new "change_or_new_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -378,15 +330,11 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
-     Then I should see the proposal sent for review
+     Then I should see that my proposal is sent for review
 
   Scenario: Submit a new PSO project with multi funding sources and PFC Vs8 Calc
-    Given I am an external user
-      And I have a valid "rma" username and password
-      And I select "accept" for Pafs to store cookies on my device
-      And I create a new proposal
-      And I enter a new project name
-      And I select a project type "restore_asset"
+    Given I sign in as a "rma" user
+      And I create a new "restore_asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -433,7 +381,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
-      And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
+      And I enter the projects goal approach "A new project with multi funding sources and PFC Vs8 Calc"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
@@ -450,12 +398,10 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
     When I submit my proposal
-    Then I should see the proposal sent for review
+    Then I should see that my proposal is sent for review
 
   Scenario: Submit a new PSO project with multi funding sources and PFC Vs2020 Calc
-    Given I am an external user
-      And I have a valid "pso" username and password
-      And I select "accept" for Pafs to store cookies on my device
+    Given I sign in as a "pso" user
       And I create a new proposal
       And I enter a new project name
       And I select a project area "Bristol City Council"
@@ -509,7 +455,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc as PSO"
       And I enter environmental outcomes improvements
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "PFCalcVs2020.xlsx"
+      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
@@ -517,5 +463,5 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I select the carbon page
       And I add how much capital carbon will this project produce in tonnes "1"
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
-    When I submit my proposal
-    Then I should see the proposal sent for review
+     When I submit my proposal
+     Then I should see that my proposal is sent for review
