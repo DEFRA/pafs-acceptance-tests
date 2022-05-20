@@ -293,8 +293,13 @@ Given("I answer NO if the project could start sooner") do
   )
 end
 
-When("I select the funding calculator task") do
-  @app.proposal_overview_page.add_funding_calculator.click
+When(/^I select the (.*) task$/) do |task|
+  case task
+  when "funding calculator"
+    @app.proposal_overview_page.add_funding_calculator.click
+  when "natural flood measures"
+    # @app.proposal_overview_page.add_natural_flood_measures.click
+  end
 end
 
 When("I confirm the Outline Business Case be signed off after the 26th June 2020") do
