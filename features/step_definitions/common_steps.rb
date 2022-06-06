@@ -16,9 +16,7 @@ Given(/^I create a new "([^"]*)" project$/) do |action|
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
-  if @user_type == "pso"
-    @app.project_area_selection_page.select_first_area
-  end
+  @app.project_area_selection_page.select_first_area if @user_type == "pso"
   @app.project_type_page.submit(
     option: action.to_sym
   )
