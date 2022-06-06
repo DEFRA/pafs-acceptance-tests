@@ -14,3 +14,13 @@ Scenario: Completing all sections of Natural flood measures task completes task
     And I enter my total cost of natural flood measures
     Then I can see the the natural flood risk measures in the proposal overview
     And I can see the total cost of my associated natural flood risk measures in the proposal overview
+
+Scenario: Selecting no Natural flood measures completes Natural flood measures task
+  Given I sign in as a "pso" user
+    And I create a new "benefits_households_no" project
+    And I select a financial year to stop spending
+   When I select the natural flood measures task
+    But I choose my project has no natural flood risk measures
+   Then I can see the project does not include any flood risk measures in the proposal overview
+
+   

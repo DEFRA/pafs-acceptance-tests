@@ -2,13 +2,13 @@
 
 class NaturalFloodRiskMeasuresPage < BasePage
 
-  elements(:measures, "input[name='exemptions_form[exemption_ids][]']", visible: false)
+  elements(:measures, "input[type='checkbox']", visible: false)
 
   def submit(args = {})
     if args.key?(:measures)
-      args[:measures].each do |ex|
-        search_val = "exemptions_form_checkbox-#{ex}"
-        measures.find { |chk| chk["id"] == search_val }.click
+      args[:measures].each do |name|
+        search_val = "natural_flood_risk_measures_step[#{name}]"
+        measures.find { |chk| chk["name"] == search_val }.click
       end
     end
 

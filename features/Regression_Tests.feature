@@ -131,6 +131,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs8 Calc"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
@@ -194,6 +195,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
@@ -257,6 +259,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
@@ -320,6 +323,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
@@ -383,6 +387,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs8 Calc"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
@@ -454,6 +459,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new project with multi funding sources and PFC Vs2020 Calc as PSO"
       And I enter environmental outcomes improvements
+      And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page

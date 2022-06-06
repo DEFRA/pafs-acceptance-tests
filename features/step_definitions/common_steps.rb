@@ -2,6 +2,7 @@ Given(/^I sign in as a "([^"]*)" user$/) do |user_type|
   @app = App.new
   @app.front_office_home_page.load
   choose_cookie_option
+  @user_type = user_type
   @app.login_page.submit(
     email: Quke::Quke.config.custom["user_accounts"][user_type]["username"],
     password: ENV["PAFS_DEFAULT_PASSWORD"]
@@ -15,6 +16,9 @@ Given(/^I create a new "([^"]*)" project$/) do |action|
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
+  if @user_type == "pso"
+    @app.project_area_selection_page.select_first_area
+  end
   @app.project_type_page.submit(
     option: action.to_sym
   )
@@ -298,7 +302,7 @@ When(/^I select the (.*) task$/) do |task|
   when "funding calculator"
     @app.proposal_overview_page.add_funding_calculator.click
   when "natural flood measures"
-    # @app.proposal_overview_page.add_natural_flood_measures.click
+    @app.proposal_overview_page.add_natural_flood_measures.click
   end
 end
 
