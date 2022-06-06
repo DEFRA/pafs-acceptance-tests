@@ -12,10 +12,10 @@ custom:
       username: delaware.autouser+1@gmail.com
     test: 
       username: delaware.autouser+4@gmail.com
-display_failures: false
+display_failures: true
 driver: chrome
 headless: true
 max_wait_time: 10
 pause: 0
 print_progress: false
-stop_on_error: false
+stop_on_error: true

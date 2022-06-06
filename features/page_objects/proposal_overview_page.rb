@@ -18,13 +18,15 @@ class ProposalOverviewPage < BasePage
   element(:add_risks, "#project-risks-content a")
   element(:add_standard_of_protection, "a[href$='standard_of_protection']")
   element(:add_standard_of_coastal_protection, "a[href$='standard_of_protection_coastal']")
-
+  element(:add_natural_flood_measures, "a[href$='natural_flood_risk_measures_included']")
   element(:add_goals, "#project-approach-content a")
   element(:add_environmental_outcomes, "#project-environmental_outcomes-content a")
   element(:add_project_urgency, "#project-urgency-content a")
   element(:add_funding_calculator, "#project-funding_calculator-content a")
   element(:add_confidence, "#project-confidence-content a")
   element(:add_carbon, "#project-carbon-content a")
+
+  element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
 
   element(:revert_to_draft, "#[href$='Revert to draft']")
 

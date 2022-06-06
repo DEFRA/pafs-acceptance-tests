@@ -264,5 +264,17 @@ class App
     @last_page = CarbonCostOperationPage.new
   end
 
+  def natural_flood_risk_measures_page
+    @last_page = NaturalFloodRiskMeasuresPage.new
+  end
+
+  def natural_flood_risk_measures_question_page
+    @last_page = NaturalFloodRiskMeasuresQuestionPage.new
+  end
+
+  def natural_flood_risk_measures_cost_page
+    @last_page = NaturalFloodRiskMeasuresCostPage.new
+  end
+
 end
 # rubocop:enable Metrics/ClassLength
