@@ -1,4 +1,4 @@
-class HabitatCreationPage < SitePrism::Page
+class HabitatCreationPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

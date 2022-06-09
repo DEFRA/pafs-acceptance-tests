@@ -1,4 +1,4 @@
-class ProposalOverviewPage < SitePrism::Page
+class ProposalOverviewPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
@@ -18,7 +18,7 @@ class ProposalOverviewPage < SitePrism::Page
   element(:add_risks, "#project-risks-content a")
   element(:add_standard_of_protection, "a[href$='standard_of_protection']")
   element(:add_standard_of_coastal_protection, "a[href$='standard_of_protection_coastal']")
-
+  element(:add_natural_flood_measures, "a[href$='natural_flood_risk_measures_included']")
   element(:add_goals, "#project-approach-content a")
   element(:add_environmental_outcomes, "#project-environmental_outcomes-content a")
   element(:add_project_urgency, "#project-urgency-content a")
@@ -26,16 +26,13 @@ class ProposalOverviewPage < SitePrism::Page
   element(:add_confidence, "#project-confidence-content a")
   element(:add_carbon, "#project-carbon-content a")
 
+  element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
+
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
-  element(:complete_proposal_qa, "a[href$='complete']")
-  element(:complete_proposal_training, "a[href$='complete']")
-  element(:complete_proposal_preprod, "a[href$='complete']")
-  element(:complete_proposal, "a[href$='complete']")
+  element(:complete_proposal, "[href$='complete']")
 
-  element(:submit_proposal_qa, "a[href$='submit']")
-  element(:submit_proposal_training, "a[href$='submit']")
-  element(:submit_proposal_preprod, "a[href$='submit']")
+  element(:submit_proposal, "a[href$='submit']", visible: false)
 
   element(:pso_complete_proposal, "a[href$='submit']")
   element(:pso_unlock_proposal, "a[href$='unlock']")

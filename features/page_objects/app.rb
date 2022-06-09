@@ -4,7 +4,7 @@
 # rubocop:disable Metrics/ClassLength
 class App
   # Using an attr_reader automatically gives us a my_app.last_page method
-  attr_reader :last_page
+  attr_reader :last_page, :base_page
 
   # FRONT OFFICE SPECIFIC PAGES
   # /
@@ -224,10 +224,6 @@ class App
     @last_page = FundingCalculatorPage.new
   end
 
-  def new_funding_calculator_page
-    @last_page = NewFundingCalculatorPage.new
-  end
-
   def funding_calculator_summary_page
     @last_page = FundingCalculatorSummaryPage.new
   end
@@ -244,8 +240,8 @@ class App
     @last_page = ClickAndContinue.new
   end
 
-  def contributor_add
-    @last_page = ContributorAdd.new
+  def contributor_add_page
+    @last_page = ContributorAddPage.new
   end
 
   def confidence_secured_partnership_funding_page
@@ -268,20 +264,16 @@ class App
     @last_page = CarbonCostOperationPage.new
   end
 
-  def change_url_qa_page
-    @last_page = PSOQHomePage.new
+  def natural_flood_risk_measures_page
+    @last_page = NaturalFloodRiskMeasuresPage.new
   end
 
-  def change_url_train_page
-    @last_page = PSOTrainHomePage.new
+  def natural_flood_risk_measures_question_page
+    @last_page = NaturalFloodRiskMeasuresQuestionPage.new
   end
 
-  def change_url_preprod_page
-    @last_page = PSOPreProdHomePage.new
-  end
-
-  def cookies_page
-    @last_page = CookiesPage.new
+  def natural_flood_risk_measures_cost_page
+    @last_page = NaturalFloodRiskMeasuresCostPage.new
   end
 
 end

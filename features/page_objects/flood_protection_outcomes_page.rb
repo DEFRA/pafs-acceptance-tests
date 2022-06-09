@@ -1,4 +1,4 @@
-class FloodProtectionOutcomesPage < SitePrism::Page
+class FloodProtectionOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

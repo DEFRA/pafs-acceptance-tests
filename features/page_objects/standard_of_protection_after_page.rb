@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class StandardOfProtectionAfterPage < SitePrism::Page
+class StandardOfProtectionAfterPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

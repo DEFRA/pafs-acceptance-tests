@@ -1,16 +1,12 @@
 # Project application and funding (PAFS) tests
 
-[![Build Status](https://travis-ci.org/DEFRA/pafs-acceptance-tests.svg?branch=master)](https://travis-ci.org/DEFRA/pafs-acceptance-tests)
-[![security](https://hakiri.io/github/DEFRA/pafs-acceptance-tests/master.svg)](https://hakiri.io/github/DEFRA/pafs-acceptance-tests/master)
-[![Dependency Status](https://dependencyci.com/github/DEFRA/pafs-acceptance-tests/badge)](https://dependencyci.com/github/DEFRA/pafs-acceptance-tests)
-
 The Project Application and Funding Service (PAFS) is used by regional management authorities to apply for funding for flood and coastal risk management projects.
 
 This project contains the acceptance tests for the service. It is built around [Quke](https://github.com/DEFRA/quke), a Ruby gem that simplifies the process of writing and running Cucumber acceptance tests.
 
 ## Pre-requisites
 
-This project is setup to run against version 2.3.0 of Ruby.
+This project is setup to run against version 2.7.1 of Ruby.
 
 The rest of the pre-requisites are the same as those for [Quke](https://github.com/DEFRA/quke#pre-requisites).
 
@@ -36,7 +32,7 @@ You can figure how the project runs using [Quke config files](https://github.com
 touch .config.yml
 ```
 
-Into that file you'll need to add the `app_host:` entry, with the url of the FRAE environment you wish to test against.
+Into that file you'll need to add the `app_host:` entry, with the url of the environment you wish to test against.
 
 If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
 
@@ -113,8 +109,8 @@ To have consistency across the project the following tags are defined and should
 |Tag|Description|
 |---|---|
 |@frontoffice|Any feature or scenario expected to be run against the front office application|
-|@QA_SmokeTests, @TRA_SmokeTests or @PreProd_SmokeTest|Any feature or scenario expected to be run against the application baseed on the test enviroment i.e. QA, Training, PreProd|
-|@QA_RegressionTests, @TRA_RegressionTests or @PreProd_RegressionTests|Any feature or scenario expected to be run against the application baseed on the test enviroment i.e. QA, Training, PreProd|
+|@QA_SmokeTests, @TRA_SmokeTests or @PreProd_SmokeTest|Any feature or scenario expected to be run against the application based on the test enviroment i.e. QA, Training, PreProd|
+|@QA_RegressionTests, @TRA_RegressionTests or @PreProd_RegressionTests|Any feature or scenario expected to be run against the application based on the test enviroment i.e. QA, Training, PreProd|
 |@fix|A feature or scenario that highlights an error or issue with the service that needs to be fixed|
 
 It's also common practice to use a custom tag whilst working on a new feature or scenario e.g. `@QA_R1` or `@wip` etc. That is perfectly acceptable but please ensure they are removed before your change is merged.
@@ -133,12 +129,11 @@ If you have an idea you'd like to contribute please log an issue.
 
 All contributions should be submitted via a pull request.
 
-
 ## License
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
 
-http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+<http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3>
 
 The following attribution statement MUST be cited in your products and applications when using this information.
 

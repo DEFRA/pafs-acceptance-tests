@@ -1,4 +1,4 @@
-class EnvironmentalOutcomesPage < SitePrism::Page
+class EnvironmentalOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

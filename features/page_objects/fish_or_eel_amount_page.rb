@@ -1,4 +1,4 @@
-class FishOrEelAmountPage < SitePrism::Page
+class FishOrEelAmountPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

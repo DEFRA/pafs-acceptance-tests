@@ -1,4 +1,4 @@
-class AwardContractDatePage < SitePrism::Page
+class AwardContractDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

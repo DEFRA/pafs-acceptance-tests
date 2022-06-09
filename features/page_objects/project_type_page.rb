@@ -1,4 +1,4 @@
-class ProjectTypePage < SitePrism::Page
+class ProjectTypePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

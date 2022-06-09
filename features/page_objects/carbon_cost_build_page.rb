@@ -1,4 +1,4 @@
-class CarbonCostBuild < SitePrism::Page
+class CarbonCostBuild < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

@@ -1,4 +1,4 @@
-class GrantInAidFundingPage < SitePrism::Page
+class GrantInAidFundingPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
