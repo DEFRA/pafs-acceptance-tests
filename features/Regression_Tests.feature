@@ -143,7 +143,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
-  
+  @smoke
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs2020 Calc
     Given I sign in as a "rma" user
       And I create a new "restore_asset" project
