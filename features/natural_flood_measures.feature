@@ -1,3 +1,4 @@
+@nfm
 Feature: Natural flood measures
 
 As an EA service owner

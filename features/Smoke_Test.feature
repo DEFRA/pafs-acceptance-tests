@@ -34,7 +34,7 @@ Feature: Create a new project application for Smoke Tests
       And I add the standard of protection after project completes as "low_risk"
       And I enter the projects goal approach "Smoke Test on QA"
       And I enter environmental outcomes improvements
-      And I complete the natural flood measures task
+      # And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
       And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
@@ -70,7 +70,7 @@ Feature: Create a new project application for Smoke Tests
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
       And I enter the projects goal approach "A new smoke test training proposals with one funding source and PFC-Vs2020 Calc"
       And I enter environmental outcomes improvements
-      And I complete the natural flood measures task
+      # And I complete the natural flood measures task
       And I enter the project urgency as "not_urgent"
       And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
