@@ -4,9 +4,10 @@ class WetlandHabitatPage < BasePage
   element(:improve_no, "input[id$='wet_grassland_false']", visible: false)
 
   def submit(args = {})
-    if args[:improve]
+    case args[:improve]
+    when true
       improve_yes.click
-    else
+    when false
       improve_no.click
     end
 

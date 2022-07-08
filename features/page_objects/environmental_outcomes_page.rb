@@ -6,9 +6,10 @@ class EnvironmentalOutcomesPage < BasePage
   element(:improve_no, "#any_environmental_benefits_step_environmental_benefits_false", visible: false)
 
   def submit(args = {})
-    if args[:improve]
+    case args[:improve]
+    when true
       improve_yes.click
-    else
+    when false
       improve_no.click
     end
 
