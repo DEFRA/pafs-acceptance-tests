@@ -28,6 +28,19 @@ class ProposalOverviewPage < BasePage
 
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
 
+  element(:environmental_outcomes_section, "#project-environmental_outcomes-content")
+  element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")
+  element(:woodland_habitat_total, "#hectares_of_woodland_habitat_created_or_enhanced")
+  element(:wet_woodland_habitat_total, "#hectares_of_wet_woodland_habitat_created_or_enhanced")
+  element(:wet_grassland_habitat_total, "#hectares_of_wetland_or_wet_grassland_created_or_enhanced")
+  element(:grassland_habitat_total, "#hectares_of_grassland_habitat_created_or_enhanced")
+  element(:heathland_habitat_total, "#hectares_of_heathland_created_or_enhanced")
+  element(:lake_habitat_total, "#hectares_of_pond_or_lake_habitat_created_or_enhanced")
+  element(:arable_habitat_total, "#hectares_of_arable_land_lake_habitat_created_or_enhanced")
+  element(:comprehensive_restoration_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_comprehensive")
+  element(:partial_restoration_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_partial")
+  element(:watercourse_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_single")
+
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
   element(:complete_proposal, "[href$='complete']")

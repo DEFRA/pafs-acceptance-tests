@@ -21,7 +21,7 @@ Then("I can see the project does not include any flood risk measures in the prop
   expect(@app.proposal_overview_page.natural_flood_measures_section).to have_text("The project does not include any flood risk measures")
 end
 
-Then("I can see the the natural flood risk measures in the proposal overview") do
+Then("I can see the natural flood risk measures in the proposal overview") do
   expect(@app.proposal_overview_page.natural_flood_measures_section).to have_text("Floodplain restoration")
   expect(@app.proposal_overview_page.natural_flood_measures_section).to have_text("River restoration")
 end

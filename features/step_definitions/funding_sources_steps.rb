@@ -34,49 +34,43 @@ Given("I enter funding values for single contributor {string}") do |funding|
   slug = slug_map[funding]
    # rubocop: disable Layout/CommentIndentation, Style/IdenticalConditionalBranches, Lint/MissingCopEnableDirective
   if %w[public private ea].include?(slug.to_s)
-    @app.new_funding_values_page.send("#{slug}_current_year").set("1000")
-    @app.new_funding_values_page.send("#{slug}_secure_current_year").click
-    @app.new_funding_values_page.send("#{slug}_constrained_current_year").click
-    @app.new_funding_values_page.send("#{slug}_2015_2016").set("2000")
-    @app.new_funding_values_page.send("#{slug}_secure_2015_2016").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2015_2016").click
-    @app.new_funding_values_page.send("#{slug}_2016_2017").set("3000")
-    @app.new_funding_values_page.send("#{slug}_secure_2016_2017").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2016_2017").click
-    @app.new_funding_values_page.send("#{slug}_2017_2018").set("4000")
-    @app.new_funding_values_page.send("#{slug}_secure_2017_2018").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2017_2018").click
-    @app.new_funding_values_page.send("#{slug}_2018_2019").set("5000")
-    @app.new_funding_values_page.send("#{slug}_secure_2018_2019").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2018_2019").click
-    @app.new_funding_values_page.send("#{slug}_2019_2020").set("6000")
-    @app.new_funding_values_page.send("#{slug}_secure_2019_2020").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2019_2020").click
-    @app.new_funding_values_page.send("#{slug}_2020_2021").set("7000")
-    @app.new_funding_values_page.send("#{slug}_secure_2020_2021").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2020_2021").click
-    @app.new_funding_values_page.send("#{slug}_2021_2022").set("8000")
-    @app.new_funding_values_page.send("#{slug}_secure_2021_2022").click
-    @app.new_funding_values_page.send("#{slug}_constrained_2021_2022").click
-    @app.new_funding_values_page.submit_button.click
+    @app.funding_values_page.send("#{slug}_current_year").set("1000")
+    @app.funding_values_page.send("#{slug}_secure_current_year").click
+    @app.funding_values_page.send("#{slug}_constrained_current_year").click
+    @app.funding_values_page.send("#{slug}_2015_2016").set("2000")
+    @app.funding_values_page.send("#{slug}_secure_2015_2016").click
+    @app.funding_values_page.send("#{slug}_constrained_2015_2016").click
+    @app.funding_values_page.send("#{slug}_2016_2017").set("3000")
+    @app.funding_values_page.send("#{slug}_secure_2016_2017").click
+    @app.funding_values_page.send("#{slug}_constrained_2016_2017").click
+    @app.funding_values_page.send("#{slug}_2017_2018").set("4000")
+    @app.funding_values_page.send("#{slug}_secure_2017_2018").click
+    @app.funding_values_page.send("#{slug}_constrained_2017_2018").click
+    @app.funding_values_page.send("#{slug}_2018_2019").set("5000")
+    @app.funding_values_page.send("#{slug}_secure_2018_2019").click
+    @app.funding_values_page.send("#{slug}_constrained_2018_2019").click
+    @app.funding_values_page.send("#{slug}_2019_2020").set("6000")
+    @app.funding_values_page.send("#{slug}_secure_2019_2020").click
+    @app.funding_values_page.send("#{slug}_constrained_2019_2020").click
+    @app.funding_values_page.send("#{slug}_2020_2021").set("7000")
+    @app.funding_values_page.send("#{slug}_secure_2020_2021").click
+    @app.funding_values_page.send("#{slug}_constrained_2020_2021").click
+    @app.funding_values_page.send("#{slug}_2021_2022").set("8000")
+    @app.funding_values_page.send("#{slug}_secure_2021_2022").click
+    @app.funding_values_page.send("#{slug}_constrained_2021_2022").click
+    @app.funding_values_page.submit_button.click
   else
-    @app.new_funding_values_page.send("#{slug}_current_year").set("1000")
-    @app.new_funding_values_page.send("#{slug}_2015_2016").set("2000")
-    @app.new_funding_values_page.send("#{slug}_2016_2017").set("3000")
-    @app.new_funding_values_page.send("#{slug}_2017_2018").set("4000")
-    @app.new_funding_values_page.send("#{slug}_2018_2019").set("5000")
-    @app.new_funding_values_page.send("#{slug}_2019_2020").set("6000")
-    @app.new_funding_values_page.send("#{slug}_2020_2021").set("7000")
-    @app.new_funding_values_page.send("#{slug}_2021_2022").set("8000")
-    @app.new_funding_values_page.submit_button.click
+    @app.funding_values_page.send("#{slug}_current_year").set("1000")
+    @app.funding_values_page.send("#{slug}_2015_2016").set("2000")
+    @app.funding_values_page.send("#{slug}_2016_2017").set("3000")
+    @app.funding_values_page.send("#{slug}_2017_2018").set("4000")
+    @app.funding_values_page.send("#{slug}_2018_2019").set("5000")
+    @app.funding_values_page.send("#{slug}_2019_2020").set("6000")
+    @app.funding_values_page.send("#{slug}_2020_2021").set("7000")
+    @app.funding_values_page.send("#{slug}_2021_2022").set("8000")
+    @app.funding_values_page.submit_button.click
   end
   # rubocop: enable Layout/CommentIndentation,, Style/IdenticalConditionalBranches, Lint/MissingCopEnableDirective
-end
-
-Given(/^I select secure funding for "([^"]*)"$/) do |selecton|
-  @app.new_funding_values_page.submit(
-    new_funding: selecton.to_sym
-  )
 end
 
 Given("I enter a new sector contributor") do

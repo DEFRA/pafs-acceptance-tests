@@ -13,7 +13,7 @@ Scenario: Completing all sections of Natural flood measures task completes task
     And I choose my project has natural flood risk measures
     And I select my natural flood measures
     And I enter my total cost of natural flood measures
-    Then I can see the the natural flood risk measures in the proposal overview
+    Then I can see the natural flood risk measures in the proposal overview
     And I can see the total cost of my associated natural flood risk measures in the proposal overview
 
 Scenario: Selecting no Natural flood measures completes Natural flood measures task
