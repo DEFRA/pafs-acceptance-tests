@@ -211,67 +211,6 @@ Given(/^I enter the projects goal approach "([^"]*)"$/) do |msg|
     approach: msg.to_sym
   )
 end
-Given(/^I enter environmental outcomes improvements$/) do
-  @app.proposal_overview_page.add_environmental_outcomes.click
-  @app.environmental_outcomes_page.submit(
-    improve: true
-  )
-  @app.surface_and_groundwater_amount_page.submit(
-    length: "1000"
-  )
-  @app.improve_spa_or_sac_page.submit(
-    improve: true
-  )
-  @app.improve_habitat_amount_page.submit(
-    amount: "2000"
-  )
-  @app.improve_river_page.submit(
-    improve: true
-  )
-  @app.improve_river_amount_page.submit(
-    amount: "3000"
-  )
-  @app.habitat_creation_page.submit(
-    create: true
-  )
-  @app.habitat_creation_amount_page.submit(
-    amount: "4000"
-  )
-  @app.remove_fish_barrier_page.submit(
-    remove: true
-  )
-  @app.remove_eel_barrier_page.submit(
-    remove: true
-  )
-  @app.fish_or_eel_amount_page.submit(
-    amount: "5000"
-  )
-end
-
-Given(/^I enter no environmental outcomes improvements$/) do
-  @app.proposal_overview_page.add_environmental_outcomes.click
-  @app.environmental_outcomes_page.submit(
-    improve: false
-  )
-  @app.improve_spa_or_sac_page.submit(
-    improve: false
-  )
-  @app.improve_sssi_page.submit(
-    improve: false
-  )
-  @app.improve_hbi_page.submit(
-    improve: false
-  )
-  @app.habitat_creation_page.submit(
-    create: false
-  )
-  @app.remove_fish_barrier_page.submit(
-    remove: false
-  )
-  @app.remove_eel_barrier_page.submit(
-    remove: false
-  )
-end
 
 Given("I click and continue") do
   @app.front_office_home_page.submit_button.click
@@ -301,6 +240,8 @@ When(/^I select the (.*) task$/) do |task|
     @app.proposal_overview_page.add_funding_calculator.click
   when "natural flood measures"
     @app.proposal_overview_page.add_natural_flood_measures.click
+  when "environmental benefit outcomes"
+    @app.proposal_overview_page.add_environmental_outcomes.click
   end
 end
 

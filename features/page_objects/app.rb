@@ -88,10 +88,6 @@ class App
     @last_page = FundingValuesPage.new
   end
 
-  def new_funding_values_page
-    @last_page = NewFundingValuesPage.new
-  end
-
   def funding_public_sector_contributors_page
     @last_page = FundingPublicSectorContributorsPage.new
   end
@@ -110,10 +106,6 @@ class App
 
   def funding_other_sector_contributors_page
     @last_page = FundingOtherSectorContributorsPage.new
-  end
-
-  def new_funding_other_sector_contributors_page
-    @last_page = NewFundingOtherSectorContributorsPage.new
   end
 
   def earliest_start_page
@@ -164,40 +156,96 @@ class App
     @last_page = EnvironmentalOutcomesPage.new
   end
 
-  def surface_and_groundwater_amount_page
-    @last_page = SurfaceAndGroundwaterAmountPage.new
+  def intertidal_habitat_page
+    @last_page = IntertidalHabitatPage.new
   end
 
-  def improve_spa_or_sac_page
-    @last_page = ImproveSpaOrSacPage.new
+  def hectares_of_intertidal_habitat_page
+    @last_page = HectaresOfIntertidalHabitatPage.new
   end
 
-  def improve_habitat_amount_page
-    @last_page = ImproveHabitatAmountPage.new
+  def woodland_habitat_page
+    @last_page = WoodlandHabitatPage.new
   end
 
-  def improve_sssi_page
-    @last_page = ImproveSssiPage.new
+  def wet_woodland_habitat_page
+    @last_page = WetWoodlandHabitatPage.new
   end
 
-  def improve_river_page
-    @last_page = ImproveRiverPage.new
+  def wetland_habitat_page
+    @last_page = WetlandHabitatPage.new
   end
 
-  def improve_river_amount_page
-    @last_page = ImproveRiverAmountPage.new
+  def grassland_habitat_page
+    @last_page = GrasslandHabitatPage.new
+  end
+
+  def heathland_habitat_page
+    @last_page = HeathlandHabitatPage.new
+  end
+
+  def lake_habitat_page
+    @last_page = LakeHabitatPage.new
+  end
+
+  def arable_habitat_page
+    @last_page = ArableHabitatPage.new
+  end
+
+  def hectares_of_woodland_habitat_page
+    @last_page = HectaresOfWoodlandHabitatPage.new
+  end
+
+  def hectares_of_wet_woodland_habitat_page
+    @last_page = HectaresOfWetWoodlandHabitatPage.new
+  end
+
+  def hectares_of_wetland_habitat_page
+    @last_page = HectaresOfWetlandHabitatPage.new
+  end
+
+  def hectares_of_grassland_habitat_page
+    @last_page = HectaresOfGrasslandHabitatPage.new
+  end
+
+  def hectares_of_heathland_habitat_page
+    @last_page = HectaresOfHeathlandHabitatPage.new
+  end
+
+  def hectares_of_lake_habitat_page
+    @last_page = HectaresOfLakeHabitatPage.new
+  end
+
+  def hectares_of_arable_habitat_page
+    @last_page = HectaresOfArableHabitatPage.new
+  end
+
+  def comprehensive_restoration_habitat_page
+    @last_page = ComprehensiveRestorationHabitatPage.new
+  end
+
+  def kilometers_of_comprehensive_restoration_habitat_page
+    @last_page = KilometersOfComprehensiveRestorationHabitatPage.new
+  end
+
+  def partial_restoration_habitat_page
+    @last_page = PartialRestorationHabitatPage.new
+  end
+
+  def kilometers_of_partial_restoration_habitat_page
+    @last_page = KilometersOfPartialRestorationHabitatPage.new
+  end
+
+  def watercourse_habitat_page
+    @last_page = WatercourseHabitatPage.new
+  end
+
+  def kilometers_of_watercourse_habitat_page
+    @last_page = KilometersOfWatercourseHabitatPage.new
   end
 
   def improve_hbi_page
     @last_page = ImproveHbiPage.new
-  end
-
-  def habitat_creation_page
-    @last_page = HabitatCreationPage.new
-  end
-
-  def habitat_creation_amount_page
-    @last_page = HabitatCreationAmountPage.new
   end
 
   def remove_fish_barrier_page

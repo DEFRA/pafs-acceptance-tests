@@ -2,10 +2,8 @@ class EnvironmentalOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:improve_yes, "#surface_and_groundwater_step_improve_surface_or_groundwater_true", visible: false)
-  element(:improve_no, "#surface_and_groundwater_step_improve_surface_or_groundwater_false", visible: false)
-
-  element(:submit_button, "input[name='commit']")
+  element(:improve_yes, "#any_environmental_benefits_step_environmental_benefits_true", visible: false)
+  element(:improve_no, "#any_environmental_benefits_step_environmental_benefits_false", visible: false)
 
   def submit(args = {})
     if args[:improve]

@@ -14,3 +14,7 @@ def convert_to_currency_format(number)
   whole_with_commas = num_groups.map(&:join).join(",").reverse
   [whole_with_commas, decimal].compact.join(".")
 end
+
+def random_number
+  rand(1..1_000_000)
+end
