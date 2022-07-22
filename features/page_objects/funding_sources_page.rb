@@ -13,8 +13,6 @@ class FundingSourcesPage < BasePage
 
   elements(:sources, "input[type='checkbox']", visible: false)
 
-  element(:submit_button, "input[name='commit']")
-
   def submit(args = {})
     if args.key?(:funding_sources)
       args[:funding_sources].each do |source|

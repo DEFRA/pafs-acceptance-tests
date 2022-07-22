@@ -7,7 +7,7 @@ So that the EA are informed of the NFMs that are included in projects and their 
 
 Scenario: Completing all sections of Natural flood measures task completes task
     Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
    When I select the natural flood measures task
     And I choose my project has natural flood risk measures
@@ -18,7 +18,7 @@ Scenario: Completing all sections of Natural flood measures task completes task
 
 Scenario: Selecting no Natural flood measures completes Natural flood measures task
   Given I sign in as a "pso" user
-    And I create a new "benefits_households_no" project
+    And I create a new "no household benefit" project
     And I select a financial year to stop spending
    When I select the natural flood measures task
     But I choose my project has no natural flood risk measures

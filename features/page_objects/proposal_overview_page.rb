@@ -27,6 +27,7 @@ class ProposalOverviewPage < BasePage
   element(:add_carbon, "#project-carbon-content a")
 
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
+  element(:project_risks_section, "#project-risks-content .summary-list")
 
   element(:environmental_outcomes_section, "#project-environmental_outcomes-content")
   element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")

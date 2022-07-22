@@ -1,68 +1,45 @@
 class FloodProtectionOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  # How many properties affected by flooding is the project likely to benefit?
 
-  # rubocop:disable Style/MutableConstant
-  COMMON_SELECTOR = "flood_protection_outcomes_step_flood_protection_outcomes_attributes"
+  elements(:column_a, "input.households-protected")
+  elements(:column_b, "input.significant-to-low-risk")
+  elements(:column_c, "input.most-deprived")
+  elements(:column_d, "input.plp-measures")
+  elements(:column_e, "input.non-residential-properties")
 
-  element(:a1, "##{COMMON_SELECTOR}_0_households_at_reduced_risk")
-  element(:a2, "##{COMMON_SELECTOR}_1_households_at_reduced_risk")
-  element(:a3, "##{COMMON_SELECTOR}_2_households_at_reduced_risk")
-  element(:a4, "##{COMMON_SELECTOR}_3_households_at_reduced_risk")
-  element(:a5, "##{COMMON_SELECTOR}_4_households_at_reduced_risk")
-  element(:a6, "##{COMMON_SELECTOR}_5_households_at_reduced_risk")
-  element(:a7, "##{COMMON_SELECTOR}_6_households_at_reduced_risk")
+  # My project does not move any properties to a lower flood risk category
+  element(:no_properties_moved_to_lower_risk, "input[id$='risk_of_households_for_floods']", visible: false)
 
-  element(:b1, "##{COMMON_SELECTOR}_0_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b2, "##{COMMON_SELECTOR}_1_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b3, "##{COMMON_SELECTOR}_2_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b4, "##{COMMON_SELECTOR}_3_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b5, "##{COMMON_SELECTOR}_4_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b6, "##{COMMON_SELECTOR}_5_moved_from_very_significant_and_significant_to_moderate_or_low")
-  element(:b7, "##{COMMON_SELECTOR}_6_moved_from_very_significant_and_significant_to_moderate_or_low")
-
-  element(:c1, "##{COMMON_SELECTOR}_0_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c2, "##{COMMON_SELECTOR}_1_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c3, "##{COMMON_SELECTOR}_2_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c4, "##{COMMON_SELECTOR}_3_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c5, "##{COMMON_SELECTOR}_4_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c6, "##{COMMON_SELECTOR}_5_households_protected_from_loss_in_20_percent_most_deprived")
-  element(:c7, "##{COMMON_SELECTOR}_6_households_protected_from_loss_in_20_percent_most_deprived")
-
-  element(:select_none, "#flood_protection_outcomes_step_reduced_risk_of_households_for_floods", visible: false)
-
-  element(:submit_button, "input[name='commit']")
-  # rubocop:enable Style/MutableConstant
-
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
+  element(:column_a_total, ".households-at-reduced-risk-total")
+  element(:column_b_total, ".moved-from-very-significant-and-significant-to-moderate-or-low-total")
+  element(:column_c_total, ".households-protected-from-loss-in-20-percent-most-deprived-total")
+  element(:column_d_total, ".households-protected-through-plp-measures")
+  element(:column_e_total, ".non-residential-properties")
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   def submit(args = {})
-    if args.key?(:outcome) == true
-      select_none.set(args[:select_none]).click
-    else
-      a1.set(args[:a1]) if args.key?(:a1)
-      a2.set(args[:a2]) if args.key?(:a2)
-      a3.set(args[:a3]) if args.key?(:a3)
-      a4.set(args[:a4]) if args.key?(:a4)
-      a5.set(args[:a5]) if args.key?(:a5)
-      a6.set(args[:a6]) if args.key?(:a6)
-      a7.set(args[:a7]) if args.key?(:a7)
-      b1.set(args[:b1]) if args.key?(:b1)
-      b2.set(args[:b2]) if args.key?(:b2)
-      b3.set(args[:b3]) if args.key?(:b3)
-      b4.set(args[:b4]) if args.key?(:b4)
-      b5.set(args[:b5]) if args.key?(:b5)
-      b6.set(args[:b6]) if args.key?(:b6)
-      b7.set(args[:b7]) if args.key?(:b7)
-      c1.set(args[:c1]) if args.key?(:c1)
-      c2.set(args[:c2]) if args.key?(:c2)
-      c3.set(args[:c3]) if args.key?(:c3)
-      c4.set(args[:c4]) if args.key?(:c4)
-      c5.set(args[:c5]) if args.key?(:c5)
-      c6.set(args[:c6]) if args.key?(:c6)
-      c7.set(args[:c7]) if args.key?(:c7)
+    case args[:benefit]
+    when :none
+      no_properties_moved_to_lower_risk.click
+    when :random
+      column_a.each do |cell|
+        cell.set(rand(1000..10_000))
+      end
+      column_b.each do |cell|
+        cell.set(rand(100..1000))
+      end
+      column_c.each do |cell|
+        cell.set(rand(10..100))
+      end
+      column_d.each do |cell|
+        cell.set(rand(0..10))
+      end
+      column_e.each do |cell|
+        cell.set(rand(0..10))
+      end
     end
-
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
 end
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength

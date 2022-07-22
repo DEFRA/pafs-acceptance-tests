@@ -80,28 +80,8 @@ class App
     @last_page = FundingSourcesPage.new
   end
 
-  def new_funding_sources_page
-    @last_page = NewFundingSourcesPage.new
-  end
-
   def funding_values_page
     @last_page = FundingValuesPage.new
-  end
-
-  def funding_public_sector_contributors_page
-    @last_page = FundingPublicSectorContributorsPage.new
-  end
-
-  def new_funding_public_sector_contributors_page
-    @last_page = NewFundingPublicSectorContributorsPage.new
-  end
-
-  def funding_private_sector_contributors_page
-    @last_page = FundingPrivateSectorContributorsPage.new
-  end
-
-  def new_funding_private_sector_contributors_page
-    @last_page = NewFundingPrivateSectorContributorsPage.new
   end
 
   def funding_other_sector_contributors_page
@@ -126,6 +106,10 @@ class App
 
   def flood_protection_outcomes_page
     @last_page = FloodProtectionOutcomesPage.new
+  end
+
+  def flood_protection_outcomes_2040_page
+    @last_page = FloodProtectionOutcomes2040Page.new
   end
 
   def coastal_erosion_protection_outcomes_page

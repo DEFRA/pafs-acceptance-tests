@@ -18,7 +18,7 @@ Given(/^I create a new "([^"]*)" project$/) do |action|
   )
   @app.project_area_selection_page.select_first_area if @user_type == "pso"
   @app.project_type_page.submit(
-    option: action.to_sym
+    option: action
   )
 end
 
@@ -101,70 +101,6 @@ Given(/^I enter a ready for service date$/) do
   )
 end
 
-Given(/^I add the flood protection outcome as none$/) do
-  @app.flood_protection_outcomes_page.submit(
-    outcome: true
-  )
-end
-
-Given(/^I add the coastal erosion protection outcome as none$/) do
-  @app.coastal_erosion_protection_outcomes_page.submit(
-    outcome: true
-  )
-end
-# rubocop: disable Metrics/ParameterLists
-Given(/^I add the flood protection outcome values for column A a1 "([^"]*)", a2 "([^"]*)", a3 "([^"]*)", a4 "([^"]*)", a5 "([^"]*)", a6 "([^"]*)", a7 "([^"]*)", column B b1 "([^"]*)", b2 "([^"]*)", b3 "([^"]*)", b4 "([^"]*)", b5 "([^"]*)", b6 "([^"]*)", b7 "([^"]*)", column C c1 "([^"]*)", c2 "([^"]*)", c3 "([^"]*)", c4 "([^"]*)", c5 "([^"]*)", c6 "([^"]*)", c7 "([^"]*)"$/) do |a1, a2, a3, a4, a5, a6, a7, b1, b2, b3, b4, b5, b6, b7, c1, c2, c3, c4, c5, c6, c7|
-  @app.flood_protection_outcomes_page.submit(
-    a1: a1.to_sym,
-    a2: a2.to_sym,
-    a3: a3.to_sym,
-    a4: a4.to_sym,
-    a5: a5.to_sym,
-    a6: a6.to_sym,
-    a7: a7.to_sym,
-    b1: b1.to_sym,
-    b2: b2.to_sym,
-    b3: b3.to_sym,
-    b4: b4.to_sym,
-    b5: b5.to_sym,
-    b6: b6.to_sym,
-    b7: b7.to_sym,
-    c1: c1.to_sym,
-    c2: c2.to_sym,
-    c3: c3.to_sym,
-    c4: c4.to_sym,
-    c5: c5.to_sym,
-    c6: c6.to_sym,
-    c7: c7.to_sym
-  )
-end
-
-Given(/^I add the coastal erosion protection outcome values for column A a1 "([^"]*)", a2 "([^"]*)", a3 "([^"]*)", a4 "([^"]*)", a5 "([^"]*)", a6 "([^"]*)", a7 "([^"]*)", column B b1 "([^"]*)", b2 "([^"]*)", b3 "([^"]*)", b4 "([^"]*)", b5 "([^"]*)", b6 "([^"]*)", b7 "([^"]*)", column C c1 "([^"]*)", c2 "([^"]*)", c3 "([^"]*)", c4 "([^"]*)", c5 "([^"]*)", c6 "([^"]*)", c7 "([^"]*)"$/) do |a1, a2, a3, a4, a5, a6, a7, b1, b2, b3, b4, b5, b6, b7, c1, c2, c3, c4, c5, c6, c7|
-  @app.coastal_erosion_protection_outcomes_page.submit(
-    a1: a1.to_sym,
-    a2: a2.to_sym,
-    a3: a3.to_sym,
-    a4: a4.to_sym,
-    a5: a5.to_sym,
-    a6: a6.to_sym,
-    a7: a7.to_sym,
-    b1: b1.to_sym,
-    b2: b2.to_sym,
-    b3: b3.to_sym,
-    b4: b4.to_sym,
-    b5: b5.to_sym,
-    b6: b6.to_sym,
-    b7: b7.to_sym,
-    c1: c1.to_sym,
-    c2: c2.to_sym,
-    c3: c3.to_sym,
-    c4: c4.to_sym,
-    c5: c5.to_sym,
-    c6: c6.to_sym,
-    c7: c7.to_sym
-  )
-end
-# rubocop: enable Metrics/ParameterLists
 Given(/^I return to the overview page$/) do
   @app.proposal_under_review_page.return_to_the_proposal_overview_page.click
 end
@@ -242,32 +178,14 @@ When(/^I select the (.*) task$/) do |task|
     @app.proposal_overview_page.add_natural_flood_measures.click
   when "environmental benefit outcomes"
     @app.proposal_overview_page.add_environmental_outcomes.click
+  when "project risks"
+    @app.proposal_overview_page.add_risks.click
   end
 end
 
 When("I confirm the Outline Business Case be signed off after the 26th June 2020") do
   @app.funding_calculator_page.signed_off_after.click
   expect(@app.funding_calculator_page).to have_funding_calculator_2020_link
-end
-
-Given(/^I upload a project funding calculator file "([^"]*)"$/) do |filename|
-  @filename = filename
-  @app.funding_calculator_page.submit(
-    file: @filename
-  )
-end
-
-Given(/^I upload a project funding calculator with file option "([^"]*)", "([^"]*)"$/) do |radiotype, filename|
-  @app.proposal_overview_page.add_funding_calculator.click
-  @app.funding_calculator_page.submit(
-    option: radiotype.to_sym,
-    file: filename
-  )
-  @app.funding_calculator_summary_page.submit
-end
-
-When("I can see the file has been uploaded in the summary page") do
-  expect(@app.funding_calculator_summary_page.uploaded_file.text).to eq(@filename)
 end
 
 Given(/^I sign out of the proposal$/) do

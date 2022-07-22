@@ -8,13 +8,13 @@ Feature: Create a new project application for Smoke Tests
       Given I sign in as a "rma" user
 
   Scenario: Created proposal and check it is in a draft status
-    Given I create a new "change_or_new_asset" project
+    Given I create a new "new or improve asset" project
       And I select a financial year to stop spending
      When I return to the proposal overview page
      Then its status is draft
 
     Scenario: Submit a new proposal with one funding source and PFC-Vs8 Calc
-    Given I create a new "change_or_new_asset" project
+    Given I create a new "new or improve asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -28,8 +28,9 @@ Feature: Create a new project application for Smoke Tests
       And I enter funding values for single contributor "local_levy" 
       And I answer YES if the project could start sooner "01", "2020"
       And I answer if the project could start sooner if grant in aid funding was made available earlier questions
-      And I add my main project risk "river"
+      And I add my project risk "river"
       And I add the flood protection outcome as none
+      And I complete the flood protection outcome values for 2040
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I enter the projects goal approach "Smoke Test on QA"
@@ -48,7 +49,7 @@ Feature: Create a new project application for Smoke Tests
      Then I should see that my proposal is sent for review
 
    Scenario: Submit a new proposal with one funding source and PFC-Vs2020 Calc 
-    Given I create a new "change_or_new_asset" project
+    Given I create a new "new or improve asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -59,10 +60,9 @@ Feature: Create a new project application for Smoke Tests
       And I enter a funding source for "grant_in_aid"
       And I enter funding values for single contributor "grant_in_aid" 
       And I answer YES if the project could start sooner "03", "2020"
-      And I add my main project risk "tidal"
+      And I add my project risks "tidal coastal"
       And I add the flood protection outcome as none
-      And I add a second project risk "coastal"
-      And I add the flood protection outcome as none
+      And I add the flood protection 2040 outcome as none
       And I add the coastal erosion protection outcome as none
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"

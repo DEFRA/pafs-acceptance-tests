@@ -12,7 +12,6 @@ Given(/^I enter a funding source for "([^"]*)"$/) do |funding_source|
   }.freeze
 
   funding_source = slug_fundingsource[funding_source]
-
   @app.proposal_overview_page.add_funding_source.click
   @app.funding_sources_page.submit(
     funding_sources: [funding_source]

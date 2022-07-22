@@ -3,28 +3,28 @@ Feature: Run regression tests
    
   Scenario: Submit a new defence proposal
   Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project 
+    And I create a new "new or improve asset" project 
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Create a new flood or coastal erosion risk management asset, or improve the standard of service of an existing one"
 
   Scenario: Submit a new restore asset proposal
   Given I sign in as a "rma" user
-    And I create a new "restore_asset" project
+    And I create a new "restore asset" project
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Restore the standard of service of a flood or coastal erosion risk management asset by refurbishment or replacement"
 
   Scenario: Submit a new property level protection proposal and check very significant
     Given I sign in as a "rma" user
-    And I create a new "property_level_protection" project
+    And I create a new "property level protection" project
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Add property level protection for properties within the 'very significant' flood band where there is a 5% or greater chance of flooding"
 
   Scenario: Submit a new proposal with a valid shapefile
     Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
    When I upload the benefit area file "Valid_ShapeFile.zip"
@@ -32,7 +32,7 @@ Feature: Run regression tests
 
   Scenario Outline: Submit a new proposal with an invalid shapefile
     Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     When I upload the benefit area file "<ShapeFile>"
@@ -45,7 +45,7 @@ Feature: Run regression tests
 
   Scenario: Submit a new proposal with no shapefile
     Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     And I click and continue
@@ -53,7 +53,7 @@ Feature: Run regression tests
 
   Scenario Outline: Submit a new proposal with invalid shapefile
     Given I sign in as a "rma" user
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
    When I upload the benefit area file "<ShapeFile>"
@@ -65,8 +65,7 @@ Feature: Run regression tests
      
 Scenario Outline: Submit a new proposals with a single funding source 
   Given I sign in as a "rma" user
-     
-    And I create a new "change_or_new_asset" project
+    And I create a new "new or improve asset" project
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
     And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -82,7 +81,7 @@ Scenario Outline: Submit a new proposals with a single funding source
 
   Scenario: Submit a new RMA project with triple funding sources and PFC Vs8 Calc
       Given I sign in as a "rma" user
-      And I create a new "restore_asset" project
+      And I create a new "restore asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -119,12 +118,10 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter funding values for single contributor "other_sector"  
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
@@ -146,7 +143,7 @@ Scenario Outline: Submit a new proposals with a single funding source
   @smoke
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs2020 Calc
     Given I sign in as a "rma" user
-      And I create a new "restore_asset" project
+      And I create a new "restore asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -183,12 +180,10 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter funding values for single contributor "other_sector" 
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
@@ -210,7 +205,7 @@ Scenario Outline: Submit a new proposals with a single funding source
 
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
-      And I create a new "restore_asset" project
+      And I create a new "restore asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -247,12 +242,10 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter funding values for single contributor "other_sector"  
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
@@ -274,7 +267,7 @@ Scenario Outline: Submit a new proposals with a single funding source
 
    Scenario: Submit a new RMA project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
-      And I create a new "change_or_new_asset" project
+      And I create a new "new or improve asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -306,17 +299,15 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I click and continue
       And I click and continue
       And I click and continue
-      And I click and continue      
+      And I click and continue  
       And I enter a new sector contributor
       And I enter funding values for single contributor "other_sector"  
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
@@ -338,7 +329,7 @@ Scenario Outline: Submit a new proposals with a single funding source
 
   Scenario: Submit a new PSO project with multi funding sources and PFC Vs8 Calc
     Given I sign in as a "rma" user
-      And I create a new "restore_asset" project
+      And I create a new "restore asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -375,12 +366,10 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter funding values for single contributor "other_sector" 
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
@@ -410,7 +399,7 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I create a new proposal
       And I enter a new project name
       And I select a project area "Bristol City Council"
-      And I select a project type "restore_asset"
+      And I select a project type "restore asset"
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -438,21 +427,19 @@ Scenario Outline: Submit a new proposals with a single funding source
       And I enter a new sector contributor
       And I enter funding values for single contributor "private_sector" 
       And I click and continue
-      And I enter a funding source for "other_sector"
+      And I enter a funding source for "other_sector" 
       And I click and continue
       And I click and continue
       And I click and continue
-      And I click and continue      
+      And I click and continue     
       And I enter a new sector contributor
       And I enter funding values for single contributor "other_sector"  
       And I click and continue
       And I answer YES if the project could start sooner "01", "2020"
-      And I add my main project risk "tidal"
-      And I add the flood protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
-      And I add a second project risk "coastal"
-      And I click and continue
-      And I click and continue
-      And I add the coastal erosion protection outcome values for column A a1 "3000", a2 "3000", a3 "3000", a4 "3000", a5 "3000", a6 "3000", a7 "3000", column B b1 "2000", b2 "2000", b3 "2000", b4 "2000", b5 "2000", b6 "2000", b7 "2000", column C c1 "1000", c2 "1000", c3 "1000", c4 "1000", c5 "1000", c6 "1000", c7 "1000"
+      And I add my project risks "tidal coastal"
+      And I complete the flood protection outcome values
+      And I complete the flood protection outcome values for 2040
+      And I add the coastal erosion protection outcome values
       And I add the standard of protection before project starts as "very_significant_risk"
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
