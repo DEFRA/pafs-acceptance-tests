@@ -10,7 +10,6 @@ class WetlandHabitatPage < BasePage
     when false
       improve_no.click
     end
-
     submit_button.click
   end
 

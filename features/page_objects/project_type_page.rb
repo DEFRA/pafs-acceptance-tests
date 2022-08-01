@@ -10,33 +10,27 @@ class ProjectTypePage < BasePage
   element(:households_yes, "#project_type_step_project_type_env_with_households", visible: false)
   element(:households_no, "#project_type_step_project_type_env_without_households", visible: false)
 
-  element(:submit_button, "input[name='commit']")
-
-  # Essentially in this page we are selecting a checkbox. For us this was best
-  # represented by a case statement however this breaks our rubocop rules hence
-  # the exception added here.
   def submit(args = {})
-    case args[:option]
+    case args[:option].to_s
     # Changing the current standard of service....
-    when :change_or_new_asset
+    when "new or improve asset"
       defence.click
     # Restore the standard of service.....
-    when :restore_asset
+    when "restore asset"
       cm.click
     # Property level protection for properties within the 'very significant' flood band....
-    when :property_level_protection
+    when "property level protection"
       plp.click
     # Strategy for complex flood or coastal erosion risk situations across several interconnected areas
-    when :strategy
+    when "strategy"
       str.click
     # Environmental project that also benefits households
-    when :benefits_households_yes
+    when "benefits households"
       households_yes.click
     # Environmental project that doesn't benefit any households
-    when :benefits_households_no
+    when "no household benefit"
       households_no.click
     end
-
     submit_button.click
   end
 

@@ -18,3 +18,7 @@ end
 def random_number
   rand(1..1_000_000)
 end
+
+def remove_camel_case_and_capitalise_start(string)
+  string.split("_").join(" ").capitalize
+end

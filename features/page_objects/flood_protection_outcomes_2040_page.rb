@@ -1,4 +1,4 @@
-class CoastalErosionProtectionOutcomesPage < BasePage
+class FloodProtectionOutcomes2040Page < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
@@ -7,8 +7,8 @@ class CoastalErosionProtectionOutcomesPage < BasePage
   elements(:column_c, "input.most-deprived")
   elements(:column_d, "input.non-residential-properties")
 
-  # My project does not reduce the risk of coastal erosion for any properties
-  element(:no_properties_moved_to_lower_risk, "input[id$='households_for_coastal_erosion']", visible: false)
+  # My project does not move any properties to a lower flood risk category
+  element(:no_properties_moved_to_lower_risk, "input[id$='no_properties_affected_by_flooding_2040']", visible: false)
 
   element(:column_a_total, ".households-at-reduced-risk-total")
   element(:column_b_total, ".moved-from-very-significant-and-significant-to-moderate-or-low-total")

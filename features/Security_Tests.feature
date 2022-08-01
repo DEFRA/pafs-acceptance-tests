@@ -8,7 +8,7 @@ Feature: Create a new project application for Smoke Tests
     Given I sign in as a "rma" user
     And I create a new proposal
     And I enter a new project name
-    And I select a project type "change_or_new_asset"
+    And I select a project type "new or improve asset"
     And I select a financial year to stop spending
     And I add a location "ST 58198 72725"
    When I upload the benefit area file "<ShapeFile>"

@@ -26,7 +26,18 @@ class ProposalOverviewPage < BasePage
   element(:add_confidence, "#project-confidence-content a")
   element(:add_carbon, "#project-carbon-content a")
 
+  # Funding sources and spending
+  element(:gia_funding_total, "#funding-grant-in-aid")
+  element(:local_levy_funding_total, "#funding-local-levy")
+  element(:additional_gia_funding_total, "#funding-additional-grant-in-aid")
+  element(:public_sector_funding_total, "#funding-public-sector-contributions")
+  element(:private_sector_funding_total, "#funding-private-sector-contributions")
+  element(:other_funding_total, "#funding-contributions-from-other-environment-agency-functions-or-sources")
+  element(:internal_drainage_board_funding_total, "[id^='funding-funds-recovered-from-an-internal-drainage'")
+  element(:not_yet_identified_funding_total, "#funding-other-funding-sources-not-yet-identified")
+
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
+  element(:project_risks_section, "#project-risks-content .summary-list")
 
   element(:environmental_outcomes_section, "#project-environmental_outcomes-content")
   element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")

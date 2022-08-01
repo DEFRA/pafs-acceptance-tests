@@ -8,7 +8,7 @@ Scenario: Partnership funding calculator version 2 can be uploaded
       And I create a new proposal
       And I enter a new project name
       And I select a project area "Bristol City Council"
-      And I select a project type "restore_asset"
+      And I select a project type "restore asset"
       And I select a financial year to stop spending
       When I select the funding calculator task
       And I confirm the Outline Business Case be signed off after the 26th June 2020
