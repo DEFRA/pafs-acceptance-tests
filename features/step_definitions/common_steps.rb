@@ -58,20 +58,6 @@ Given(/^I select a financial year to stop spending$/) do
   )
 end
 
-Given(/^I add a location "([^"]*)"$/) do |location|
-  @app.proposal_overview_page.add_location.click
-  @app.location_page.submit(
-    location: location.to_sym
-  )
-end
-
-Given(/^I upload a benefit area file "([^"]*)"$/) do |filename|
-  @app.benefit_area_file_page.submit(
-    file: filename
-  )
-  @app.benefit_area_file_summary_page.submit
-end
-
 Given(/^I enter a business case start date$/) do
   @app.proposal_overview_page.add_important_dates.click
   @app.start_outline_business_case_date_page.submit(
@@ -152,7 +138,7 @@ Given("I click and continue") do
   @app.front_office_home_page.submit_button.click
 end
 
-Given(/^I answer YES if the project could start sooner "([^"]*)", "([^"]*)"$/) do |month, year|
+Given(/^I answer that the project could start sooner by "([^"]*)", "([^"]*)"$/) do |month, year|
   @app.proposal_overview_page.add_earliest_start.click
   @app.earliest_start_page.submit(
     earlier_start: true

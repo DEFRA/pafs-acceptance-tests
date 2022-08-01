@@ -1,4 +1,4 @@
-Feature: Environment benefit outcome measures
+Feature: Environment benefit outcome measures (OM4)
 
 As an EA service owner
 I want the Environment benefit outcomes to be updated to new approved outcome measures

@@ -1,6 +1,7 @@
 # OM Risk Sources
 Given(/^I add my project risks? "([^"]*)"$/) do |risk_source|
   @app.proposal_overview_page.add_risks.click
+  @risk_source = []
   risk_source.split.each do |risk|
     slug_risksource = {
       "river" => "fluvial_flooding",
@@ -11,19 +12,18 @@ Given(/^I add my project risks? "([^"]*)"$/) do |risk_source|
       "reservoir" => "reservoir_flooding",
       "coastal" => "coastal_erosion"
     }.freeze
-    @risk_source = []
+
     @risk_source << slug_risksource[risk]
     @app.risks_page.submit(
-      risks_source: [@risk_source]
+      risks_source: slug_risksource[risk]
     )
   end
   @app.risks_page.submit_button.click
-  if @app.main_risk_page.heading.has_text? "What is the main source of risk the project will protect against?"
-    @app.main_risk_page.submit
-  end
+  # If more than one risk, picks the first risk as the main risk
+  @app.main_risk_page.submit if @risk_source.length > 1
 end
 
-Given(/^I add the flood protection outcome as none$/) do
+Given("I add no flood protection outcome") do
   @app.flood_protection_outcomes_page.submit(
     benefit: :none
   )
@@ -35,7 +35,7 @@ Given("I add the flood protection 2040 outcome as none") do
   )
 end
 
-Given(/^I add the coastal erosion protection outcome as none$/) do
+Given("I add no coastal erosion protection outcome") do
   @app.coastal_erosion_protection_outcomes_page.submit(
     benefit: :none
   )
@@ -53,7 +53,7 @@ When("I complete the flood protection outcome values for 2040") do
   @app.flood_protection_outcomes_2040_page.submit(benefit: :random)
 end
 
-Then(/^I can see flood risks? in the proposal overview$/) do
+Then(/^I can see the flood risks? in the proposal overview$/) do
   @risk_source.each do |risk|
     expect(@app.proposal_overview_page.project_risks_section).to have_text remove_camel_case_and_capitalise_start(risk)
   end
@@ -67,6 +67,6 @@ Then("I can see Households affected by flooding that benefit from the project by
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I can see {string} is the main project risk") do |_string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I can see {string} is the main project risk") do |risk|
+  expect(@app.proposal_overview_page.project_risks_section).to have_text("#{risk} - Main source of risk")
 end

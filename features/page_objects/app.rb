@@ -84,8 +84,8 @@ class App
     @last_page = FundingValuesPage.new
   end
 
-  def funding_other_sector_contributors_page
-    @last_page = FundingOtherSectorContributorsPage.new
+  def contributer_funding_values_page
+    @last_page = ContributerFundingValuesPage.new
   end
 
   def earliest_start_page
