@@ -3,7 +3,7 @@ class FloodProtectionOutcomesPage < BasePage
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
   # How many properties affected by flooding is the project likely to benefit?
 
-  elements(:column_a, "input.households-protected")
+  elements(:column_a, "input.reduced-risk")
   elements(:column_b, "input.significant-to-low-risk")
   elements(:column_c, "input.most-deprived")
   elements(:column_d, "input.plp-measures")
