@@ -5,7 +5,7 @@ class ProjectYearPage < BasePage
   elements(:years, "input[name='financial_year_step[project_end_financial_year]']", visible: false)
 
   # href that ends with financial_year_alternative
-  element(:after_2020, "a[href$='financial_year_alternative']")
+  element(:after2020, "a[href$='financial_year_alternative']")
 
   element(:submit_button, "input[name='commit']")
 

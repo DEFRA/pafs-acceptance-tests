@@ -5,7 +5,7 @@ Given(/^I sign in as a "([^"]*)" user$/) do |user_type|
   @user_type = user_type
   @app.login_page.submit(
     email: Quke::Quke.config.custom["user_accounts"][user_type]["username"],
-    password: ENV["PAFS_DEFAULT_PASSWORD"]
+    password: ENV.fetch("PAFS_DEFAULT_PASSWORD", nil)
   )
 end
 
