@@ -1,7 +1,7 @@
 Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
   @app.proposal_overview_page.add_funding_source.click
   @funding_sources = []
-  funding_source.split(" ").each do |source|
+  funding_source.split.each do |source|
     slug_fundingsource = {
       "grant_in_aid" => "fcerm_gia",
       "local_levy" => "local_levy",
