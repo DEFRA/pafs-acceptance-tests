@@ -4,13 +4,10 @@ class StandardOfProtectionAfterPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  COMMON_SELECTOR = "standard_of_protection_after_step_flood_protection_after"
-  element(:very_significant, "##{COMMON_SELECTOR}_0", visible: false)
-  element(:significant, "##{COMMON_SELECTOR}_1", visible: false)
-  element(:moderate, "##{COMMON_SELECTOR}_2", visible: false)
-  element(:low, "##{COMMON_SELECTOR}_3", visible: false)
-
-  element(:submit_button, "input[name='commit']")
+  element(:very_significant, "#standard-of-protection-after-step-flood-protection-after-0-field", visible: false)
+  element(:significant, "#standard-of-protection-after-step-flood-protection-after-1-field", visible: false)
+  element(:moderate, "#standard-of-protection-after-step-flood-protection-after-2-field", visible: false)
+  element(:low, "#standard-of-protection-after-step-flood-protection-after-3-field", visible: false)
 
   def submit(args = {})
     case args[:option]

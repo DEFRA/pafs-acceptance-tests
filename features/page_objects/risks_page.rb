@@ -7,7 +7,7 @@ class RisksPage < BasePage
   def submit(args = {})
     return unless args.key?(:risks_source)
 
-    search_val = "risks_step_#{args[:risks_source]}"
+    search_val = "risks-step-#{args[:risks_source]}-#{args[:risks_source]}-field"
     sources.find { |chk| chk["id"] == search_val }.click
   end
 

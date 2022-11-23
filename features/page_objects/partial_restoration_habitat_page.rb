@@ -1,7 +1,7 @@
 class PartialRestorationHabitatPage < BasePage
 
-  element(:improve_yes, "input[id$='partial_restoration_true']", visible: false)
-  element(:improve_no, "input[id$='partial_restoration_false']", visible: false)
+  element(:improve_yes, "#partial-restoration-step-partial-restoration-true-field", visible: false)
+  element(:improve_no, "#partial-restoration-step-partial-restoration-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]

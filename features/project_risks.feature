@@ -3,7 +3,6 @@ Feature: Project risks
 
 What risks will the project protect against?
 
-
 Scenario: Tidal flood risk protection outcomes for 2040 can be added to the proposal (OM2)
     Given I sign in as a "rma" user
       And I create a new "new or improve asset" project

@@ -2,10 +2,8 @@ class AwardContractDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:month, "#award_contract_date_step_award_contract_month")
-  element(:year, "#award_contract_date_step_award_contract_year")
-
-  element(:submit_button, "input[name='commit']")
+  element(:month, "#award-contract-date-step-award-contract-month-field")
+  element(:year, "#award-contract-date-step-award-contract-year-field")
 
   def submit(args = {})
     month.set(args[:month]) if args.key?(:month)

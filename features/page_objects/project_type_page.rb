@@ -2,13 +2,12 @@ class ProjectTypePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:defence, "#project_type_step_project_type_def", visible: false)
-  element(:cm, "#project_type_step_project_type_cm", visible: false)
-  element(:plp, "#project_type_step_project_type_plp", visible: false)
-  element(:brg, "#project_type_step_project_type_brg", visible: false)
-  element(:str, "#project_type_step_project_type_str", visible: false)
-  element(:households_yes, "#project_type_step_project_type_env_with_households", visible: false)
-  element(:households_no, "#project_type_step_project_type_env_without_households", visible: false)
+  element(:defence, "#project-type-step-project-type-def-field", visible: false)
+  element(:cm, "#project-type-step-project-type-cm-field", visible: false)
+  element(:plp, "#project-type-step-project-type-plp-field", visible: false)
+  element(:str, "#project-type-step-project-type-str-field", visible: false)
+  element(:households_yes, "#project-type-step-project-type-env-with-households-field", visible: false)
+  element(:households_no, "#project-type-step-project-type-env-without-households-field", visible: false)
 
   def submit(args = {})
     case args[:option].to_s

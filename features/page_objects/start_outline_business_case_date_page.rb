@@ -2,10 +2,8 @@ class StartOutlineBusinessCaseDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:month, "#start_outline_business_case_date_step_start_outline_business_case_month")
-  element(:year, "#start_outline_business_case_date_step_start_outline_business_case_year")
-
-  element(:submit_button, "input[name='commit']")
+  element(:month, "#start-outline-business-case-date-step-start-outline-business-case-month-field")
+  element(:year, "#start-outline-business-case-date-step-start-outline-business-case-year-field")
 
   def submit(args = {})
     month.set(args[:month]) if args.key?(:month)

@@ -2,10 +2,8 @@ class StartConstructionDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:month, "#start_construction_date_step_start_construction_month")
-  element(:year, "#start_construction_date_step_start_construction_year")
-
-  element(:submit_button, "input[name='commit']")
+  element(:month, "#start-construction-date-step-start-construction-month-field")
+  element(:year, "#start-construction-date-step-start-construction-year-field")
 
   def submit(args = {})
     month.set(args[:month]) if args.key?(:month)

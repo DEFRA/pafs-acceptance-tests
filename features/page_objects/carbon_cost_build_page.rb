@@ -2,9 +2,7 @@ class CarbonCostBuild < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:amount, "#carbon_cost_build_step_carbon_cost_build")
-
-  element(:submit_button, "input[name='commit']")
+  element(:amount, "#carbon-cost-build-step-carbon-cost-build-field")
 
   def submit(args = {})
     amount.set(args[:amount]) if args.key?(:amount)

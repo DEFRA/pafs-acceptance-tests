@@ -4,13 +4,14 @@ class ConfidenceHomesBetterProtectedPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  COMMON_SELECTOR = "confidence_homes_better_protected_step_confidence_homes_better_protected"
-  element(:high, "##{COMMON_SELECTOR}_high", visible: false)
-  element(:mednium_high, "##{COMMON_SELECTOR}_medium_high", visible: false)
-  element(:medium_low, "##{COMMON_SELECTOR}_medium_low", visible: false)
-  element(:low, "##{COMMON_SELECTOR}_low", visible: false)
-  element(:not_applicable, "##{COMMON_SELECTOR}_not_applicable", visible: false)
-  element(:submit_button, "input[name='commit']")
+  element(:high, "#confidence-homes-better-protected-step-confidence-homes-better-protected-high-field", visible: false)
+  element(:mednium_high, "#confidence-homes-better-protected-step-confidence-homes-better-protected-medium-high-field",
+          visible: false)
+  element(:medium_low, "#confidence-homes-better-protected-step-confidence-homes-better-protected-medium-low-field",
+          visible: false)
+  element(:low, "#confidence-homes-better-protected-step-confidence-homes-better-protected-low-field", visible: false)
+  element(:not_applicable,
+          "[id^='confidence-homes-better-protected']", visible: false)
 
   def submit(args = {})
     case args[:option]

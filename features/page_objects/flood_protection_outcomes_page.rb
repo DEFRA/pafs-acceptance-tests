@@ -10,8 +10,8 @@ class FloodProtectionOutcomesPage < BasePage
   elements(:column_e, "input.non-residential-properties")
 
   # My project does not move any properties to a lower flood risk category
-  element(:no_properties_moved_to_lower_risk, "input[id$='risk_of_households_for_floods']", visible: false)
-
+  element(:no_properties_moved_to_lower_risk, "input[id$='floods-reduced-risk-of-households-for-floods-field']", visible: false)
+  
   element(:column_a_total, ".households-at-reduced-risk-total")
   element(:column_b_total, ".moved-from-very-significant-and-significant-to-moderate-or-low-total")
   element(:column_c_total, ".households-protected-from-loss-in-20-percent-most-deprived-total")

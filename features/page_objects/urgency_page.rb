@@ -2,14 +2,12 @@ class UrgencyPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:nu, "#urgency_step_urgency_reason_not_urgent", visible: false)
-  element(:stat, "#urgency_step_urgency_reason_statutory_need", visible: false)
-  element(:legal, "#urgency_step_urgency_reason_legal_need", visible: false)
-  element(:hs, "#urgency_step_urgency_reason_health_and_safety", visible: false)
-  element(:emer, "#urgency_step_urgency_reason_emergency_works", visible: false)
-  element(:time, "#urgency_step_urgency_reason_time_limited", visible: false)
-
-  element(:submit_button, "input[name='commit']", visible: false)
+  element(:nu, "#urgency-step-urgency-reason-not-urgent-field", visible: false)
+  element(:stat, "#urgency-step-urgency-reason-statutory-need-field", visible: false)
+  element(:legal, "#urgency-step-urgency-reason-legal-need-field", visible: false)
+  element(:hs, "#urgency-step-urgency-reason-health-and-safety-field", visible: false)
+  element(:emer, "#urgency-step-urgency-reason-emergency-works-field", visible: false)
+  element(:time, "#urgency-step-urgency-reason-time-limited-field", visible: false)
 
   def submit(args = {})
     case args[:option]

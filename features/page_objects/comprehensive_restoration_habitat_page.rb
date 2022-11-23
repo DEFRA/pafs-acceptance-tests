@@ -1,7 +1,9 @@
 class ComprehensiveRestorationHabitatPage < BasePage
 
-  element(:improve_yes, "input[id$='comprehensive_restoration_true']", visible: false)
-  element(:improve_no, "input[id$='comprehensive_restoration_false']", visible: false)
+  element(:improve_yes, "input[id$='comprehensive-restoration-step-comprehensive-restoration-true-field']",
+          visible: false)
+  element(:improve_no, "input[id$='comprehensive-restoration-step-comprehensive-restoration-false-field']",
+          visible: false)
 
   def submit(args = {})
     case args[:improve]

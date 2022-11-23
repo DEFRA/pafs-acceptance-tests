@@ -7,8 +7,6 @@ class ProjectYearPage < BasePage
   # href that ends with financial_year_alternative
   element(:after2020, "a[href$='financial_year_alternative']")
 
-  element(:submit_button, "input[name='commit']")
-
   def submit(args = {})
     years.find { |btn| btn.value == args[:option].to_s }.click if args.key?(:option)
 

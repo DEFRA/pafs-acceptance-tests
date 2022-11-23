@@ -1,7 +1,7 @@
 class WoodlandHabitatPage < BasePage
 
-  element(:improve_yes, "#woodland_habitat_created_or_enhanced_step_woodland_true", visible: false)
-  element(:improve_no, "#woodland_habitat_created_or_enhanced_step_woodland_false", visible: false)
+  element(:improve_yes, "#woodland-habitat-created-or-enhanced-step-woodland-true-field", visible: false)
+  element(:improve_no, "#woodland-habitat-created-or-enhanced-step-woodland-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]

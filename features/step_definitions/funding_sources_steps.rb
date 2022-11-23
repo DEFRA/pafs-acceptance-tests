@@ -3,14 +3,14 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
   @funding_sources = []
   funding_source.split.each do |source|
     slug_fundingsource = {
-      "grant_in_aid" => "fcerm_gia",
-      "local_levy" => "local_levy",
-      "public_sector" => "public_contributions",
-      "private_sector" => "private_contributions",
-      "other_sector" => "other_ea_contributions",
-      "growth_funding" => "growth_funding",
-      "internal_drainage_boards" => "internal_drainage_boards",
-      "not_identified" => "not_yet_identified"
+      "grant_in_aid" => "fcerm-gia",
+      "local_levy" => "local-levy",
+      "public_sector" => "public-contributions",
+      "private_sector" => "private-contributions",
+      "other_sector" => "other-ea-contributions",
+      "growth_funding" => "growth-funding",
+      "internal_drainage_boards" => "internal-drainage-boards",
+      "not_identified" => "not-yet-identified"
     }.freeze
     @funding_sources << slug_fundingsource[source]
     @app.funding_sources_page.submit(
@@ -22,61 +22,61 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
 end
 
 Given("I enter funding source contributors and values") do
-  if @funding_sources.include?("public_contributions")
+  if @funding_sources.include?("public-contributions")
     @app.contributor_add_page.submit
     @app.contributer_funding_values_page.submit(funding: :random)
     @public_contributions_total = @app.contributer_funding_values_page.grand_total.text
     @app.contributer_funding_values_page.submit_button.click
   end
-  if @funding_sources.include?("private_contributions")
+  if @funding_sources.include?("private-contributions")
     @app.contributor_add_page.submit
     @app.contributer_funding_values_page.submit(funding: :random)
     @private_contributions_total = @app.contributer_funding_values_page.grand_total.text
     @app.contributer_funding_values_page.submit_button.click
   end
-  if @funding_sources.include?("other_ea_contributions")
+  if @funding_sources.include?("other-ea-contributions")
     @app.contributor_add_page.submit
     @app.contributer_funding_values_page.submit(funding: :random)
     @other_contributions_total = @app.contributer_funding_values_page.grand_total.text
     @app.contributer_funding_values_page.submit_button.click
   end
-  @app.funding_values_page.submit(funding: :gia) if @funding_sources.include?("fcerm_gia")
+  @app.funding_values_page.submit(funding: :gia) if @funding_sources.include?("fcerm-gia")
 
-  @app.funding_values_page.submit(funding: :local_levy) if @funding_sources.include?("local_levy")
+  @app.funding_values_page.submit(funding: :local_levy) if @funding_sources.include?("local-levy")
 
-  @app.funding_values_page.submit(funding: :additional_grant_in_aid) if @funding_sources.include?("growth_funding")
+  @app.funding_values_page.submit(funding: :additional_grant_in_aid) if @funding_sources.include?("growth-funding")
 
-  if @funding_sources.include?("internal_drainage_boards")
+  if @funding_sources.include?("internal-drainage-boards")
     @app.funding_values_page.submit(funding: :internal_drainage_boards)
   end
-  @app.funding_values_page.submit(funding: :not_yet_identified) if @funding_sources.include?("not_yet_identified")
+  @app.funding_values_page.submit(funding: :not_yet_identified) if @funding_sources.include?("not-yet-identified")
   # takes focus off last cell to start total calculation
   @app.funding_values_page.grand_total.click
   sleep 2
-  if @funding_sources.include?("fcerm_gia")
+  if @funding_sources.include?("fcerm-gia")
     @fcerm_gia_contributions_total = @app.funding_values_page.gia_funding_total.text
   end
 
-  if @funding_sources.include?("local_levy")
+  if @funding_sources.include?("local-levy")
     @local_levy_contributions_total = @app.funding_values_page.local_levy_funding_total.text
   end
 
-  if @funding_sources.include?("growth_funding")
+  if @funding_sources.include?("growth-funding")
     @additional_gia_contributions_total = @app.funding_values_page.growth_funding_total.text
   end
 
-  if @funding_sources.include?("public_sector")
+  if @funding_sources.include?("public-sector")
     @internal_drainage_board_funding_total = @app.funding_values_page.public_funding_total.text
   end
-  if @funding_sources.include?("not_yet_identified")
+  if @funding_sources.include?("not-yet-identified")
     @not_yet_identified_funding_total = @app.funding_values_page.private_funding_total.text
   end
 
-  if @funding_sources.include?("local_levy")
+  if @funding_sources.include?("local-levy")
     @local_levy_funding_total = @app.funding_values_page.local_levy_funding_total.text
   end
 
-  if @funding_sources.include?("growth_funding")
+  if @funding_sources.include?("growth-funding")
     @additional_gia_contributions_total = @app.funding_values_page.growth_funding_total.text
   end
 

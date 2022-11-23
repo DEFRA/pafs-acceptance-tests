@@ -2,8 +2,8 @@ class EnvironmentalOutcomesPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:improve_yes, "#any_environmental_benefits_step_environmental_benefits_true", visible: false)
-  element(:improve_no, "#any_environmental_benefits_step_environmental_benefits_false", visible: false)
+  element(:improve_yes, "#any-environmental-benefits-step-environmental-benefits-true-field", visible: false)
+  element(:improve_no, "#any-environmental-benefits-step-environmental-benefits-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]
