@@ -4,8 +4,7 @@ class ApproachPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:approach, "#approach_step_approach")
-  element(:submit_button, "input[name='commit']")
+  element(:approach, "#approach-step-approach-field")
 
   def submit(args = {})
     approach.set(args[:approach]) if args.key?(:approach)

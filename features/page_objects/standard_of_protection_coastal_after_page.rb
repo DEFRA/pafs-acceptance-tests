@@ -4,13 +4,14 @@ class StandardOfProtectionCoastalAfterPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  COMMON_SELECTOR = "standard_of_protection_coastal_after_step_coastal_protection_after"
-  element(:less_that_ten_years, "##{COMMON_SELECTOR}_0", visible: false)
-  element(:ten_to_nighteen_years, "##{COMMON_SELECTOR}_1", visible: false)
-  element(:twenty_to_fourtynine_years, "##{COMMON_SELECTOR}_2", visible: false)
-  element(:fifty_years_or_more, "##{COMMON_SELECTOR}_3", visible: false)
-
-  element(:submit_button, "input[name='commit']")
+  element(:less_that_ten_years, "#standard-of-protection-coastal-after-step-coastal-protection-after-0-field",
+          visible: false)
+  element(:ten_to_nighteen_years, "#standard-of-protection-coastal-after-step-coastal-protection-after-1-field",
+          visible: false)
+  element(:twenty_to_fourtynine_years, "#standard-of-protection-coastal-after-step-coastal-protection-after-2-field",
+          visible: false)
+  element(:fifty_years_or_more, "#standard-of-protection-coastal-after-step-coastal-protection-after-3-field",
+          visible: false)
 
   def submit(args = {})
     case args[:option]

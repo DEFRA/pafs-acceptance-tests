@@ -15,5 +15,5 @@ Given(/^I upload a project funding calculator with file option "([^"]*)", "([^"]
 end
 
 When("I can see the file has been uploaded in the summary page") do
-  expect(@app.funding_calculator_summary_page.uploaded_file.text).to eq(@filename)
+  expect(@app.funding_calculator_summary_page.uploaded_file).to have_text(@filename)
 end

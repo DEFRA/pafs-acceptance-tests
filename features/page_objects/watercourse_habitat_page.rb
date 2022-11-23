@@ -1,7 +1,9 @@
 class WatercourseHabitatPage < BasePage
 
-  element(:improve_yes, "input[id$='create_habitat_watercourse_true']", visible: false)
-  element(:improve_no, "input[id$='create_habitat_watercourse_false']", visible: false)
+  element(:improve_yes, "input[id$='create-habitat-watercourse-step-create-habitat-watercourse-true-field']",
+          visible: false)
+  element(:improve_no, "input[id$='create-habitat-watercourse-step-create-habitat-watercourse-true-field']",
+          visible: false)
 
   def submit(args = {})
     case args[:improve]

@@ -18,4 +18,4 @@ headless: false
 max_wait_time: 10
 pause: 0
 print_progress: false
-stop_on_error: false
+stop_on_error: true

@@ -1,7 +1,7 @@
 class IntertidalHabitatPage < BasePage
 
-  element(:improve_yes, "#intertidal_habitat_created_or_enhanced_step_intertidal_habitat_true", visible: false)
-  element(:improve_no, "#intertidal_habitat_created_or_enhanced_step_intertidal_habitat_false", visible: false)
+  element(:improve_yes, "#intertidal-habitat-created-or-enhanced-step-intertidal-habitat-true-field", visible: false)
+  element(:improve_no, "#intertidal-habitat-created-or-enhanced-step-intertidal-habitat-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]

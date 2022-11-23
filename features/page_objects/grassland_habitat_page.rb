@@ -1,7 +1,7 @@
 class GrasslandHabitatPage < BasePage
 
-  element(:improve_yes, "#grassland_habitat_created_or_enhanced_step_grassland_true", visible: false)
-  element(:improve_no, "#grassland_habitat_created_or_enhanced_step_grassland_false", visible: false)
+  element(:improve_yes, "#grassland-habitat-created-or-enhanced-step-grassland-true-field", visible: false)
+  element(:improve_no, "#grassland-habitat-created-or-enhanced-step-grassland-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]

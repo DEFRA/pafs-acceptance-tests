@@ -2,12 +2,10 @@ class StandardOfProtectionPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:very_significant, "#standard_of_protection_step_flood_protection_before_0", visible: false)
-  element(:significant, "#standard_of_protection_step_flood_protection_before_1", visible: false)
-  element(:moderate, "#standard_of_protection_step_flood_protection_before_2", visible: false)
-  element(:low, "#standard_of_protection_step_flood_protection_before_3", visible: false)
-
-  element(:submit_button, "input[name='commit']")
+  element(:very_significant, "#standard-of-protection-step-flood-protection-before-0-field", visible: false)
+  element(:significant, "#standard-of-protection-step-flood-protection-before-1-field", visible: false)
+  element(:moderate, "#standard-of-protection-step-flood-protection-before-2-field", visible: false)
+  element(:low, "#standard-of-protection-step-flood-protection-before-3-field", visible: false)
 
   def submit(args = {})
     case args[:option]

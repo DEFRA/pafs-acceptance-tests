@@ -1,7 +1,7 @@
 class ArableHabitatPage < BasePage
 
-  element(:improve_yes, "#arable_land_created_or_enhanced_step_arable_land_true", visible: false)
-  element(:improve_no, "#arable_land_created_or_enhanced_step_arable_land_false", visible: false)
+  element(:improve_yes, "#arable-land-created-or-enhanced-step-arable-land-true-field", visible: false)
+  element(:improve_no, "#arable-land-created-or-enhanced-step-arable-land-false-field", visible: false)
 
   def submit(args = {})
     case args[:improve]

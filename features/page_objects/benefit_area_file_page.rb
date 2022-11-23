@@ -2,8 +2,7 @@ class BenefitAreaFilePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
-  element(:choose_file, "#benefit_area_file_step_benefit_area_file")
-  element(:submit_button, "input[name='commit']")
+  element(:choose_file, "#benefit-area-file-step-benefit-area-file-field")
 
   def submit(args = {})
     if args.key?(:file)

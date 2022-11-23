@@ -7,7 +7,7 @@ class FundingSourcesPage < BasePage
   def submit(args = {})
     return unless args.key?(:funding_sources)
 
-    search_val = "funding_sources_step_#{args[:funding_sources]}"
+    search_val = "funding-sources-step-#{args[:funding_sources]}-#{args[:funding_sources]}-field"
     sources.find { |chk| chk["id"] == search_val }.click
   end
 

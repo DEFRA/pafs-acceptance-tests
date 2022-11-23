@@ -16,6 +16,7 @@ Given(/^I create a new "([^"]*)" project$/) do |action|
   @app.project_name_page.submit(
     project_name: newname.to_sym
   )
+
   @app.project_area_selection_page.select_first_area if @user_type == "pso"
   @app.project_type_page.submit(
     option: action
@@ -189,6 +190,7 @@ Given(/^I submit my proposal$/) do
 end
 
 Then("I should see that my proposal is sent for review") do
+  sleep 10
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
   expect(@app.confirm_page).to have_text("Proposal sent for review")

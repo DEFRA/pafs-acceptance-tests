@@ -4,13 +4,13 @@ Given(/^I add my project risks? "([^"]*)"$/) do |risk_source|
   @risk_source = []
   risk_source.split.each do |risk|
     slug_risksource = {
-      "river" => "fluvial_flooding",
-      "tidal" => "tidal_flooding",
-      "ground" => "groundwater_flooding",
-      "surface" => "surface_water_flooding",
-      "sea" => "sea_flooding",
-      "reservoir" => "reservoir_flooding",
-      "coastal" => "coastal_erosion"
+      "river" => "fluvial-flooding",
+      "tidal" => "tidal-flooding",
+      "ground" => "groundwater-flooding",
+      "surface" => "surface_water-flooding",
+      "sea" => "sea-flooding",
+      "reservoir" => "reservoir-flooding",
+      "coastal" => "coastal-erosion"
     }.freeze
 
     @risk_source << slug_risksource[risk]
@@ -55,7 +55,7 @@ end
 
 Then(/^I can see the flood risks? in the proposal overview$/) do
   @risk_source.each do |risk|
-    expect(@app.proposal_overview_page.project_risks_section).to have_text remove_camel_case_and_capitalise_start(risk)
+    expect(@app.proposal_overview_page.project_risks_section).to have_text remove_hyphen_and_capitalise_start(risk)
   end
 end
 
