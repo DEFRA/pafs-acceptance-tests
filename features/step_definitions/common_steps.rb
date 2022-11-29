@@ -59,6 +59,12 @@ Given(/^I select a financial year to stop spending$/) do
   )
 end
 
+When("I select a financial year to stop spending as {string}") do |last_year|
+  @last_year = last_year
+  @app.project_year_page.after2028.click
+  @app.project_year_alternative_page.submit(year: @last_year)
+end
+
 Given(/^I enter a business case start date$/) do
   @app.proposal_overview_page.add_important_dates.click
   @app.start_outline_business_case_date_page.submit(

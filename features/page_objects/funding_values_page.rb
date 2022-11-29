@@ -7,6 +7,7 @@ class FundingValuesPage < BasePage
   elements(:additional_gia_years, "input[name$='[growth_funding]']")
   elements(:internal_drainage_board_years, "input[name$='[internal_drainage_boards]']")
   elements(:not_yet_identified_years, "input[name$='[not_yet_identified]']")
+  elements(:financial_years, ".financial_year")
   element(:gia_funding_total, ".fcerm_gia-total")
   element(:local_levy_funding_total, ".local_levy-total")
   element(:growth_funding_total, ".growth_funding-total")

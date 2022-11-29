@@ -44,6 +44,10 @@ class App
     @last_page = ProjectYearPage.new
   end
 
+  def project_year_alternative_page
+    @last_page = ProjectYearAlternativePage.new
+  end
+
   def proposal_overview_page
     @last_page = ProposalOverviewPage.new
   end
