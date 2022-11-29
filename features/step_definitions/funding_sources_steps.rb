@@ -133,3 +133,7 @@ Then(/^I should see the funding source contributor "([^"]*)"$/) do |contributor|
   contributor_source = slug_contributor[contributor]
   expect(@app.proposal_overview_page).to have_text(contributor_source)
 end
+
+Then("I can see the last financial year to stop spending is the last year in the funding table") do
+  expect(@app.funding_values_page.financial_years.last).to have_text(@last_year)
+end
