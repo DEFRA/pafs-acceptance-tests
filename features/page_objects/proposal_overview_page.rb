@@ -36,10 +36,10 @@ class ProposalOverviewPage < BasePage
   element(:internal_drainage_board_funding_total, "[id^='funding-funds-recovered-from-an-internal-drainage'")
   element(:not_yet_identified_funding_total, "#funding-other-funding-sources-not-yet-identified")
 
-  element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-content")
-  element(:project_risks_section, "#project-risks-content .summary-list")
+  element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-field")
+  element(:project_risks_section, "#project-risks .summary-list")
 
-  element(:environmental_outcomes_section, "#project-environmental_outcomes-content")
+  element(:environmental_outcomes_section, "#project-environmental_outcomes-field")
   element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")
   element(:woodland_habitat_total, "#hectares_of_woodland_habitat_created_or_enhanced")
   element(:wet_woodland_habitat_total, "#hectares_of_wet_woodland_habitat_created_or_enhanced")

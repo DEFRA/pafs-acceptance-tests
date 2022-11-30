@@ -196,7 +196,6 @@ Given(/^I submit my proposal$/) do
 end
 
 Then("I should see that my proposal is sent for review") do
-  sleep 10
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
   expect(@app.confirm_page).to have_text("Proposal sent for review")
