@@ -4,7 +4,7 @@ The partnership funding calculator generates a score for the project based on th
 This score is used to prioritise and allocate funding in each year.
 
 Scenario: Partnership funding calculator version 2 can be uploaded 
-      Given I sign in as a "pso" user
+      Given I sign in as a "rma" user
       And I create a new proposal
       And I enter a new project name
       And I select a project area "Bristol City Council"

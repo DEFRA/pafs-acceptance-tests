@@ -12,7 +12,7 @@ Scenario: Completing all sections of Environment benefit outcomes completes task
     Then I can see the environmental outcomes improvements totals in the proposal overview
 
 Scenario: Selecting no Environment benefit outcomes completes task
-  Given I sign in as a "pso" user
+  Given I sign in as a "rma" user
     And I create a new "no household benefit" project
     And I select a financial year to stop spending
    When I enter no environmental outcomes improvements
