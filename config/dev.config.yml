@@ -3,15 +3,13 @@ app_host: "https://paf-dev.aws.defra.cloud"
 custom: 
   urls: 
     front_office: "https://paf-dev.aws.defra.cloud/users/sign_in"
-  user_accounts: 
-    dual: 
-      username: delaware.autouser+3@gmail.com
-    pso: 
-      username: delaware.autouser+2@gmail.com
-    rma: 
-      username: delaware.autouser+1@gmail.com
-    test: 
-      username: delaware.autouser+4@gmail.com
+  user_accounts:
+    rma:
+      username: paf1@example.com
+    pso:
+      username: paf3@example.com
+    area:
+      username: paf4@example.com
 display_failures: true
 driver: chrome
 headless: false

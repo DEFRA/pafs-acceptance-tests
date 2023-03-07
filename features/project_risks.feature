@@ -13,13 +13,13 @@ Scenario: Tidal flood risk protection outcomes for 2040 can be added to the prop
      Then I can see the flood risk in the proposal overview
 
 Scenario: Proposal that doesn't benefit any households does not have Risks and properties benefit section (OM2)
-  Given I sign in as a "pso" user
+  Given I sign in as a "rma" user
     And I create a new "no household benefit" project
     When I select a financial year to stop spending
     Then I will not be shown a risks and properties benefiting section
 
 Scenario: Adding a coast risk protection requires coastal erosion protection outcome values (OM3)
-  Given I sign in as a "pso" user
+  Given I sign in as a "rma" user
     And I create a new "benefits households" project
     And I select a financial year to stop spending
     And I add my project risks "tidal coastal"
