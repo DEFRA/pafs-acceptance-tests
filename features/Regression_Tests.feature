@@ -103,7 +103,7 @@ Feature: Run regression tests
      Then I should see that my proposal is sent for review
 
   Scenario: Submit a new PSO project with one source and PFC Vs2020 Calc
-    Given I sign in as a "rma" user
+    Given I sign in as a "dual_rma" user
       And I create a new proposal
       And I enter a new project name
       And I select a project area "Bristol City Council"
