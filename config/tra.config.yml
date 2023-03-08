@@ -6,6 +6,8 @@ custom:
   user_accounts:
     rma:
       username: paf1@example.com
+    dual_rma:
+      username: paf2@example.com
     pso:
       username: paf3@example.com
     area:
