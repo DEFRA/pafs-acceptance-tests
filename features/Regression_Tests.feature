@@ -35,10 +35,7 @@ Feature: Run regression tests
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
-      And I enter a business case start date
-      And I enter an award contract date
-      And I enter a construction start date
-      And I enter a ready for service date
+      And I enter important project dates
       And I enter funding sources "grant_in_aid local_levy public_sector private_sector other_sector growth_funding internal_drainage_boards not_identified"
       And I enter funding source contributors and values
       And I answer that the project could start sooner by "01", "2024"
@@ -72,10 +69,7 @@ Feature: Run regression tests
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
-      And I enter a business case start date
-      And I enter an award contract date
-      And I enter a construction start date
-      And I enter a ready for service date
+      And I enter important project dates
       And I enter funding sources "grant_in_aid local_levy private_sector growth_funding internal_drainage_boards not_identified"  
       And I enter funding source contributors and values
       And I answer that the project could start sooner by "01", "2020"
@@ -111,10 +105,7 @@ Feature: Run regression tests
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
-      And I enter a business case start date
-      And I enter an award contract date
-      And I enter a construction start date
-      And I enter a ready for service date
+      And I enter important project dates
       And I enter funding sources "private_sector"
       And I enter funding source contributors and values
       And I answer that the project could start sooner by "01", "2020"

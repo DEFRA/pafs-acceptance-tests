@@ -9,10 +9,19 @@ class ProposalOverviewPage < BasePage
   element(:project_type, "#project-project_type-content p")
   element(:project_year, "#project-financial_year-content p")
 
+  # Location section
   element(:add_location, "a[href$='/location']")
   element(:download_project_benefit_area, "a[href$='benefit_area']")
 
+  # Important dates section
   element(:add_important_dates, "a[href$='/start_outline_business_case_date']")
+  element(:businesss_case_start_date, "table[aria-labelledby='Important dates'] tr:nth-child(1) .align-right")
+  element(:businesss_case_completion_date, "table[aria-labelledby='Important dates'] tr:nth-child(2) .align-right")
+  element(:contract_awarded_date, "table[aria-labelledby='Important dates'] tr:nth-child(2) .align-right")
+  element(:construction_start_date, "table[aria-labelledby='Important dates'] tr:nth-child(3) .align-right")
+  element(:ready_for_service_date, "table[aria-labelledby='Important dates'] tr:nth-child(4) .align-right")
+
+  # Funding sources and spending section
   element(:add_funding_source, "a[href$='/funding_sources")
   element(:add_earliest_start, "a[href$='/earliest_start']")
   element(:add_risks, "a[href$='/risks']")
@@ -36,9 +45,13 @@ class ProposalOverviewPage < BasePage
   element(:internal_drainage_board_funding_total, "[id^='funding-funds-recovered-from-an-internal-drainage'")
   element(:not_yet_identified_funding_total, "#funding-other-funding-sources-not-yet-identified")
 
+  # Natural flood measures section
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-field")
+
+  # Risks and properties benefitting section
   element(:project_risks_section, "#project-risks .summary-list")
 
+  # Environmental benefits section
   element(:environmental_outcomes_section, "#project-environmental_outcomes-field")
   element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")
   element(:woodland_habitat_total, "#hectares_of_woodland_habitat_created_or_enhanced")
