@@ -17,9 +17,9 @@ class ProposalOverviewPage < BasePage
   element(:add_important_dates, "a[href$='/start_outline_business_case_date']")
   element(:businesss_case_start_date, "table[aria-labelledby='Important dates'] tr:nth-child(1) .align-right")
   element(:businesss_case_completion_date, "table[aria-labelledby='Important dates'] tr:nth-child(2) .align-right")
-  element(:contract_awarded_date, "table[aria-labelledby='Important dates'] tr:nth-child(2) .align-right")
-  element(:construction_start_date, "table[aria-labelledby='Important dates'] tr:nth-child(3) .align-right")
-  element(:ready_for_service_date, "table[aria-labelledby='Important dates'] tr:nth-child(4) .align-right")
+  element(:contract_awarded_date, "table[aria-labelledby='Important dates'] tr:nth-child(3) .align-right")
+  element(:construction_start_date, "table[aria-labelledby='Important dates'] tr:nth-child(4) .align-right")
+  element(:ready_for_service_date, "table[aria-labelledby='Important dates'] tr:nth-child(5) .align-right")
 
   # Funding sources and spending section
   element(:add_funding_source, "a[href$='/funding_sources")

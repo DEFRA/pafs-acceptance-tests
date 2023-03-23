@@ -76,7 +76,6 @@ Given("I enter a business case start date") do
 end
 
 Given("I enter a business case completion date") do
-  @app.proposal_overview_page.add_important_dates.click
   @business_case_completion_date_month = 2
   @business_case_completion_date_year = Time.now.year + 1
   @app.outline_business_case_completion_date_page.submit(
