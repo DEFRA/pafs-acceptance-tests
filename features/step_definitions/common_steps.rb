@@ -65,36 +65,81 @@ When("I select a financial year to stop spending as {string}") do |last_year|
   @app.project_year_alternative_page.submit(year: @last_year)
 end
 
-Given(/^I enter a business case start date$/) do
+Given("I enter a business case start date") do
   @app.proposal_overview_page.add_important_dates.click
-  @app.start_outline_business_case_date_page.submit(
-    month: "01",
-    year: "2020"
+  @business_case_start_date_month = 1
+  @business_case_start_date_year = Time.now.year + 1
+  @app.outline_business_case_start_date_page.submit(
+    month: @business_case_start_date_month,
+    year: @business_case_start_date_year
   )
 end
 
-Given(/^I enter an award contract date$/) do
+Given("I enter a business case completion date") do
+  @business_case_completion_date_month = 2
+  @business_case_completion_date_year = Time.now.year + 1
+  @app.outline_business_case_completion_date_page.submit(
+    month: @business_case_completion_date_month,
+    year: @business_case_completion_date_year
+  )
+end
+
+Given("I enter an award contract date") do
+  @award_contract_date_month = 3
+  @award_contract_date_year = Time.now.year + 1
   @app.award_contract_date_page.submit(
-    month: "01",
-    year: "2021"
+    month: @award_contract_date_month,
+    year: @award_contract_date_year
   )
 end
 
-Given(/^I enter a construction start date$/) do
+Given("I enter a construction start date") do
+  @construction_start_date_month = 4
+  @construction_start_date_year = Time.now.year + 1
   @app.start_construction_date_page.submit(
-    month: "01",
-    year: "2022"
+    month: @construction_start_date_month,
+    year: @construction_start_date_year
   )
 end
 
-Given(/^I enter a ready for service date$/) do
+Given("I enter a ready for service date") do
+  @ready_for_service_date_month = 5
+  @ready_for_service_date_year = Time.now.year + 1
   @app.ready_for_service_date_page.submit(
-    month: "01",
-    year: "2023"
+    month: @ready_for_service_date_month,
+    year: @ready_for_service_date_year
   )
 end
 
-Given(/^I return to the overview page$/) do
+Given("I enter important project dates") do
+  @app.proposal_overview_page.add_important_dates.click
+  @app.outline_business_case_start_date_page.submit(
+    month: 1,
+    year: Time.now.year + 1
+  )
+
+  @app.outline_business_case_completion_date_page.submit(
+    month: 2,
+    year: Time.now.year + 1
+  )
+
+  @app.award_contract_date_page.submit(
+    month: 3,
+    year: Time.now.year + 1
+  )
+
+  @app.start_construction_date_page.submit(
+    month: 4,
+    year: Time.now.year + 1
+  )
+
+  @app.ready_for_service_date_page.submit(
+    month: 5,
+    year: Time.now.year + 1
+  )
+end
+
+Given("I return to the overview page") do
   @app.proposal_under_review_page.return_to_the_proposal_overview_page.click
 end
 
