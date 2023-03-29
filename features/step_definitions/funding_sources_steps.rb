@@ -21,6 +21,27 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
 
 end
 
+Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_source|
+  @fcrm_funding_sources = []
+  funding_source.split.each do |source|
+    slug_fundingsource = {
+      "asset_replacement" => "asset-replacement-allowance",
+      "environment_statutory" => "environment-statutory-funding",
+      "frequently_flooded_communities" => "frequently-flooded-communities",
+      "other_gia" => "other-additional-grant-in-aid",
+      "other_gov" => "other-government-department",
+      "recovery" => "recovery",
+      "summer_economic" => "summer-economic-fund"
+    }.freeze
+    @fcrm_funding_sources << slug_fundingsource[source]
+    @app.fcrm_funding_sources_page.submit(
+      funding_sources: slug_fundingsource[source]
+    )
+  end
+  @app.fcrm_funding_sources_page.submit_button.click
+
+end
+
 Given("I enter funding source contributors and values") do
   if @funding_sources.include?("public-contributions")
     @app.contributor_add_page.submit
@@ -50,6 +71,21 @@ Given("I enter funding source contributors and values") do
     @app.funding_values_page.submit(funding: :internal_drainage_boards)
   end
   @app.funding_values_page.submit(funding: :not_yet_identified) if @funding_sources.include?("not-yet-identified")
+
+  # If FCRM funding option isn't selected, skip this section
+  unless @fcrm_funding_sources.nil?
+    if @fcrm_funding_sources.include?("environment-statutory-funding")
+      @app.funding_values_page.submit(funding: environment_stat)
+    end
+    if @fcrm_funding_sources.include?("frequently-flooded-communities")
+      @app.funding_values_page.submit(funding: freq_flood)
+    end
+    if @fcrm_funding_sources.include?("other-additional-grant-in-aid")
+      @app.funding_values_page.submit(funding: other_gia)
+    end
+    @app.funding_values_page.submit(funding: other_gov) if @fcrm_funding_sources.include?("other-government-department")
+    @app.funding_values_page.submit(funding: summer_economic) if @fcrm_funding_sources.include?("summer-economic-fund")
+  end
   # takes focus off last cell to start total calculation
   @app.funding_values_page.grand_total.click
   sleep 2

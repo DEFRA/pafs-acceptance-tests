@@ -88,6 +88,14 @@ class App
     @last_page = FundingSourcesPage.new
   end
 
+  def fcrm_funding_sources_page
+    @last_page = FcrmFundingSourcesPage.new
+  end
+
+  def fcrm_gia_funding_sources_page
+    @last_page = FcrmGiaFundingSourcesPage.new
+  end
+
   def funding_values_page
     @last_page = FundingValuesPage.new
   end
