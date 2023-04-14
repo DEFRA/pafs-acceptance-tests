@@ -112,10 +112,6 @@ Given("I enter funding source contributors and values") do
     @local_levy_funding_total = @app.funding_values_page.local_levy_funding_total.text
   end
 
-  if @funding_sources.include?("growth-funding")
-    @additional_gia_contributions_total = @app.funding_values_page.growth_funding_total.text
-  end
-
   if @fcrm_funding_sources.include?("environment-statutory-funding")
     @environment_statutory_funding_total = @app.funding_values_page.environment_statutory_funding_total.text
   end
@@ -164,8 +160,27 @@ Then("I can see the funding sources and values in the proposal overview") do
   if @funding_sources.include?("not_yet_identified")
     expect(@app.proposal_overview_page.not_yet_identified_funding_total).to have_text(@not_yet_identified_funding_total)
   end
-  if @fcrm_funding_sources.include?("growth_funding")
-    expect(@app.proposal_overview_page.additional_gia_funding_total).to have_text(@additional_gia_contributions_total)
+
+  if @fcrm_funding_sources.include?("environment-statutory-funding")
+    expect(@app.proposal_overview_page.environment_statutory_funding_total).to have_text(@environment_statutory_funding_total)
+  end
+  if @fcrm_funding_sources.include?("frequently-flooded-communities")
+    expect(@app.proposal_overview_page.frequently_flooded_communities_total).to have_text(@frequently_flooded_communities_total)
+  end
+  if @fcrm_funding_sources.include?("other-additional-grant-in-aid")
+    expect(@app.proposal_overview_page.other_additional_grant_in_aid_total).to have_text(@other_additional_grant_in_aid_total)
+  end
+  if @fcrm_funding_sources.include?("other-government-department")
+    expect(@app.proposal_overview_page.other_government_department_total).to have_text(@other_government_department_total)
+  end
+  if @fcrm_funding_sources.include?("summer-economic-fund")
+    expect(@app.proposal_overview_page.summer_economic_fund_total).to have_text(@summer_economic_fund_total)
+  end
+  if @fcrm_funding_sources.include?("recovery")
+    expect(@app.proposal_overview_page.recovery_total).to have_text(@recovery_total)
+  end
+  if @fcrm_funding_sources.include?("asset-replacement-allowance")
+    expect(@app.proposal_overview_page.asset_replacement_allowance_total).to have_text(@asset_replacement_allowance_total)
   end
 end
 
