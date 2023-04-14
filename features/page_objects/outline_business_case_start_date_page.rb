@@ -1,4 +1,4 @@
-class StartOutlineBusinessCaseDatePage < BasePage
+class OutlineBusinessCaseStartDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

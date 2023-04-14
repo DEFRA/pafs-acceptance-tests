@@ -22,3 +22,7 @@ end
 def remove_hyphen_and_capitalise_start(string)
   string.split("-").join(" ").capitalize
 end
+
+def presentable_date(month, year)
+  Date.new(year, month, 1).strftime("%B %Y") # Month-name Year
+end

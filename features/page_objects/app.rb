@@ -64,8 +64,12 @@ class App
     @last_page = BenefitAreaFileSummaryPage.new
   end
 
-  def start_outline_business_case_date_page
-    @last_page = StartOutlineBusinessCaseDatePage.new
+  def outline_business_case_start_date_page
+    @last_page = OutlineBusinessCaseStartDatePage.new
+  end
+
+  def outline_business_case_completion_date_page
+    @last_page = OutlineBusinessCaseCompletionDatePage.new
   end
 
   def award_contract_date_page
@@ -82,6 +86,14 @@ class App
 
   def funding_sources_page
     @last_page = FundingSourcesPage.new
+  end
+
+  def fcrm_funding_sources_page
+    @last_page = FcrmFundingSourcesPage.new
+  end
+
+  def fcrm_gia_funding_sources_page
+    @last_page = FcrmGiaFundingSourcesPage.new
   end
 
   def funding_values_page
