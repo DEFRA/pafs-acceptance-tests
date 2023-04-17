@@ -38,7 +38,7 @@ Feature: Run regression tests
       And I enter important project dates
       And I enter funding sources "grant_in_aid local_levy public_sector private_sector other_sector internal_drainage_boards not_identified"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2024"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040
@@ -73,7 +73,7 @@ Feature: Run regression tests
       When I enter funding sources "grant_in_aid local_levy public_sector private_sector other_sector internal_drainage_boards not_identified fcrm_gia"
       And I enter FCRM grant in aid funding sources "asset_replacement environment_statutory frequently_flooded_communities other_gia other_gov summer_economic recovery"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2020"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040
@@ -110,7 +110,7 @@ Feature: Run regression tests
       And I enter funding sources "private_sector fcrm_gia"
       And I enter FCRM grant in aid funding sources "asset_replacement"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2020"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040

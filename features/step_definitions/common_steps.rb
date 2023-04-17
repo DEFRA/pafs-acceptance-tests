@@ -190,21 +190,18 @@ Given("I click and continue") do
   @app.front_office_home_page.submit_button.click
 end
 
-Given(/^I answer that the project could start sooner by "([^"]*)", "([^"]*)"$/) do |month, year|
+Given("I answer the earliest start date section") do
   @app.proposal_overview_page.add_earliest_start.click
-  @app.earliest_start_page.submit(
+  @app.earliest_start_date_page.submit(
+    month: 2,
+    year: Time.now.year + 1
+  )
+  @app.earlier_start_question_page.submit(
     earlier_start: true
   )
-  @app.earliest_date_page.submit(
-    month: month.to_sym,
-    year: year.to_sym
-  )
-end
-
-Given("I answer NO if the project could start sooner") do
-  @app.proposal_overview_page.add_earliest_start.click
-  @app.earliest_start_page.submit(
-    earlier_start: false
+  @app.earlier_start_date_page.submit(
+    month: 1,
+    year: Time.now.year + 1
   )
 end
 

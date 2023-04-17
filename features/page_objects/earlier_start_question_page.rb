@@ -1,4 +1,4 @@
-class EarliestStartPage < BasePage
+class EarlierStartQuestionPage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 

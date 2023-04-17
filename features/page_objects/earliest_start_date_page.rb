@@ -1,4 +1,4 @@
-class EarliestDatePage < BasePage
+class EarliestStartDatePage < BasePage
 
   section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
 
