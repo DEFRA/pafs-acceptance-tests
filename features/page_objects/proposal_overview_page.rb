@@ -23,7 +23,7 @@ class ProposalOverviewPage < BasePage
 
   # Funding sources and spending section
   element(:add_funding_source, "a[href$='/funding_sources")
-  element(:add_earliest_start, "a[href$='/earliest_start']")
+  element(:add_earliest_start, "a[href$='/earliest_start_date']")
   element(:add_risks, "a[href$='/risks']")
   element(:add_standard_of_protection, "a[href$='standard_of_protection']")
   element(:add_standard_of_coastal_protection, "a[href$='standard_of_protection_coastal']")
