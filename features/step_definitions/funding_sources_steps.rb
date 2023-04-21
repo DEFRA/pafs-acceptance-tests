@@ -41,7 +41,6 @@ Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_sour
   end
   @app.fcrm_funding_sources_page.submit_button.click
 
-
 end
 
 Given("I enter funding source contributors and values") do
