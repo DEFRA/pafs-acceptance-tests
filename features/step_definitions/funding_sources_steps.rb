@@ -1,7 +1,6 @@
 Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
   @app.proposal_overview_page.add_funding_source.click
   @fcrm_funding_sources = []
-  @fcrm_funding_sources = []
   @funding_sources = []
   funding_source.split.each do |source|
     slug_fundingsource = {
@@ -10,7 +9,6 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
       "public_sector" => "public-contributions",
       "private_sector" => "private-contributions",
       "other_sector" => "other-ea-contributions",
-      "fcrm_gia" => "growth-funding",
       "fcrm_gia" => "growth-funding",
       "internal_drainage_boards" => "internal-drainage-boards",
       "not_identified" => "not-yet-identified"
@@ -26,26 +24,6 @@ end
 
 Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_source|
   @fcrm_funding_sources = []
-  funding_source.split.each do |source|
-    slug_fundingsource = {
-      "asset_replacement" => "asset-replacement-allowance",
-      "environment_statutory" => "environment-statutory-funding",
-      "frequently_flooded_communities" => "frequently-flooded-communities",
-      "other_gia" => "other-additional-grant-in-aid",
-      "other_gov" => "other-government-department",
-      "recovery" => "recovery",
-      "summer_economic" => "summer-economic-fund"
-    }.freeze
-    @fcrm_funding_sources << slug_fundingsource[source]
-    @app.fcrm_funding_sources_page.submit(
-      funding_sources: slug_fundingsource[source]
-    )
-  end
-  @app.fcrm_funding_sources_page.submit_button.click
-
-end
-
-Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_source|
   funding_source.split.each do |source|
     slug_fundingsource = {
       "asset_replacement" => "asset-replacement-allowance",
