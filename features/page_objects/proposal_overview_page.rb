@@ -44,7 +44,6 @@ class ProposalOverviewPage < BasePage
   element(:other_funding_total, "#funding-contributions-from-other-environment-agency-functions-or-sources")
   element(:internal_drainage_board_funding_total, "[id^='funding-funds-recovered-from-an-internal-drainage'")
   element(:not_yet_identified_funding_total, "#funding-other-funding-sources-not-yet-identified")
-
   element(:environment_statutory_funding_total, "#funding-environment-statutory-funding")
   element(:frequently_flooded_communities_total, "#funding-frequently-flooded-communities")
   element(:other_additional_grant_in_aid_total, "#funding-other-additional-grant-in-aid")
@@ -52,7 +51,6 @@ class ProposalOverviewPage < BasePage
   element(:summer_economic_fund_total, "#funding-summer-economic-fund")
   element(:recovery_total, "#funding-recovery")
   element(:asset_replacement_allowance_total, "#funding-asset-replacement-allowance")
-
   # Natural flood measures section
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-field")
 

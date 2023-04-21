@@ -23,6 +23,7 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
 end
 
 Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_source|
+  @fcrm_funding_sources = []
   funding_source.split.each do |source|
     slug_fundingsource = {
       "asset_replacement" => "asset-replacement-allowance",
@@ -39,6 +40,8 @@ Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_sour
     )
   end
   @app.fcrm_funding_sources_page.submit_button.click
+
+
 end
 
 Given("I enter funding source contributors and values") do
@@ -88,7 +91,6 @@ Given("I enter funding source contributors and values") do
     if @fcrm_funding_sources.include?("asset-replacement-allowance")
       @app.funding_values_page.submit(funding: :asset_replacement)
     end
-
   end
   # takes focus off last cell to start total calculation
   @app.funding_values_page.grand_total.click
