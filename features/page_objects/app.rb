@@ -104,12 +104,16 @@ class App
     @last_page = ContributerFundingValuesPage.new
   end
 
-  def earliest_start_page
-    @last_page = EarliestStartPage.new
+  def earliest_start_date_page
+    @last_page = EarliestStartDatePage.new
   end
 
-  def earliest_date_page
-    @last_page = EarliestDatePage.new
+  def earlier_start_question_page
+    @last_page = EarlierStartQuestionPage.new
+  end
+
+  def earlier_start_date_page
+    @last_page = EarlierStartDatePage.new
   end
 
   def risks_page

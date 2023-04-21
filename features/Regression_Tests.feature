@@ -38,7 +38,7 @@ Feature: Run regression tests
       And I enter important project dates
       And I enter funding sources "grant_in_aid local_levy public_sector private_sector other_sector internal_drainage_boards not_identified"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2024"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040
@@ -63,16 +63,17 @@ Feature: Run regression tests
      Then I should see that my proposal is sent for review
 
   @smoke
-   Scenario: Submit a new RMA project with multi funding sources and PFC Vs2020 Calc
+   Scenario: Submit a new RMA project with multiple funding sources and PFC Vs2020 Calc
     Given I sign in as a "rma" user
       And I create a new "restore asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
       And I enter important project dates
-      And I enter funding sources "grant_in_aid local_levy private_sector internal_drainage_boards not_identified"  
+      When I enter funding sources "grant_in_aid local_levy public_sector private_sector other_sector internal_drainage_boards not_identified fcrm_gia"
+      And I enter FCRM grant in aid funding sources "asset_replacement environment_statutory frequently_flooded_communities other_gia other_gov summer_economic recovery"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2020"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040
@@ -96,7 +97,7 @@ Feature: Run regression tests
      When I submit my proposal
      Then I should see that my proposal is sent for review
 
-  Scenario: Submit a new PSO project with one source and PFC Vs2020 Calc
+  Scenario: Submit a dual rma user proposal
     Given I sign in as a "dual_rma" user
       And I create a new proposal
       And I enter a new project name
@@ -106,9 +107,10 @@ Feature: Run regression tests
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
       And I enter important project dates
-      And I enter funding sources "private_sector"
+      And I enter funding sources "private_sector fcrm_gia"
+      And I enter FCRM grant in aid funding sources "asset_replacement"
       And I enter funding source contributors and values
-      And I answer that the project could start sooner by "01", "2020"
+      And I answer the earliest start date section
       And I add my project risks "tidal coastal"
       And I complete the flood protection outcome values
       And I complete the flood protection outcome values for 2040
