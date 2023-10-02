@@ -11,6 +11,7 @@ Given(/^I upload a project funding calculator with file option "([^"]*)", "([^"]
     option: radiotype.to_sym,
     file: filename
   )
+  expect(@app.funding_calculator_summary_page.uploaded_file).to have_text(filename)
   @app.funding_calculator_summary_page.submit
 end
 
