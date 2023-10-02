@@ -21,14 +21,15 @@ Feature: Run regression tests
     And I select a financial year to stop spending
    When I am returned to the proposal overview page
    Then I should see the project type is "Add property level protection for properties within the 'very significant' flood band where there is a 5% or greater chance of flooding"
-
+   
    Scenario: Created proposal and check it is in a draft status
     Given I sign in as a "rma" user
       And I create a new "new or improve asset" project
       And I select a financial year to stop spending
      When I return to the proposal overview page
-     Then its status is draft
-
+     Then its status is Draft
+     
+  @smoke
   Scenario: Submit a new RMA project with multiple funding sources and PFC Vs8 Calc
       Given I sign in as a "rma" user
       And I create a new "restore asset" project
@@ -61,6 +62,7 @@ Feature: Run regression tests
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
+     And its status is Submitted
 
   @smoke
    Scenario: Submit a new RMA project with multiple funding sources and PFC Vs2020 Calc
@@ -96,7 +98,9 @@ Feature: Run regression tests
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
+     And its status is Submitted
 
+  @smoke
   Scenario: Submit a dual rma user proposal
     Given I sign in as a "dual_rma" user
       And I create a new proposal
@@ -133,3 +137,4 @@ Feature: Run regression tests
       And I add how much carbon will this project’s assets produce in their lifecycle "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
+     And its status is Submitted

@@ -11,10 +11,10 @@ end
 
 Given(/^I create a new "([^"]*)" project$/) do |action|
   @app.projects_page.create_proposal.click
-  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
-  puts newname
+  @project_name = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts @project_name
   @app.project_name_page.submit(
-    project_name: newname.to_sym
+    project_name: @project_name.to_sym
   )
 
   @app.project_area_selection_page.select_first_area if @user_type == "pso"
@@ -27,15 +27,11 @@ Given(/^I create a new proposal$/) do
   @app.projects_page.create_proposal.click
 end
 
-Given(/^I select an existing proposal$/) do
-  @app.proposal_overview_page.first_project.click
-end
-
 Given(/^I enter a new project name$/) do
-  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
-  puts newname
+  @project_name = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts @project_name
   @app.project_name_page.submit(
-    project_name: newname.to_sym
+    project_name: @project_name.to_sym
   )
 end
 
@@ -241,9 +237,11 @@ Then("I should see that my proposal is sent for review") do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
   expect(@app.confirm_page).to have_text("Proposal sent for review")
+  @app.confirm_page.return_to_proposals.click
 end
 
-Given(/^its status is draft$/) do
-  @status = @app.proposal_overview_page.first_project.text
-  expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
+Given(/^its status is (.*)$/) do |status|
+  expect(@app.projects_page.first_project_name.text).to eq @project_name
+  @status = @app.projects_page.first_project_status.text
+  expect(@app.projects_page.first_project_status.text).to eq status
 end
