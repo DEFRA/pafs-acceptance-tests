@@ -15,7 +15,6 @@ class EditOrganisationPage < BasePage
     authority_code.select(args[:auth_code]) if args.key?(:auth_code)
     associated_pso.select(args[:pso]) if args.key?(:pso)
     end_date.click
-    # end_date.select(args[:date]) if args.key?(:date)
     fill_in(:end_date, with: :date) if args.key?(:date)
     submit_button.click
   end
