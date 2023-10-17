@@ -1,6 +1,6 @@
 class ProjectAreaSelectionPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:source, "input[type='radio']", visible: false)
 

@@ -1,6 +1,6 @@
 class AwardContractDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#award-contract-date-step-award-contract-month-field")
   element(:year, "#award-contract-date-step-award-contract-year-field")

@@ -2,7 +2,7 @@
 
 class ConfidenceHomesBetterProtectedPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:high, "#confidence-homes-better-protected-step-confidence-homes-better-protected-high-field", visible: false)
   element(:mednium_high, "#confidence-homes-better-protected-step-confidence-homes-better-protected-medium-high-field",

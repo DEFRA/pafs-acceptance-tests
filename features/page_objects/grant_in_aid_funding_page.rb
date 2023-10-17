@@ -1,6 +1,6 @@
 class GrantInAidFundingPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:gia_yes, "#funding_sources_step_fcerm_gia")
   element(:gia_no, "#funding_sources_step_fcerm_gia")

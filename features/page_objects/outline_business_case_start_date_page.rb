@@ -1,6 +1,6 @@
 class OutlineBusinessCaseStartDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#start-outline-business-case-date-step-start-outline-business-case-month-field")
   element(:year, "#start-outline-business-case-date-step-start-outline-business-case-year-field")

@@ -1,6 +1,6 @@
 class EarlierStartDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#earliest-start-date-with-gia-step-earliest-with-gia-month-field")
   element(:year, "#earliest-start-date-with-gia-step-earliest-with-gia-year-field")

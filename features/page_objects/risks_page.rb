@@ -1,6 +1,6 @@
 class RisksPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:sources, "input[type='checkbox']", visible: false)
 

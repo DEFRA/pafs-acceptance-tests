@@ -1,6 +1,6 @@
 class FundingValuesPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:gia_years, "input[name$='[fcerm_gia]']")
   elements(:local_levy_years, "input[name$='[local_levy]']")

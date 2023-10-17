@@ -2,7 +2,7 @@
 
 class StandardOfProtectionCoastalAfterPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:less_that_ten_years, "#standard-of-protection-coastal-after-step-coastal-protection-after-0-field",
           visible: false)

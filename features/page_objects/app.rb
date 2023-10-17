@@ -12,8 +12,24 @@ class App
     @last_page = FrontOfficeHomePage.new
   end
 
+  def back_office_home_page
+    @last_page = BackOfficeHomePage.new
+  end
+
+  def manage_organisation_page
+    @last_page = ManageOrganisationPage.new
+  end
+
+  def edit_organisation_page
+    @last_page = EditOrganisationPage.new
+  end
+
   def login_page
     @last_page = LoginPage.new
+  end
+
+  def back_office_login_page
+    @last_page = BackOfficeLoginPage.new
   end
 
   def projects_page

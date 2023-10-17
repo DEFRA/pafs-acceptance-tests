@@ -1,8 +1,9 @@
 require_relative "base_page"
+require_relative "section/user_bar"
 
 class ApproachPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:approach, "#approach-step-approach-field")
 

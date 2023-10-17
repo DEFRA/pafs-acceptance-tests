@@ -49,7 +49,7 @@ end
 
 Given(/^I select a financial year to stop spending$/) do
   current_year = Time.now.year
-  next_year = current_year + 1
+  next_year = current_year + 3
   @app.project_year_page.submit(
     option: next_year
   )
@@ -190,14 +190,14 @@ Given("I answer the earliest start date section") do
   @app.proposal_overview_page.add_earliest_start.click
   @app.earliest_start_date_page.submit(
     month: 2,
-    year: Time.now.year + 1
+    year: Time.now.year + 2
   )
   @app.earlier_start_question_page.submit(
     earlier_start: true
   )
   @app.earlier_start_date_page.submit(
     month: 1,
-    year: Time.now.year + 1
+    year: Time.now.year + 2
   )
 end
 

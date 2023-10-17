@@ -1,6 +1,6 @@
 class StartConstructionDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#start-construction-date-step-start-construction-month-field")
   element(:year, "#start-construction-date-step-start-construction-year-field")

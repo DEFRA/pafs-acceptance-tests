@@ -1,6 +1,6 @@
 class BenefitAreaFilePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:choose_file, "#benefit-area-file-step-benefit-area-file-field")
 
