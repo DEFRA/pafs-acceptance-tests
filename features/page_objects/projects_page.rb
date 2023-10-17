@@ -1,6 +1,6 @@
 class ProjectsPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:create_proposal, "a[href='/pc/bootstraps/new']")
   element(:search_field, "#q")

@@ -2,7 +2,7 @@
 
 class ConfidenceHomesByGatewayFourPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:high, "#confidence-homes-by-gateway-four-step-confidence-homes-by-gateway-four-high-field", visible: false)
   element(:mednium_high, "#confidence-homes-by-gateway-four-step-confidence-homes-by-gateway-four-medium-high-field",

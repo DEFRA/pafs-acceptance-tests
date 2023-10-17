@@ -1,6 +1,6 @@
 class EnvironmentalOutcomesPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:improve_yes, "#any-environmental-benefits-step-environmental-benefits-true-field", visible: false)
   element(:improve_no, "#any-environmental-benefits-step-environmental-benefits-false-field", visible: false)

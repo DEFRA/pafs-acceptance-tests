@@ -1,6 +1,6 @@
 class EarlierStartQuestionPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:start_sooner_yes, "#could-start-sooner-step-could-start-early-true-field", visible: false)
   element(:start_sooner_no, "#could-start-sooner-step-could-start-early-false-field", visible: false)

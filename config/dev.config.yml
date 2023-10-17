@@ -3,6 +3,7 @@ app_host: "https://paf-dev.aws.defra.cloud"
 custom: 
   urls: 
     front_office: "https://paf-dev.aws.defra.cloud/users/sign_in"
+    back_office: "https://paf-admin-dev.aws.defra.cloud/users/sign_in"
   user_accounts:
     rma:
       username: paf1@example.com
@@ -13,9 +14,9 @@ custom:
     area:
       username: paf4@example.com
 display_failures: true
-driver: chrome
+driver: firefox
 headless: false
-max_wait_time: 10
+max_wait_time: 20
 pause: 0
 print_progress: false
 stop_on_error: true

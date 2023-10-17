@@ -1,6 +1,6 @@
 class NaturalFloodRiskMeasuresCostPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:total_cost, "#natural-flood-risk-measures-cost-step-natural-flood-risk-measures-cost-field")
 

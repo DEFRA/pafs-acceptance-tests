@@ -1,6 +1,6 @@
 class FundingCalculatorPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:signed_off_after, "#funding-calculator-step-expected-version-v9-field", visible: false)
   element(:signed_off_before, "#funding-calculator-step-expected-version-v8-field", visible: false)

@@ -1,6 +1,6 @@
 class StandardOfProtectionPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:very_significant, "#standard-of-protection-step-flood-protection-before-0-field", visible: false)
   element(:significant, "#standard-of-protection-step-flood-protection-before-1-field", visible: false)

@@ -1,6 +1,6 @@
 class OutlineBusinessCaseCompletionDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#complete-outline-business-case-date-step-complete-outline-business-case-month-field")
   element(:year, "#complete-outline-business-case-date-step-complete-outline-business-case-year-field")

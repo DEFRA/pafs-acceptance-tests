@@ -1,6 +1,6 @@
 class EarliestStartDatePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:month, "#earliest-start-date-step-earliest-start-month-field")
   element(:year, "#earliest-start-date-step-earliest-start-year-field")

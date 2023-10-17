@@ -1,6 +1,6 @@
 class LocationPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:location, "#location-step-grid-reference-field")
 

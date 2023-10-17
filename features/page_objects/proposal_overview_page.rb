@@ -1,6 +1,6 @@
 class ProposalOverviewPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:project_number, ".project-overview-head dd:nth-child(2)")
   element(:project_name, "#project-project_name-content p")

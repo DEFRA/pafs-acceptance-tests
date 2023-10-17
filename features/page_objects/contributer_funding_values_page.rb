@@ -1,6 +1,6 @@
 class ContributerFundingValuesPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:sources, "input[type='number']")
   elements(:funding_secured, "input[name$='[secured]'][type='checkbox']", visible: false)

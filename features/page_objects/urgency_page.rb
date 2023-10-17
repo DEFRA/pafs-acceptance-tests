@@ -1,6 +1,6 @@
 class UrgencyPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:nu, "#urgency-step-urgency-reason-not-urgent-field", visible: false)
   element(:stat, "#urgency-step-urgency-reason-statutory-need-field", visible: false)

@@ -1,6 +1,6 @@
 class ProjectTypePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:defence, "#project-type-step-project-type-def-field", visible: false)
   element(:cm, "#project-type-step-project-type-cm-field", visible: false)

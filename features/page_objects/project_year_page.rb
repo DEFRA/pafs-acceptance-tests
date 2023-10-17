@@ -1,6 +1,6 @@
 class ProjectYearPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:years, "input[name='financial_year_step[project_end_financial_year]']", visible: false)
 

@@ -1,6 +1,6 @@
 class NaturalFloodRiskMeasuresQuestionPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:yes, "#natural-flood-risk-measures-included-step-natural-flood-risk-measures-included-true-field",
           visible: false)
