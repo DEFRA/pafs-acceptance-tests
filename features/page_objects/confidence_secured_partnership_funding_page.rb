@@ -1,6 +1,6 @@
 class ConfidenceSecuredPartnershipFundingPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
   # rubocop:disable Layout/LineLength
   element(:high, "#confidence-secured-partnership-funding-step-confidence-secured-partnership-funding-high-field", visible: false)
   element(:mednium_high, "#confidence-secured-partnership-funding-step-confidence-secured-partnership-funding-medium-high-field", visible: false)

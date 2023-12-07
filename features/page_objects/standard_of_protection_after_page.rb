@@ -2,7 +2,7 @@
 
 class StandardOfProtectionAfterPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:very_significant, "#standard-of-protection-after-step-flood-protection-after-0-field", visible: false)
   element(:significant, "#standard-of-protection-after-step-flood-protection-after-1-field", visible: false)

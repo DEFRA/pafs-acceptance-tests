@@ -1,6 +1,6 @@
 class CarbonCostBuild < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:amount, "#carbon-cost-build-step-carbon-cost-build-field")
 

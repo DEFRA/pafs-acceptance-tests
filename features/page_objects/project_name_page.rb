@@ -1,6 +1,6 @@
 class ProjectNamePage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:project_name, "#project-name-step-name-field")
 

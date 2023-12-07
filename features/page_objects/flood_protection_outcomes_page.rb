@@ -1,6 +1,6 @@
 class FloodProtectionOutcomesPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
   # How many properties affected by flooding is the project likely to benefit?
 
   elements(:column_a, "input.reduced-risk")

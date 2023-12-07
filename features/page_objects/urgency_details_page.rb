@@ -1,6 +1,6 @@
 class UrgencyDetailsPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:details, "#urgency-details-step-urgency-details-field")
 

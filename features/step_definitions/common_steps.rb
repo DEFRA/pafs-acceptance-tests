@@ -11,10 +11,10 @@ end
 
 Given(/^I create a new "([^"]*)" project$/) do |action|
   @app.projects_page.create_proposal.click
-  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
-  puts newname
+  @project_name = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts @project_name
   @app.project_name_page.submit(
-    project_name: newname.to_sym
+    project_name: @project_name.to_sym
   )
 
   @app.project_area_selection_page.select_first_area if @user_type == "pso"
@@ -27,15 +27,11 @@ Given(/^I create a new proposal$/) do
   @app.projects_page.create_proposal.click
 end
 
-Given(/^I select an existing proposal$/) do
-  @app.proposal_overview_page.first_project.click
-end
-
 Given(/^I enter a new project name$/) do
-  newname = "Functional_Test_Project_Name_#{Time.now.to_i}"
-  puts newname
+  @project_name = "Functional_Test_Project_Name_#{Time.now.to_i}"
+  puts @project_name
   @app.project_name_page.submit(
-    project_name: newname.to_sym
+    project_name: @project_name.to_sym
   )
 end
 
@@ -53,7 +49,7 @@ end
 
 Given(/^I select a financial year to stop spending$/) do
   current_year = Time.now.year
-  next_year = current_year + 1
+  next_year = current_year + 3
   @app.project_year_page.submit(
     option: next_year
   )
@@ -65,36 +61,81 @@ When("I select a financial year to stop spending as {string}") do |last_year|
   @app.project_year_alternative_page.submit(year: @last_year)
 end
 
-Given(/^I enter a business case start date$/) do
+Given("I enter a business case start date") do
   @app.proposal_overview_page.add_important_dates.click
-  @app.start_outline_business_case_date_page.submit(
-    month: "01",
-    year: "2020"
+  @business_case_start_date_month = 1
+  @business_case_start_date_year = Time.now.year + 1
+  @app.outline_business_case_start_date_page.submit(
+    month: @business_case_start_date_month,
+    year: @business_case_start_date_year
   )
 end
 
-Given(/^I enter an award contract date$/) do
+Given("I enter a business case completion date") do
+  @business_case_completion_date_month = 2
+  @business_case_completion_date_year = Time.now.year + 1
+  @app.outline_business_case_completion_date_page.submit(
+    month: @business_case_completion_date_month,
+    year: @business_case_completion_date_year
+  )
+end
+
+Given("I enter an award contract date") do
+  @award_contract_date_month = 3
+  @award_contract_date_year = Time.now.year + 1
   @app.award_contract_date_page.submit(
-    month: "01",
-    year: "2021"
+    month: @award_contract_date_month,
+    year: @award_contract_date_year
   )
 end
 
-Given(/^I enter a construction start date$/) do
+Given("I enter a construction start date") do
+  @construction_start_date_month = 4
+  @construction_start_date_year = Time.now.year + 1
   @app.start_construction_date_page.submit(
-    month: "01",
-    year: "2022"
+    month: @construction_start_date_month,
+    year: @construction_start_date_year
   )
 end
 
-Given(/^I enter a ready for service date$/) do
+Given("I enter a ready for service date") do
+  @ready_for_service_date_month = 5
+  @ready_for_service_date_year = Time.now.year + 1
   @app.ready_for_service_date_page.submit(
-    month: "01",
-    year: "2023"
+    month: @ready_for_service_date_month,
+    year: @ready_for_service_date_year
   )
 end
 
-Given(/^I return to the overview page$/) do
+Given("I enter important project dates") do
+  @app.proposal_overview_page.add_important_dates.click
+  @app.outline_business_case_start_date_page.submit(
+    month: 1,
+    year: Time.now.year + 1
+  )
+
+  @app.outline_business_case_completion_date_page.submit(
+    month: 2,
+    year: Time.now.year + 1
+  )
+
+  @app.award_contract_date_page.submit(
+    month: 3,
+    year: Time.now.year + 1
+  )
+
+  @app.start_construction_date_page.submit(
+    month: 4,
+    year: Time.now.year + 1
+  )
+
+  @app.ready_for_service_date_page.submit(
+    month: 5,
+    year: Time.now.year + 1
+  )
+end
+
+Given("I return to the overview page") do
   @app.proposal_under_review_page.return_to_the_proposal_overview_page.click
 end
 
@@ -145,21 +186,18 @@ Given("I click and continue") do
   @app.front_office_home_page.submit_button.click
 end
 
-Given(/^I answer that the project could start sooner by "([^"]*)", "([^"]*)"$/) do |month, year|
+Given("I answer the earliest start date section") do
   @app.proposal_overview_page.add_earliest_start.click
-  @app.earliest_start_page.submit(
+  @app.earliest_start_date_page.submit(
+    month: 2,
+    year: Time.now.year + 2
+  )
+  @app.earlier_start_question_page.submit(
     earlier_start: true
   )
-  @app.earliest_date_page.submit(
-    month: month.to_sym,
-    year: year.to_sym
-  )
-end
-
-Given("I answer NO if the project could start sooner") do
-  @app.proposal_overview_page.add_earliest_start.click
-  @app.earliest_start_page.submit(
-    earlier_start: false
+  @app.earlier_start_date_page.submit(
+    month: 1,
+    year: Time.now.year + 2
   )
 end
 
@@ -199,9 +237,11 @@ Then("I should see that my proposal is sent for review") do
   expect(@app.confirm_page).to have_project_number
   @project_number = @app.confirm_page.project_number.text
   expect(@app.confirm_page).to have_text("Proposal sent for review")
+  @app.confirm_page.return_to_proposals.click
 end
 
-Given(/^its status is draft$/) do
-  @status = @app.proposal_overview_page.first_project.text
-  expect(@app.proposal_overview_page.first_project.text).to eq "Draft"
+Given(/^its status is (.*)$/) do |status|
+  expect(@app.projects_page.first_project_name.text).to eq @project_name
+  @status = @app.projects_page.first_project_status.text
+  expect(@app.projects_page.first_project_status.text).to eq status
 end

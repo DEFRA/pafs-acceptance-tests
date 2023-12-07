@@ -1,6 +1,6 @@
 class FloodProtectionOutcomes2040Page < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   elements(:column_a, "input.households-protected")
   elements(:column_b, "input.significant-to-low-risk")

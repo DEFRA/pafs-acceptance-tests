@@ -12,8 +12,24 @@ class App
     @last_page = FrontOfficeHomePage.new
   end
 
+  def back_office_home_page
+    @last_page = BackOfficeHomePage.new
+  end
+
+  def manage_organisation_page
+    @last_page = ManageOrganisationPage.new
+  end
+
+  def edit_organisation_page
+    @last_page = EditOrganisationPage.new
+  end
+
   def login_page
     @last_page = LoginPage.new
+  end
+
+  def back_office_login_page
+    @last_page = BackOfficeLoginPage.new
   end
 
   def projects_page
@@ -64,8 +80,12 @@ class App
     @last_page = BenefitAreaFileSummaryPage.new
   end
 
-  def start_outline_business_case_date_page
-    @last_page = StartOutlineBusinessCaseDatePage.new
+  def outline_business_case_start_date_page
+    @last_page = OutlineBusinessCaseStartDatePage.new
+  end
+
+  def outline_business_case_completion_date_page
+    @last_page = OutlineBusinessCaseCompletionDatePage.new
   end
 
   def award_contract_date_page
@@ -84,6 +104,14 @@ class App
     @last_page = FundingSourcesPage.new
   end
 
+  def fcrm_funding_sources_page
+    @last_page = FcrmFundingSourcesPage.new
+  end
+
+  def fcrm_gia_funding_sources_page
+    @last_page = FcrmGiaFundingSourcesPage.new
+  end
+
   def funding_values_page
     @last_page = FundingValuesPage.new
   end
@@ -92,12 +120,16 @@ class App
     @last_page = ContributerFundingValuesPage.new
   end
 
-  def earliest_start_page
-    @last_page = EarliestStartPage.new
+  def earliest_start_date_page
+    @last_page = EarliestStartDatePage.new
   end
 
-  def earliest_date_page
-    @last_page = EarliestDatePage.new
+  def earlier_start_question_page
+    @last_page = EarlierStartQuestionPage.new
+  end
+
+  def earlier_start_date_page
+    @last_page = EarlierStartDatePage.new
   end
 
   def risks_page

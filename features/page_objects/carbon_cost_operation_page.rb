@@ -1,6 +1,6 @@
 class CarbonCostOperationPage < BasePage
 
-  section(:user_bar, AdminUserBarSection, AdminUserBarSection::SELECTOR)
+  section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
   element(:amount, "#carbon-cost-operation-step-carbon-cost-operation-field")
 
