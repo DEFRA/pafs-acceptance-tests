@@ -29,7 +29,7 @@ Scenario: Adding a coast risk protection requires coastal erosion protection out
     When I add the coastal erosion protection outcome values
     Then I can see the flood risks in the proposal overview
      And I can see "Tidal flooding" is the main project risk
-@wip
+
  Scenario: Submission validation when outcome values data is entered outside of date range of project
   Given I sign in as a "rma" user
       And I create a new proposal
