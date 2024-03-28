@@ -1,5 +1,6 @@
 @risks
-Feature: Project risks
+# Tell us the risks the project protects against and the households benefitting.
+Feature: Risks and properties benefitting
 
 What risks will the project protect against?
 
@@ -28,3 +29,16 @@ Scenario: Adding a coast risk protection requires coastal erosion protection out
     When I add the coastal erosion protection outcome values
     Then I can see the flood risks in the proposal overview
      And I can see "Tidal flooding" is the main project risk
+
+ Scenario: Submission validation when outcome values data is entered outside of date range of project
+  Given I sign in as a "rma" user
+      And I create a new proposal
+      And I enter a new project name
+      And I select a project type "restore asset"
+      And I select a financial year to stop spending as "2030"
+      And I answer the earliest start date as "2025"
+      And I enter the ready for service date as "2029"
+      And I add my project risks "coastal"
+      When I add the coastal erosion protection outcome values for all funding years
+      And I submit my proposal
+     Then I should be informed "You cannot submit your project proposal, because the ‘Risks and properties benefitting’ data entered is outside the date range for your project."

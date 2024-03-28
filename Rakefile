@@ -4,9 +4,6 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-require "quke"
-load "quke/Rakefile"
-
 task default: :run
 
 desc "Run all scenarios (eq to bundle exec quke)"

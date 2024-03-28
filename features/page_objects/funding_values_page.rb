@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class FundingValuesPage < BasePage
 
   section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
@@ -40,8 +41,37 @@ class FundingValuesPage < BasePage
   element(:summer_economic_fund_total, ".summer_economic_fund-total")
 
   element(:grand_total, ".grand-total")
-  # rubocop:disable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity,Metrics/AbcSize,
-  def submit(args = {})
+  # rubocop:disable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/PerceivedComplexity
+  def fill_last_year(args = {})
+    case args[:funding]
+    when :gia
+      gia_years.last.set(rand(1..10_000))
+    when :local_levy
+      local_levy_years.last.set(rand(1..10_000))
+    when :additional_grant_in_aid
+      additional_gia_years.last.set(rand(1..10_000))
+    when :internal_drainage_boards
+      internal_drainage_board_years.last.set(rand(1..10_000))
+    when :not_yet_identified
+      not_yet_identified_years.last.set(rand(1..10_000))
+    when :environment_stat
+      environment_stat_years.last.set(rand(1..10_000))
+    when :freq_flood
+      freq_flood_years.last.set(rand(1..10_000))
+    when :other_gia
+      other_gia_years.last.set(rand(1..10_000))
+    when :other_gov
+      other_gov_years.last.set(rand(1..10_000))
+    when :summer_economic
+      summer_economic_years.last.set(rand(1..10_000))
+    when :recovery
+      recovery_years.last.set(rand(1..10_000))
+    when :asset_replacement
+      asset_replacement_years.last.set(rand(1..10_000))
+    end
+  end
+
+  def fill_random(args = {})
     case args[:funding]
     when :gia
       gia_years.each do |year|
@@ -92,6 +122,7 @@ class FundingValuesPage < BasePage
         year.set(rand(1..10_000))
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/PerceivedComplexity
   end
-  # rubocop:enable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity,Metrics/AbcSize,
 end
+# rubocop:enable Metrics/ClassLength

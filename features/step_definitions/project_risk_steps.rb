@@ -42,15 +42,19 @@ Given("I add no coastal erosion protection outcome") do
 end
 
 When("I add the coastal erosion protection outcome values") do
+  @app.coastal_erosion_protection_outcomes_page.submit(benefit: :last_year)
+end
+
+When("I add the coastal erosion protection outcome values for all funding years") do
   @app.coastal_erosion_protection_outcomes_page.submit(benefit: :random)
 end
 
 Given("I complete the flood protection outcome values") do
-  @app.flood_protection_outcomes_page.submit(benefit: :random)
+  @app.flood_protection_outcomes_page.submit(benefit: :last_year)
 end
 
 When("I complete the flood protection outcome values for 2040") do
-  @app.flood_protection_outcomes_2040_page.submit(benefit: :random)
+  @app.flood_protection_outcomes_2040_page.submit(benefit: :last_year)
 end
 
 Then(/^I can see the flood risks? in the proposal overview$/) do

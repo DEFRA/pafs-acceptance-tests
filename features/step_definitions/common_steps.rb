@@ -57,7 +57,7 @@ end
 
 When("I select a financial year to stop spending as {string}") do |last_year|
   @last_year = last_year
-  @app.project_year_page.after2028.click
+  @app.project_year_page.later_year.click
   @app.project_year_alternative_page.submit(year: @last_year)
 end
 
@@ -104,6 +104,30 @@ Given("I enter a ready for service date") do
   @app.ready_for_service_date_page.submit(
     month: @ready_for_service_date_month,
     year: @ready_for_service_date_year
+  )
+end
+
+When("I enter the ready for service date as {string}") do |year|
+  @app.proposal_overview_page.add_important_dates.click
+  @app.outline_business_case_start_date_page.submit(
+    month: 1,
+    year: year
+  )
+  @app.outline_business_case_completion_date_page.submit(
+    month: 2,
+    year: year
+  )
+  @app.award_contract_date_page.submit(
+    month: 3,
+    year: year
+  )
+  @app.start_construction_date_page.submit(
+    month: 4,
+    year: year
+  )
+  @app.ready_for_service_date_page.submit(
+    month: 5,
+    year: year
   )
 end
 
@@ -189,15 +213,26 @@ end
 Given("I answer the earliest start date section") do
   @app.proposal_overview_page.add_earliest_start.click
   @app.earliest_start_date_page.submit(
-    month: 2,
-    year: Time.now.year + 2
+    month: 1,
+    year: Time.now.year + 1
   )
   @app.earlier_start_question_page.submit(
     earlier_start: true
   )
   @app.earlier_start_date_page.submit(
+    month: Time.now.month + 1,
+    year: Time.now.year
+  )
+end
+
+Given("I answer the earliest start date as {string}") do |year|
+  @app.proposal_overview_page.add_earliest_start.click
+  @app.earliest_start_date_page.submit(
     month: 1,
-    year: Time.now.year + 2
+    year: year
+  )
+  @app.earlier_start_question_page.submit(
+    earlier_start: false
   )
 end
 
@@ -244,4 +279,8 @@ Given(/^its status is (.*)$/) do |status|
   expect(@app.projects_page.first_project_name.text).to eq @project_name
   @status = @app.projects_page.first_project_status.text
   expect(@app.projects_page.first_project_status.text).to eq status
+end
+
+Then("I should be informed {string}") do |message|
+  expect(@app.confirm_page).to have_text(message)
 end

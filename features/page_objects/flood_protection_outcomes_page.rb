@@ -18,7 +18,7 @@ class FloodProtectionOutcomesPage < BasePage
   element(:column_c_total, ".households-protected-from-loss-in-20-percent-most-deprived-total")
   element(:column_d_total, ".households-protected-through-plp-measures")
   element(:column_e_total, ".non-residential-properties")
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/AbcSize
   def submit(args = {})
     case args[:benefit]
     when :none
@@ -39,8 +39,14 @@ class FloodProtectionOutcomesPage < BasePage
       column_e.each do |cell|
         cell.set(rand(0..10))
       end
+    when :last_year
+      column_a.last.set(rand(1000..10_000))
+      column_b.last.set(rand(100..1000))
+      column_c.last.set(rand(10..100))
+      column_d.last.set(rand(0..10))
+      column_e.last.set(rand(0..10))
     end
     submit_button.click
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/AbcSize
