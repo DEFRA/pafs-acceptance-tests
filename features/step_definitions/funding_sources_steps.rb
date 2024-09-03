@@ -143,6 +143,11 @@ When("I enter grant_in_aid funds for all available years") do
   @app.funding_values_page.submit_button.click
 end
 
+When("I enter grant_in_aid funds for the first available year") do
+  @app.funding_values_page.fill_first_year_random(funding: :gia)
+  @app.funding_values_page.submit_button.click
+end
+
 Given("I enter a new sector contributor") do
   @app.contributor_add_page.submit
 end

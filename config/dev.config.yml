@@ -14,8 +14,8 @@ custom:
     area:
       username: paf4@example.com
 display_failures: true
-driver: firefox
-headless: false
+driver: chrome
+headless: true
 max_wait_time: 20
 pause: 0
 print_progress: false

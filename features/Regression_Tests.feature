@@ -30,9 +30,9 @@ Feature: Run regression tests
      Then its status is Draft
      
   @smoke
-  Scenario: Submit a new RMA project with multiple funding sources and PFC Vs8 Calc
+  Scenario: Submit a new RMA project with multiple funding sources and no PFC
       Given I sign in as a "rma" user
-      And I create a new "restore asset" project
+      And I create a new "property level protection" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
@@ -48,11 +48,10 @@ Feature: Run regression tests
       And I add the standard of protection after project completes as "low_risk"
       And I add the standard of protection coastal erosion starts as "one_to_four_years"
       And I add the standard of protection after coastal erosion project completes as "less_that_ten_years"
-      And I enter the projects goal approach "A new project with multi funding sources and PFC Vs8 Calc"
+      And I enter the projects goal approach "A new project with multi funding sources and no PFC"
       And I enter environmental outcomes improvements
       And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "No", "PFCalcVs8.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
@@ -67,7 +66,7 @@ Feature: Run regression tests
   @smoke
    Scenario: Submit a new RMA project with multiple funding sources and PFC Vs2020 Calc
     Given I sign in as a "rma" user
-      And I create a new "restore asset" project
+      And I create a new "new or improve asset" project
       And I select a financial year to stop spending
       And I add a location "ST 58198 72725"
       And I upload a benefit area file "Valid_ShapeFile.zip"
