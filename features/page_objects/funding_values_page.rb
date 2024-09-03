@@ -41,6 +41,7 @@ class FundingValuesPage < BasePage
   element(:summer_economic_fund_total, ".summer_economic_fund-total")
 
   element(:grand_total, ".grand-total")
+
   # rubocop:disable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/PerceivedComplexity
   def fill_last_year(args = {})
     case args[:funding]
@@ -68,6 +69,35 @@ class FundingValuesPage < BasePage
       recovery_years.last.set(rand(1..10_000))
     when :asset_replacement
       asset_replacement_years.last.set(rand(1..10_000))
+    end
+  end
+
+  def fill_first_year_random(args = {})
+    case args[:funding]
+    when :gia
+      gia_years.first.set(rand(1..10_000))
+    when :local_levy
+      local_levy_years.first.set(rand(1..10_000))
+    when :additional_grant_in_aid
+      additional_gia_years.first.set(rand(1..10_000))
+    when :internal_drainage_boards
+      internal_drainage_board_years.first.set(rand(1..10_000))
+    when :not_yet_identified
+      not_yet_identified_years.first.set(rand(1..10_000))
+    when :environment_stat
+      environment_stat_years.first.set(rand(1..10_000))
+    when :freq_flood
+      freq_flood_years.first.set(rand(1..10_000))
+    when :other_gia
+      other_gia_years.first.set(rand(1..10_000))
+    when :other_gov
+      other_gov_years.first.set(rand(1..10_000))
+    when :summer_economic
+      summer_economic_years.first.set(rand(1..10_000))
+    when :recovery
+      recovery_years.first.set(rand(1..10_000))
+    when :asset_replacement
+      asset_replacement_years.first.set(rand(1..10_000))
     end
   end
 
@@ -122,7 +152,7 @@ class FundingValuesPage < BasePage
         year.set(rand(1..10_000))
       end
     end
-    # rubocop:enable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/PerceivedComplexity
   end
 end
-# rubocop:enable Metrics/ClassLength
+
+# rubocop:enable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/ClassLength,Metrics/PerceivedComplexity

@@ -22,4 +22,4 @@ Scenario: Important dates added to a proposal can be seen on the proposal overvi
       And I answer the earliest start date as "2025"
      When I enter the ready for service date as "2031"
       And I submit my proposal
-     Then I should be informed "Please adjust one or more of these three values so that the Gateway 4 date is within the date range."
+     Then I should be informed "Please adjust one or more of these three values so that the Ready for Service date is within the date range."

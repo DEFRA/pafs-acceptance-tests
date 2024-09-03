@@ -71,11 +71,8 @@ class ProposalOverviewPage < BasePage
   element(:natural_flood_measures_section, "#project-natural_flood_risk_measures-field")
 
   # Risks and properties benefitting section
-
-  # Risks and properties benefitting section
   element(:project_risks_section, "#project-risks .summary-list")
 
-  # Environmental benefits section
   # Environmental benefits section
   element(:environmental_outcomes_section, "#project-environmental_outcomes-field")
   element(:wetland_habitat_total, "#hectares_of_intertidal_habitat_created_or_enhanced")
@@ -89,6 +86,9 @@ class ProposalOverviewPage < BasePage
   element(:comprehensive_restoration_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_comprehensive")
   element(:partial_restoration_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_partial")
   element(:watercourse_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_single")
+
+  # Partnership funding calculator section
+  element(:partnership_funding_calculator, "#funding-calculator")
 
   element(:revert_to_draft, "#[href$='Revert to draft']")
 

@@ -236,6 +236,17 @@ Given("I answer the earliest start date as {string}") do |year|
   )
 end
 
+Given("I answer the earliest start date as after next year") do
+  @app.proposal_overview_page.add_earliest_start.click
+  @app.earliest_start_date_page.submit(
+    month: 1,
+    year: Time.now.year + 2
+  )
+  @app.earlier_start_question_page.submit(
+    earlier_start: false
+  )
+end
+
 When(/^I select the (.*) task$/) do |task|
   case task
   when "funding calculator"
@@ -283,4 +294,12 @@ end
 
 Then("I should be informed {string}") do |message|
   expect(@app.confirm_page).to have_text(message)
+end
+
+Then("I should see the partnership funding calculator section") do
+  expect(@app.proposal_overview_page).to have_partnership_funding_calculator
+end
+
+Then("I should not see the partnership funding calculator section") do
+  expect(@app.proposal_overview_page).not_to have_partnership_funding_calculator
 end
