@@ -1,9 +1,9 @@
 --- 
-app_host: "https://paf-tra.aws.defra.cloud"
+app_host: "https://paf-tra.aws-int.defra.cloud"
 custom: 
   urls: 
-    front_office: "https://paf-tra.aws.defra.cloud/users/sign_in"
-    back_office: "https://paf-admin-tra.aws.defra.cloud/users/sign_in"
+    front_office: "https://paf-tra.aws-int.defra.cloud/users/sign_in"
+    back_office: "https://paf-admin-tra.aws-int.defra.cloud/users/sign_in"
   user_accounts:
     rma:
       username: paf1@example.com
