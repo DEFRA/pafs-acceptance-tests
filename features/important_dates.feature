@@ -19,7 +19,7 @@ Scenario: Important dates added to a proposal can be seen on the proposal overvi
       And I enter a new project name
       And I select a project type "restore asset"
       And I select a financial year to stop spending as "2030"
-      And I answer the earliest start date as "2025"
+      And I answer the earliest start date as "2027"
      When I enter the ready for service date as "2031"
       And I submit my proposal
      Then I should be informed "Please adjust one or more of these three values so that the Ready for Service date is within the date range."
