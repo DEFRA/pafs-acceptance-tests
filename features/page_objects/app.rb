@@ -325,11 +325,15 @@ class App
   end
 
   def carbon_cost_build_page
-    @last_page = CarbonCostBuild.new
+    @last_page = CarbonCostBuildPage.new
   end
 
   def carbon_cost_operation_page
     @last_page = CarbonCostOperationPage.new
+  end
+
+  def carbon_impact_guidance_page
+    @last_page = CarbonImpactGuidancePage.new
   end
 
   def natural_flood_risk_measures_page

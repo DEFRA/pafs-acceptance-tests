@@ -1,4 +1,4 @@
-class CarbonCostBuild < BasePage
+class CarbonCostBuildPage < BasePage
 
   section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
