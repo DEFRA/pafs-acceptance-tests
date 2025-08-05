@@ -89,6 +89,7 @@ class ProposalOverviewPage < BasePage
 
   # Partnership funding calculator section
   element(:partnership_funding_calculator, "#funding-calculator")
+  element(:partnership_funding_section, "#project-funding_calculator-field")
 
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
