@@ -57,8 +57,8 @@ Feature: Run regression tests
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
       And I add the confidence in securing the required Partnership Funding as "not_applicable"
       And I select to complete the carbon net zero section
-      And I add how much capital carbon will this project produce in tonnes "1"
-      And I add how much carbon will this project’s assets produce in their lifecycle "2"
+      And I add how much capital carbon will this project produce as "1"
+      And I add how much operational carbon the project will produce as "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
      And its status is Submitted
@@ -93,8 +93,8 @@ Feature: Run regression tests
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "medium_low"
       And I add the confidence in securing the required Partnership Funding as "not_applicable"
       And I select to complete the carbon net zero section
-      And I add how much capital carbon will this project produce in tonnes "1"
-      And I add how much carbon will this project’s assets produce in their lifecycle "2"
+      And I add how much capital carbon will this project produce as "1"
+      And I add how much operational carbon the project will produce as "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
      And its status is Submitted
@@ -132,8 +132,8 @@ Feature: Run regression tests
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
       And I add the confidence in securing the required Partnership Funding as "not_applicable"
       And I select to complete the carbon net zero section
-      And I add how much capital carbon will this project produce in tonnes "1"
-      And I add how much carbon will this project’s assets produce in their lifecycle "2"
+      And I add how much capital carbon will this project produce as "1"
+      And I add how much operational carbon the project will produce as "2"
      When I submit my proposal
      Then I should see that my proposal is sent for review
      And its status is Submitted

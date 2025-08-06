@@ -1,0 +1,22 @@
+--- 
+app_host: "https://paf-tst.aws-int.defra.cloud"
+custom: 
+  urls: 
+    front_office: "https://paf-tst.aws-int.defra.cloud/users/sign_in"
+    back_office: "https://paf-admin-tst.aws-int.defra.cloud/users/sign_in"
+  user_accounts:
+    rma:
+      username: paf1@example.com
+    dual_rma:
+      username: paf2@example.com
+    pso:
+      username: paf3@example.com
+    area:
+      username: paf4@example.com
+display_failures: true
+driver: firefox
+headless: false
+max_wait_time: 20
+pause: 0
+print_progress: false
+stop_on_error: true

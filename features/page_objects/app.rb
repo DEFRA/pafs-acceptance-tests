@@ -336,6 +336,22 @@ class App
     @last_page = CarbonImpactGuidancePage.new
   end
 
+  def carbon_sequestered_page
+    @last_page = CarbonSequesteredPage.new
+  end
+
+  def carbon_avoided_page
+    @last_page = CarbonAvoidedPage.new
+  end
+
+  def carbon_net_total_page
+    @last_page = CarbonNetTotalPage.new
+  end
+
+  def carbon_net_benefit_page
+    @last_page = CarbonNetBenefitPage.new
+  end
+
   def natural_flood_risk_measures_page
     @last_page = NaturalFloodRiskMeasuresPage.new
   end
@@ -346,6 +362,10 @@ class App
 
   def natural_flood_risk_measures_cost_page
     @last_page = NaturalFloodRiskMeasuresCostPage.new
+  end
+
+  def whole_life_carbon_page
+    @last_page = WholeLifeCarbonPage.new
   end
 
 end
