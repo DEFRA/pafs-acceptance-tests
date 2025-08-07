@@ -1,8 +1,8 @@
-class CarbonCostBuildPage < BasePage
+class CarbonNetBenefitPage < BasePage
 
   section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
-  element(:amount, "#carbon-cost-build-step-carbon-cost-build-field")
+  element(:amount, "#net-carbon-benefit-step-carbon-savings-net-economic-benefit-field")
 
   def submit(args = {})
     amount.set(args[:amount]) if args.key?(:amount)

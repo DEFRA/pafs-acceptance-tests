@@ -1,8 +1,8 @@
-class CarbonCostBuildPage < BasePage
+class CarbonSequesteredPage < BasePage
 
   section(:user_bar, UserBarSection, UserBarSection::SELECTOR)
 
-  element(:amount, "#carbon-cost-build-step-carbon-cost-build-field")
+  element(:amount, "#carbon-cost-sequestered-step-carbon-cost-sequestered-field")
 
   def submit(args = {})
     amount.set(args[:amount]) if args.key?(:amount)
