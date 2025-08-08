@@ -87,7 +87,7 @@ Feature: Run regression tests
       And I enter environmental outcomes improvements
       And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
+      And I upload a project funding calculator file "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "medium_low"
@@ -126,7 +126,7 @@ Feature: Run regression tests
       And I enter environmental outcomes improvements
       And I complete the natural flood measures task
       And I select the project urgency as "emergency" with a project message of "Because it is an Emergency"
-      And I upload a project funding calculator with file option "Yes", "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
+      And I upload a project funding calculator file "Partnership_funding_calculator_2020_for_FCERM_Grant-in-Aid.xlsx"
       And I select the confidence page
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"

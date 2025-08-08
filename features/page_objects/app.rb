@@ -352,6 +352,14 @@ class App
     @last_page = CarbonNetBenefitPage.new
   end
 
+  def carbon_summary_page
+    @last_page = CarbonSummaryPage.new
+  end
+
+  def carbon_impact_calculations_page
+    @last_page = CarbonImpactCalculationsPage.new
+  end
+
   def natural_flood_risk_measures_page
     @last_page = NaturalFloodRiskMeasuresPage.new
   end

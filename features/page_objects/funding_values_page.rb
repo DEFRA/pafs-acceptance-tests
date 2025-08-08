@@ -31,7 +31,7 @@ class FundingValuesPage < BasePage
   element(:other_government_department_total, ".other_government_department-total")
   element(:summer_economic_fund_total, ".summer_economic_fund-total")
 
-  element(:private_funding_total, ".private_contributions-total")
+  element(:not_yet_identified_funding_total, ".not_yet_identified-total")
   element(:recovery_total, ".recovery-total")
   element(:asset_replacement_allowance_total, ".asset_replacement_allowance-total")
   element(:environment_statutory_funding_total, ".environment_statutory_funding-total")
@@ -41,9 +41,10 @@ class FundingValuesPage < BasePage
   element(:summer_economic_fund_total, ".summer_economic_fund-total")
 
   element(:grand_total, ".grand-total")
+  elements(:year_totals, ".row-total")
 
   # rubocop:disable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/AbcSize,Metrics/PerceivedComplexity
-  def fill_last_year(args = {})
+  def fill_last_year_random(args = {})
     case args[:funding]
     when :gia
       gia_years.last.set(rand(1..10_000))
@@ -69,6 +70,35 @@ class FundingValuesPage < BasePage
       recovery_years.last.set(rand(1..10_000))
     when :asset_replacement
       asset_replacement_years.last.set(rand(1..10_000))
+    end
+  end
+
+  def fill_last_year(args = {})
+    case args[:funding]
+    when :gia
+      gia_years.last.set(rand(1..10_000))
+    when :local_levy
+      local_levy_years.last.set(args[:amount]) if args.key?(:amount)
+    when :additional_grant_in_aid
+      additional_gia_years.last.set(args[:amount]) if args.key?(:amount)
+    when :internal_drainage_boards
+      internal_drainage_board_years.last.set(args[:amount]) if args.key?(:amount)
+    when :not_yet_identified
+      not_yet_identified_years.set(args[:amount]) if args.key?(:amount)
+    when :environment_stat
+      environment_stat_years.last.set(args[:amount]) if args.key?(:amount)
+    when :freq_flood
+      freq_flood_years.last.set(args[:amount]) if args.key?(:amount)
+    when :other_gia
+      other_gia_years.last.set(args[:amount]) if args.key?(:amount)
+    when :other_gov
+      other_gov_years.last.set(args[:amount]) if args.key?(:amount)
+    when :summer_economic
+      summer_economic_years.set(args[:amount]) if args.key?(:amount)
+    when :recovery
+      recovery_years.last.set(args[:amount]) if args.key?(:amount)
+    when :asset_replacement
+      asset_replacement_years.last.set(args[:amount]) if args.key?(:amount)
     end
   end
 

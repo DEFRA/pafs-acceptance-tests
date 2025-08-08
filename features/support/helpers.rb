@@ -26,3 +26,11 @@ end
 def presentable_date(month, year)
   Date.new(year, month, 1).strftime("%B %Y") # Month-name Year
 end
+
+def remove_non_numerical_text(filename)
+  filename.gsub(/[^0-9.]/, "")
+end
+
+def remove_tonnage(text)
+  text.gsub(" tonnes", "").strip
+end
