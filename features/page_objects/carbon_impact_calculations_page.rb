@@ -4,7 +4,7 @@ class CarbonImpactCalculationsPage < BasePage
 
   element(:capital_carbon, "p:nth-child(5) .govuk-grid-column-one-quarter")
   element(:capital_carbon_baseline, "p:nth-child(6) .govuk-grid-column-one-quarter")
-  element(:captital_carbon_targe, "p:nth-child(7) .govuk-grid-column-one-quarter")
+  element(:capital_carbon_target, "p:nth-child(7) .govuk-grid-column-one-quarter")
 
   element(:operational_carbon, "p:nth-child(11) .govuk-grid-column-one-quarter")
   element(:operation_baseline_carbon, "p:nth-child(12) .govuk-grid-column-one-quarter")

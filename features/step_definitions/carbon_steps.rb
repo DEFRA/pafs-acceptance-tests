@@ -177,9 +177,9 @@ end
 
 Then("I will see a summary of the project's economic benefit from carbon savings") do
   if @net_benefit_total.nil?
-    expect(@app.carbon_summary_page.economic_benefit).to have_text("Not provided")
+    expect(@app.carbon_summary_page.net_economic_benefit).to have_text("Not provided")
   else
-    expect(@app.carbon_summary_page.economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
+    expect(@app.carbon_summary_page.net_economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
   end
 end
 
@@ -213,19 +213,23 @@ Then("I will see the operational carbon estimated for the project") do
 end
 
 Then("I will see the calculated capital carbon baseline as {string}") do |value|
-  expect(@app.carbon_impact_calculations_page.capital_carbon_baseline).to have_text(value)
+  @capital_carbon_baseline = value
+  expect(@app.carbon_impact_calculations_page.capital_carbon_baseline).to have_text(@capital_carbon_baseline)
 end
 
-Then("I will see the calculated capital carbon target as {string}") do |string|
-  expect(@app.carbon_impact_calculations_page.captital_carbon_targe).to have_text(string)
+Then("I will see the calculated capital carbon target as {string}") do |value|
+  @capital_carbon_target = value
+  expect(@app.carbon_impact_calculations_page.capital_carbon_target).to have_text(@capital_carbon_target)
 end
 
-Then("I will see the calculated operational carbon baseline as {string}") do |string|
-  expect(@app.carbon_impact_calculations_page.operation_baseline_carbon).to have_text(string)
+Then("I will see the calculated operational carbon baseline as {string}") do |value|
+  @operation_baseline_carbon = value
+  expect(@app.carbon_impact_calculations_page.operation_baseline_carbon).to have_text(@operation_baseline_carbon)
 end
 
-Then("I will see the calculated operational carbon target as {string}") do |string|
-  expect(@app.carbon_impact_calculations_page.operation_target_carbon).to have_text(string)
+Then("I will see the calculated operational carbon target as {string}") do |value|
+  @operation_target_carbon = value
+  expect(@app.carbon_impact_calculations_page.operation_target_carbon).to have_text(@operation_target_carbon)
 end
 
 Then("I will see the net carbon with blank values calculated estimated for the project") do
@@ -235,15 +239,27 @@ Then("I will see the net carbon with blank values calculated estimated for the p
   if @operational_carbon.nil?
     @operational_carbon = remove_tonnage(@app.carbon_impact_calculations_page.operation_baseline_carbon.text).to_f
   end
-  if @sequestered_carbon.nil?
-    @sequestered_carbon = 0.0
-  end
-  if @avoided_carbon.nil?
-    @avoided_carbon = 0.0
-  end
+  @sequestered_carbon = 0.0 if @sequestered_carbon.nil?
+  @avoided_carbon = 0.0 if @avoided_carbon.nil?
   expect(@app.carbon_impact_calculations_page.net_carbon_with_blank_values_calculated).to have_text(@capital_carbon + @operational_carbon - @sequestered_carbon - @avoided_carbon)
 end
 
 Then("I will see the net carbon estimated for the project") do
   expect(@app.carbon_impact_calculations_page.net_carbon).to have_text(@net_carbon)
+end
+
+Then("I will see all the carbon net zero summarised on the project summary page") do
+  @app.carbon_impact_calculations_page.submit
+  puts current_url
+  expect(@app.proposal_overview_page.capital_carbon).to have_text(@capital_carbon)
+  expect(@app.proposal_overview_page.capital_carbon_baseline).to have_text(@capital_carbon_baseline)
+  expect(@app.proposal_overview_page.capital_carbon_target).to have_text(@capital_carbon_target)
+  expect(@app.proposal_overview_page.capital_cost).to have_text(@last_year_total)
+  expect(@app.proposal_overview_page.operational_carbon).to have_text(@operational_carbon)
+  expect(@app.proposal_overview_page.operation_baseline_carbon).to have_text(@operation_baseline_carbon)
+  expect(@app.proposal_overview_page.operation_target_carbon).to have_text(@operation_target_carbon)
+  expect(@app.proposal_overview_page.sequestered_carbon).to have_text(@sequestered_carbon)
+  expect(@app.proposal_overview_page.avoided_carbon).to have_text(@avoided_carbon)
+  expect(@app.proposal_overview_page.net_carbon).to have_text(@net_carbon)
+  expect(@app.proposal_overview_page.net_economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
 end

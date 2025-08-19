@@ -8,7 +8,7 @@ class CarbonSummaryPage < BasePage
   element(:sequestered_carbon, "#carbon-summary-carbon-summary p:nth-child(4) .govuk-grid-column-one-quarter")
   element(:avoided_carbon, "#carbon-summary-carbon-summary p:nth-child(5) .govuk-grid-column-one-quarter")
   element(:net_carbon, "#carbon-summary-carbon-summary p:nth-child(6) .govuk-grid-column-one-quarter")
-  element(:economic_benefit, "#carbon-summary-carbon-summary p:nth-child(7) .govuk-grid-column-one-quarter")
+  element(:net_economic_benefit, "#carbon-summary-carbon-summary p:nth-child(7) .govuk-grid-column-one-quarter")
   element(:capital_cost, "p:nth-child(9) .govuk-grid-column-one-quarter")
   element(:operational_and_maintenance_cost, "div+ .govuk-grid-column-one-quarter")
 

@@ -76,7 +76,8 @@ Background: Sign in and create a new project
       And I will see the calculated operational carbon baseline as "391.00"
       And I will see the calculated operational carbon target as "312.80"
       And I will see the net carbon estimated for the project
-
+      And I will see all the carbon net zero summarised on the project summary page
+@fix
   Scenario: Full carbon net zero questions not answered flow and data display
      When I add how much capital carbon will this project produce as "blank"
       And I add how much operational carbon the project will produce as "blank"
@@ -102,4 +103,5 @@ Background: Sign in and create a new project
       And I will see the calculated operational carbon baseline as "391.00"
       And I will see the calculated operational carbon target as "312.80"
       And I will see the net carbon with blank values calculated estimated for the project
+      And I will see all the carbon net zero summarised on the project summary page
    

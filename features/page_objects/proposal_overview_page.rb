@@ -90,6 +90,19 @@ class ProposalOverviewPage < BasePage
   # Partnership funding calculator section
   element(:partnership_funding_calculator, "#funding-calculator")
 
+  # Carbon net zero section
+  element(:capital_carbon, "p:nth-child(2) .govuk-grid-column-one-quarter")
+  element(:capital_carbon_baseline, "p:nth-child(3) .govuk-grid-column-one-quarter")
+  element(:capital_carbon_target, "p:nth-child(4) .govuk-grid-column-one-quarter")
+  element(:capital_cost, "p:nth-child(5) .govuk-grid-column-one-quarter")
+  element(:operational_carbon, "p:nth-child(10) .govuk-grid-column-one-quarter")
+  element(:operation_baseline_carbon, "p:nth-child(11) .govuk-grid-column-one-quarter")
+  element(:operation_target_carbon, "p:nth-child(12) .govuk-grid-column-one-quarter")
+  element(:sequestered_carbon, "p:nth-child(17) .govuk-grid-column-one-quarter")
+  element(:avoided_carbon, "p:nth-child(18) .govuk-grid-column-one-quarter")
+  element(:net_carbon, "p:nth-child(19) .govuk-grid-column-one-quarter")
+  element(:net_economic_benefit, "p:nth-child(20) .govuk-grid-column-one-quarter")
+
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
   element(:complete_proposal, "[href$='complete']")
