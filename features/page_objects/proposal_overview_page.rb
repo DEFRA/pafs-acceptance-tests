@@ -89,6 +89,7 @@ class ProposalOverviewPage < BasePage
 
   # Partnership funding calculator section
   element(:partnership_funding_calculator, "#funding-calculator")
+  element(:partnership_funding_section, "#project-funding_calculator-field")
 
   # Carbon net zero section
   element(:capital_carbon, "p:nth-child(2) .govuk-grid-column-one-quarter")

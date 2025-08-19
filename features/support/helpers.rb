@@ -1,4 +1,5 @@
 def choose_cookie_option
+  @app.login_page.wait_until_accept_analytics_cookies_visible(wait: 5)
   # Randomise between accepting or rejecting cookies
   i = rand(2)
   if i.zero?

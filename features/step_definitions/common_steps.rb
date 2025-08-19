@@ -261,11 +261,6 @@ When(/^I select the (.*) task$/) do |task|
   end
 end
 
-When("I confirm the Outline Business Case be signed off after the 26th June 2020") do
-  @app.funding_calculator_page.signed_off_after.click
-  expect(@app.funding_calculator_page).to have_funding_calculator_2020_link
-end
-
 Given(/^I sign out of the proposal$/) do
   @app.projects_page.user_bar.sign_out_link.click
 end

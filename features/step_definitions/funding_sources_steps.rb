@@ -14,6 +14,7 @@ Given(/^I enter funding sources? "([^"]*)"$/) do |funding_source|
       "not_identified" => "not-yet-identified"
     }.freeze
     @funding_sources << slug_fundingsource[source]
+    @app.fcrm_funding_sources_page.sources(count: 8, wait: 5) # will wait 5 seconds for all eight options to render
     @app.funding_sources_page.submit(
       funding_sources: slug_fundingsource[source]
     )
@@ -34,6 +35,8 @@ Given(/^I enter FCRM grant in aid funding sources? "([^"]*)"$/) do |funding_sour
       "summer_economic" => "summer-economic-fund"
     }.freeze
     @fcrm_funding_sources << slug_fundingsource[source]
+    @app.fcrm_funding_sources_page.sources(count: 7, wait: 5) # will wait 5 seconds for all seven options to render
+
     @app.fcrm_funding_sources_page.submit(
       funding_sources: slug_fundingsource[source]
     )
