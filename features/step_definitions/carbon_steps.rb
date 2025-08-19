@@ -1,4 +1,4 @@
-Given("I select to complete the carbon net zero section") do
+Given("I choose to complete the carbon impact section") do
   @app.proposal_overview_page.add_carbon.click
 end
 
@@ -262,4 +262,33 @@ Then("I will see all the carbon net zero summarised on the project summary page"
   expect(@app.proposal_overview_page.avoided_carbon).to have_text(@avoided_carbon)
   expect(@app.proposal_overview_page.net_carbon).to have_text(@net_carbon)
   expect(@app.proposal_overview_page.net_economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
+end
+
+Given("I complete the carbon net zero section") do
+  @app.proposal_overview_page.add_carbon.click
+  @app.carbon_impact_guidance_page.submit
+  @app.carbon_cost_build_page.submit(
+    amount: rand(10..100)
+  )
+  @app.carbon_cost_operation_page.submit(
+    amount: rand(10..100)
+  )
+  @app.whole_life_carbon_page.submit
+
+  @app.carbon_sequestered_page.submit(
+    amount: rand(10..100)
+  )
+  @app.carbon_avoided_page.submit(
+    amount: rand(10..100)
+  )
+  @app.carbon_net_total_page.submit
+  @app.carbon_net_benefit_page.submit(
+    amount: rand(10..100)
+  )
+  @app.carbon_summary_page.submit
+  @app.carbon_impact_calculations_page.submit
+end
+
+Then("I should informed that I need to complete other sections before I can complete the carbon net zero section") do
+  expect(@app.carbon_impact_guidance_page).to have_text("Information we require before you can complete the carbon impact section")
 end

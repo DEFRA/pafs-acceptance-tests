@@ -12,7 +12,7 @@ Background: Sign in and create a new project
       And I enter the ready for service date as "2029"
       And I enter funding sources "internal_drainage_boards"
       And I enter funding values of 1000000
-      And I select to complete the carbon net zero section
+      And I choose to complete the carbon impact section
       And I have read the carbon impact guidance
 
   Scenario: Whole life carbon total is calculated from answers given
