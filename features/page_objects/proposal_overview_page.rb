@@ -40,7 +40,7 @@ class ProposalOverviewPage < BasePage
   element(:add_project_urgency, "a[href$='/urgency']")
   element(:add_funding_calculator, "a[href$='/funding_calculator']")
   element(:add_confidence, "a[href$='/confidence_homes_better_protected']")
-  element(:add_carbon, "a[href$='/carbon_prepare']")
+  element(:add_carbon, "a[href$='/carbon_prepare'],a[href$='/carbon_required_information']")
 
   # Funding sources and spending
   element(:gia_funding_total, "#funding-grant-in-aid")
