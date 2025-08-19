@@ -53,6 +53,7 @@ Given(/^I select a financial year to stop spending$/) do
   @app.project_year_page.submit(
     option: next_year
   )
+  puts current_url
 end
 
 When("I select a financial year to stop spending as {string}") do |last_year|

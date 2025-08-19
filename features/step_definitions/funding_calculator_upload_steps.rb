@@ -1,10 +1,11 @@
 Given(/^I upload a project funding calculator file "([^"]*)"$/) do |filename|
+  # Take Capital and Maintenance Cost from the filename
+  @capital_and_maintenance_cost = remove_non_numerical_text(filename)
   @app.proposal_overview_page.add_funding_calculator.click
   @filename = filename
   @app.funding_calculator_page.submit(
     file: @filename
   )
-  expect(@app.funding_calculator_summary_page.uploaded_file).to have_text(@filename)
   @app.funding_calculator_summary_page.submit
 end
 

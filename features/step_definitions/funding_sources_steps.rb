@@ -63,37 +63,37 @@ Given("I enter funding source contributors and values") do
     @other_contributions_total = @app.contributer_funding_values_page.grand_total.text
     @app.contributer_funding_values_page.submit_button.click
   end
-  @app.funding_values_page.fill_last_year(funding: :gia) if @funding_sources.include?("fcerm-gia")
+  @app.funding_values_page.fill_last_year_random(funding: :gia) if @funding_sources.include?("fcerm-gia")
 
-  @app.funding_values_page.fill_last_year(funding: :local_levy) if @funding_sources.include?("local-levy")
+  @app.funding_values_page.fill_last_year_random(funding: :local_levy) if @funding_sources.include?("local-levy")
 
   if @funding_sources.include?("internal-drainage-boards")
-    @app.funding_values_page.fill_last_year(funding: :internal_drainage_boards)
+    @app.funding_values_page.fill_last_year_random(funding: :internal_drainage_boards)
   end
   if @funding_sources.include?("not-yet-identified")
-    @app.funding_values_page.fill_last_year(funding: :not_yet_identified)
+    @app.funding_values_page.fill_last_year_random(funding: :not_yet_identified)
   end
 
   # If FCRM funding option isn't selected, skip this section
   unless @fcrm_funding_sources.nil?
     if @fcrm_funding_sources.include?("environment-statutory-funding")
-      @app.funding_values_page.fill_last_year(funding: :environment_stat)
+      @app.funding_values_page.fill_last_year_random(funding: :environment_stat)
     end
     if @fcrm_funding_sources.include?("frequently-flooded-communities")
-      @app.funding_values_page.fill_last_year(funding: :freq_flood)
+      @app.funding_values_page.fill_last_year_random(funding: :freq_flood)
     end
     if @fcrm_funding_sources.include?("other-additional-grant-in-aid")
-      @app.funding_values_page.fill_last_year(funding: :other_gia)
+      @app.funding_values_page.fill_last_year_random(funding: :other_gia)
     end
     if @fcrm_funding_sources.include?("other-government-department")
-      @app.funding_values_page.fill_last_year(funding: :other_gov)
+      @app.funding_values_page.fill_last_year_random(funding: :other_gov)
     end
     if @fcrm_funding_sources.include?("summer-economic-fund")
-      @app.funding_values_page.fill_last_year(funding: :summer_economic)
+      @app.funding_values_page.fill_last_year_random(funding: :summer_economic)
     end
-    @app.funding_values_page.fill_last_year(funding: :recovery) if @fcrm_funding_sources.include?("recovery")
+    @app.funding_values_page.fill_last_year_random(funding: :recovery) if @fcrm_funding_sources.include?("recovery")
     if @fcrm_funding_sources.include?("asset-replacement-allowance")
-      @app.funding_values_page.fill_last_year(funding: :asset_replacement)
+      @app.funding_values_page.fill_last_year_random(funding: :asset_replacement)
     end
 
   end
@@ -112,7 +112,7 @@ Given("I enter funding source contributors and values") do
     @internal_drainage_board_funding_total = @app.funding_values_page.public_funding_total.text
   end
   if @funding_sources.include?("not-yet-identified")
-    @not_yet_identified_funding_total = @app.funding_values_page.private_funding_total.text
+    @not_yet_identified_funding_total = @app.funding_values_page.not_yet_identified_funding_total.text
   end
 
   if @funding_sources.include?("local-levy")
@@ -138,6 +138,14 @@ Given("I enter funding source contributors and values") do
   if @fcrm_funding_sources.include?("asset-replacement-allowance")
     @asset_replacement_allowance_total = @app.funding_values_page.asset_replacement_allowance_total.text
   end
+  @last_year_total = @app.funding_values_page.year_totals.last.text
+  puts @last_year_total
+  @app.funding_values_page.submit_button.click
+end
+
+When("I enter funding values of {int}") do |value|
+  @app.funding_values_page.fill_last_year(funding: :internal_drainage_boards, amount: value)
+  @last_year_total = @app.funding_values_page.year_totals.last.text
   @app.funding_values_page.submit_button.click
 end
 
