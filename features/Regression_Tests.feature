@@ -29,8 +29,8 @@ Feature: Run regression tests
      When I return to the proposal overview page
      Then its status is Draft
      
-  @smoke
-  Scenario: Submit a new RMA project with multiple funding sources and no PFC
+  @smoke  @fix
+  Scenario: Submit a new RMA project with multiple funding sources and no carbon net zero optional data
       Given I sign in as a "rma" user
       And I create a new "property level protection" project
       And I select a financial year to stop spending
@@ -56,7 +56,7 @@ Feature: Run regression tests
       And I add the confidence in number of homes better protected by this project as "high"
       And I add the confidence in homes being delivered by the projects Gateway 4 date as "low"
       And I add the confidence in securing the required Partnership Funding as "not_applicable"
-      And I complete the carbon net zero section
+      And I complete the carbon net zero section without providing any optional data
      When I submit my proposal
      Then I should see that my proposal is sent for review
      And its status is Submitted

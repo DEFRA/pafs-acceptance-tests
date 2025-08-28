@@ -348,6 +348,23 @@ Given("I complete the carbon net zero section") do
   @app.carbon_impact_calculations_page.submit
 end
 
+Given("I complete the carbon net zero section without providing any optional data") do
+  @app.proposal_overview_page.add_carbon.click
+  @app.carbon_impact_guidance_page.submit
+  @app.carbon_cost_build_page.submit
+  @app.carbon_cost_operation_page.submit
+  @app.whole_life_carbon_page.submit
+  @app.carbon_sequestered_page.submit
+  @app.carbon_avoided_page.submit
+  @app.carbon_net_total_page.submit
+  @app.carbon_net_benefit_page.submit
+  @app.operational_and_maintenance_cost_page.submit(
+    amount: rand(100_000..10_000_000)
+  )
+  @app.carbon_summary_page.submit
+  @app.carbon_impact_calculations_page.submit
+end
+
 Then("I should informed that I need to complete other sections before I can complete the carbon net zero section") do
   expect(@app.carbon_impact_guidance_page).to have_text("Information we require before you can complete the carbon impact section")
 end
