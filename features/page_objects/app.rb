@@ -376,5 +376,9 @@ class App
     @last_page = WholeLifeCarbonPage.new
   end
 
+  def operational_and_maintenance_cost_page
+    @last_page = OperationalAndMaintenanceCostPage.new
+  end
+
 end
 # rubocop:enable Metrics/ClassLength

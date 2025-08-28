@@ -102,8 +102,12 @@ class ProposalOverviewPage < BasePage
   element(:sequestered_carbon, "p:nth-child(17) .govuk-grid-column-one-quarter")
   element(:avoided_carbon, "p:nth-child(18) .govuk-grid-column-one-quarter")
   element(:net_carbon, "p:nth-child(19) .govuk-grid-column-one-quarter")
-  element(:net_economic_benefit, "p:nth-child(20) .govuk-grid-column-one-quarter")
-
+  element(:net_carbon_with_blank_values_calculated, :xpath,
+          "//span[contains(normalize-space(.), 'Net carbon with blank values calculated')]/following-sibling::span")
+  # rubocop:disable Layout/LineLength
+  element(:net_economic_benefit, :xpath,
+          "//span[contains(normalize-space(.), 'Net carbon economic benefit estimated by you')]/following-sibling::span")
+  # rubocop:enable Layout/LineLength
   element(:revert_to_draft, "#[href$='Revert to draft']")
 
   element(:complete_proposal, "[href$='complete']")
