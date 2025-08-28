@@ -7,7 +7,6 @@ Background: Sign in and create a new project
       And I enter a new project name
       And I select a project type "restore asset"
       And I select a financial year to stop spending as "2029"
-      And I upload a project funding calculator file "1000000_PFcalculator.xlsx"
       And I answer the earliest start date as after next year
       And I enter the ready for service date as "2029"
       And I enter funding sources "internal_drainage_boards"
@@ -59,6 +58,7 @@ Background: Sign in and create a new project
       And I add how much carbon the project will avoid as "0.9"
       And I confirm my net carbon total
       And I confirm how much net economic benefit is generated from any net carbon savings as "10000"
+      And I confirm how much operation and maintenance cost is forecast for the project as "1000000"
      Then I will see a summary of the project's capital carbon
       And I will see a summary of the project's operational carbon
       And I will see a summary of the project's whole life carbon
@@ -77,7 +77,7 @@ Background: Sign in and create a new project
       And I will see the calculated operational carbon target as "312.80"
       And I will see the net carbon estimated for the project
       And I will see all the carbon net zero summarised on the project summary page
-@fix
+
   Scenario: Full carbon net zero questions not answered flow and data display
      When I add how much capital carbon will this project produce as "blank"
       And I add how much operational carbon the project will produce as "blank"
@@ -86,6 +86,7 @@ Background: Sign in and create a new project
       And I add how much carbon the project will avoid as "blank"
       And I confirm my net carbon total
       And I confirm how much net economic benefit is generated from any net carbon savings as "blank"
+      And I confirm how much operation and maintenance cost is forecast for the project as "1000000"
       Then I will see a summary of the project's capital carbon
       And I will see a summary of the project's operational carbon
       And I will see a summary of the project's whole life carbon

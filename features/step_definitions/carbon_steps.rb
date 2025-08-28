@@ -109,6 +109,14 @@ Given(/I confirm how much net economic benefit is generated from any net carbon 
   )
 end
 
+Given(/I confirm how much operation and maintenance cost is forecast for the project as "([^"]*)"$/) do |total|
+  @operational_and_maintenance_cost = total
+
+  @app.operational_and_maintenance_cost_page.submit(
+    amount: @operational_and_maintenance_cost
+  )
+end
+
 Then("I will be shown the net carbon total for the project") do
   @net_carbon = if @capital_carbon.nil? && @operational_carbon.nil? && @sequestered_carbon.nil? && @avoided_carbon.nil?
                   nil
@@ -188,8 +196,7 @@ Then("I will see a summary of the estimated capital cost for the project") do
 end
 
 Then("I will see a summary of the project's estimated operation and maintenance cost") do
-  expect(@app.carbon_summary_page.operational_and_maintenance_cost).to have_text(convert_to_currency_format(@capital_and_maintenance_cost))
-
+  expect(@app.carbon_summary_page.operational_and_maintenance_cost).to have_text(convert_to_currency_format(@operational_and_maintenance_cost))
 end
 
 When("I select to view the carbon impact calculations") do
@@ -233,35 +240,84 @@ Then("I will see the calculated operational carbon target as {string}") do |valu
 end
 
 Then("I will see the net carbon with blank values calculated estimated for the project") do
-  if @capital_carbon.nil?
-    @capital_carbon = remove_tonnage(@app.carbon_impact_calculations_page.capital_carbon_baseline.text).to_f
-  end
-  if @operational_carbon.nil?
-    @operational_carbon = remove_tonnage(@app.carbon_impact_calculations_page.operation_baseline_carbon.text).to_f
-  end
-  @sequestered_carbon = 0.0 if @sequestered_carbon.nil?
-  @avoided_carbon = 0.0 if @avoided_carbon.nil?
-  expect(@app.carbon_impact_calculations_page.net_carbon_with_blank_values_calculated).to have_text(@capital_carbon + @operational_carbon - @sequestered_carbon - @avoided_carbon)
+  capital_carbon = if @capital_carbon.nil?
+                     # Use the baseline value from the calculations page if no value was entered
+                     remove_tonnage(@app.carbon_impact_calculations_page.capital_carbon_baseline.text).to_f
+                   else
+                     @capital_carbon
+                   end
+  operational_carbon = if @operational_carbon.nil?
+                         # Use the baseline value from the calculations page if no value was entered
+                         remove_tonnage(@app.carbon_impact_calculations_page.operation_baseline_carbon.text).to_f
+                       else
+                         @operational_carbon
+                       end
+  sequestered_carbon = if @sequestered_carbon.nil?
+                         0.0
+                       else
+                         @sequestered_carbon
+                       end
+  avoided_carbon = if @avoided_carbon.nil?
+                     0.0
+                   else
+                     @avoided_carbon
+                   end
+  @net_carbon_with_blank_values_calculated = (capital_carbon + operational_carbon - sequestered_carbon - avoided_carbon)
+  puts "Net carbon with blank values calculated estimated for the project is #{@net_carbon_with_blank_values_calculated}"
+  expect(@app.carbon_impact_calculations_page.net_carbon_with_blank_values_calculated).to have_text(@net_carbon_with_blank_values_calculated)
 end
 
 Then("I will see the net carbon estimated for the project") do
-  expect(@app.carbon_impact_calculations_page.net_carbon).to have_text(@net_carbon)
+
+  if @net_carbon.nil? == false
+    expect(@app.carbon_impact_calculations_page.net_carbon).to have_text(@net_carbon)
+  else
+    expect(@app.carbon_impact_calculations_page.net_carbon).to have_text("Not provided")
+  end
+
 end
 
 Then("I will see all the carbon net zero summarised on the project summary page") do
   @app.carbon_impact_calculations_page.submit
   puts current_url
-  expect(@app.proposal_overview_page.capital_carbon).to have_text(@capital_carbon)
+  if @capital_carbon.nil?
+    expect(@app.proposal_overview_page.capital_carbon).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.capital_carbon).to have_text(@capital_carbon)
+  end
   expect(@app.proposal_overview_page.capital_carbon_baseline).to have_text(@capital_carbon_baseline)
   expect(@app.proposal_overview_page.capital_carbon_target).to have_text(@capital_carbon_target)
   expect(@app.proposal_overview_page.capital_cost).to have_text(@last_year_total)
-  expect(@app.proposal_overview_page.operational_carbon).to have_text(@operational_carbon)
+  if @operational_carbon.nil?
+    expect(@app.proposal_overview_page.operational_carbon).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.operational_carbon).to have_text(@operational_carbon)
+  end
   expect(@app.proposal_overview_page.operation_baseline_carbon).to have_text(@operation_baseline_carbon)
   expect(@app.proposal_overview_page.operation_target_carbon).to have_text(@operation_target_carbon)
-  expect(@app.proposal_overview_page.sequestered_carbon).to have_text(@sequestered_carbon)
-  expect(@app.proposal_overview_page.avoided_carbon).to have_text(@avoided_carbon)
-  expect(@app.proposal_overview_page.net_carbon).to have_text(@net_carbon)
-  expect(@app.proposal_overview_page.net_economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
+  if @sequestered_carbon.nil?
+    expect(@app.proposal_overview_page.sequestered_carbon).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.sequestered_carbon).to have_text(@sequestered_carbon)
+  end
+  if @avoided_carbon.nil?
+    expect(@app.proposal_overview_page.avoided_carbon).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.avoided_carbon).to have_text(@avoided_carbon)
+  end
+  if @net_carbon.nil?
+    expect(@app.proposal_overview_page.net_carbon).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.net_carbon).to have_text(@net_carbon)
+  end
+  if @net_carbon.nil?
+    expect(@app.proposal_overview_page.net_carbon_with_blank_values_calculated).to have_text(@net_carbon_with_blank_values_calculated)
+  end
+  if @net_benefit_total.nil?
+    expect(@app.proposal_overview_page.net_economic_benefit).to have_text("Not provided")
+  else
+    expect(@app.proposal_overview_page.net_economic_benefit).to have_text(convert_to_currency_format(@net_benefit_total))
+  end
 end
 
 Given("I complete the carbon net zero section") do
@@ -284,6 +340,26 @@ Given("I complete the carbon net zero section") do
   @app.carbon_net_total_page.submit
   @app.carbon_net_benefit_page.submit(
     amount: rand(10..100)
+  )
+  @app.operational_and_maintenance_cost_page.submit(
+    amount: rand(100_000..10_000_000)
+  )
+  @app.carbon_summary_page.submit
+  @app.carbon_impact_calculations_page.submit
+end
+
+Given("I complete the carbon net zero section without providing any optional data") do
+  @app.proposal_overview_page.add_carbon.click
+  @app.carbon_impact_guidance_page.submit
+  @app.carbon_cost_build_page.submit
+  @app.carbon_cost_operation_page.submit
+  @app.whole_life_carbon_page.submit
+  @app.carbon_sequestered_page.submit
+  @app.carbon_avoided_page.submit
+  @app.carbon_net_total_page.submit
+  @app.carbon_net_benefit_page.submit
+  @app.operational_and_maintenance_cost_page.submit(
+    amount: rand(100_000..10_000_000)
   )
   @app.carbon_summary_page.submit
   @app.carbon_impact_calculations_page.submit
