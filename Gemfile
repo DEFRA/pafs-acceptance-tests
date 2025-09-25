@@ -20,3 +20,11 @@ gem "faker"
 # Gem used by the Defra ruby services team to ensure a consistent style across
 # our code base
 gem "defra_ruby_style"
+
+gem "rubocop-rake"
+
+gem "rubocop-rails"
+
+gem "rubocop-rspec"
+
+gem "rubocop-factory_bot"

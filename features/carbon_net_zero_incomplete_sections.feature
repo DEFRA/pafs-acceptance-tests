@@ -1,3 +1,4 @@
+@carbon
 Feature: Incomplete mandatory sections for carbon net zero
 
   Background:
