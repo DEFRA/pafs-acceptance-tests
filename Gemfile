@@ -23,8 +23,6 @@ gem "defra_ruby_style"
 
 gem "rubocop-rake"
 
-gem "rubocop-rails"
-
 gem "rubocop-rspec"
 
 gem "rubocop-factory_bot"
