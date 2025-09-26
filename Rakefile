@@ -14,5 +14,5 @@ end
 desc "Runs the tests used by continuous integration to check the project"
 task :ci do
   Rake::Task["rubocop"].invoke
-  sh %( QUKE_CONFIG=config/ci.config.yml exec quke --tags @ci )
+  sh %( QUKE_CONFIG=config/ci.config.yml bundle exec quke --tags @ci )
 end

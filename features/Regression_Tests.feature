@@ -29,7 +29,7 @@ Feature: Run regression tests
      When I return to the proposal overview page
      Then its status is Draft
      
-  @smoke  @fix
+  @smoke
   Scenario: Submit a new RMA project with multiple funding sources and no carbon net zero optional data
       Given I sign in as a "rma" user
       And I create a new "property level protection" project
