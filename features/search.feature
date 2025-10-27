@@ -1,4 +1,4 @@
-@frontoffice
+@frontoffice @search
 
 Feature: Searching for proposals
 
