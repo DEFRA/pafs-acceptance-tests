@@ -6,5 +6,6 @@ Given("I search for a project") do
 end
 
 Then("I can see the project in the search results") do
+  @app.projects_page.wait_until_first_project_name_visible
   expect(@app.projects_page.project_links.first).to have_text(@project_number)
 end
