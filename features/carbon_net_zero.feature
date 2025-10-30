@@ -71,10 +71,10 @@ Background: Sign in and create a new project
       When I select to view the carbon impact calculations
       Then I will see the capital carbon estimated for the project
       And I will see the calculated capital carbon baseline as "317.00"
-      And I will see the calculated capital carbon target as "126.80"
+      And I will see the calculated capital carbon target as "174.35"
       And I will see the operational carbon estimated for the project
       And I will see the calculated operational carbon baseline as "391.00"
-      And I will see the calculated operational carbon target as "312.80"
+      And I will see the calculated operational carbon target as "215.05"
       And I will see the net carbon estimated for the project
       And I will see all the carbon net zero summarised on the project summary page
 
@@ -99,10 +99,10 @@ Background: Sign in and create a new project
       When I select to view the carbon impact calculations
       Then I will see the capital carbon estimated for the project
       And I will see the calculated capital carbon baseline as "317.00"
-      And I will see the calculated capital carbon target as "126.80"
+      And I will see the calculated capital carbon target as "174.35"
       And I will see the operational carbon estimated for the project
       And I will see the calculated operational carbon baseline as "391.00"
-      And I will see the calculated operational carbon target as "312.80"
+      And I will see the calculated operational carbon target as "215.05"
       And I will see the net carbon with blank values calculated estimated for the project
       And I will see all the carbon net zero summarised on the project summary page
    

@@ -36,8 +36,8 @@ Background: Sign in and create a new project with an end year outside of carbon 
       When I select to view the carbon impact calculations
       Then I will see the capital carbon estimated for the project
       And I will see the calculated capital carbon baseline as "317.00"
-      And I will see the calculated capital carbon target as "117.29"
+      And I will see the calculated capital carbon target as "131.56"
       And I will see the operational carbon estimated for the project
       And I will see the calculated operational carbon baseline as "391.00"
-      And I will see the calculated operational carbon target as "283.48"
+      And I will see the calculated operational carbon target as "162.27"
       And I will see the net carbon estimated for the project
