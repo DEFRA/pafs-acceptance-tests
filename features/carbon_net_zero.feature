@@ -70,8 +70,8 @@ Background: Sign in and create a new project
       And I will see a summary of the project's estimated operation and maintenance cost
       When I select to view the carbon impact calculations
       Then I will see the capital carbon estimated for the project
-      And I will see the calculated capital carbon baseline as "317.00"
-      And I will see the calculated capital carbon target as "174.35"
+      And I will see the calculated capital carbon baseline as "314.00"
+      And I will see the calculated capital carbon target as "172.70"
       And I will see the operational carbon estimated for the project
       And I will see the calculated operational carbon baseline as "391.00"
       And I will see the calculated operational carbon target as "215.05"
@@ -98,8 +98,8 @@ Background: Sign in and create a new project
       And I will see a summary of the project's estimated operation and maintenance cost
       When I select to view the carbon impact calculations
       Then I will see the capital carbon estimated for the project
-      And I will see the calculated capital carbon baseline as "317.00"
-      And I will see the calculated capital carbon target as "174.35"
+      And I will see the calculated capital carbon baseline as "314.00"
+      And I will see the calculated capital carbon target as "172.70"
       And I will see the operational carbon estimated for the project
       And I will see the calculated operational carbon baseline as "391.00"
       And I will see the calculated operational carbon target as "215.05"

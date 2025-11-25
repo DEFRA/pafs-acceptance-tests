@@ -88,7 +88,7 @@ class ProposalOverviewPage < BasePage
   element(:watercourse_habitat_total, "#kilometres_of_watercourse_enhanced_or_created_single")
 
   # Partnership funding calculator section
-  element(:partnership_funding_calculator, "#funding-calculator")
+  element(:partnership_funding_calculator, "#project-funding_calculator-field a")
   element(:partnership_funding_section, "#project-funding_calculator-field")
 
   # Carbon net zero section
