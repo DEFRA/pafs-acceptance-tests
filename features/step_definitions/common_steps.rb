@@ -214,15 +214,15 @@ end
 Given("I answer the earliest start date section") do
   @app.proposal_overview_page.add_earliest_start.click
   @app.earliest_start_date_page.submit(
-    month: 1,
+    month: 2,
     year: Time.now.utc.year + 1
   )
   @app.earlier_start_question_page.submit(
     earlier_start: true
   )
   @app.earlier_start_date_page.submit(
-    month: Time.now.utc.month + 1,
-    year: Time.now.utc.year
+    month: 1,
+    year: Time.now.utc.year + 1
   )
 end
 
